@@ -1,0 +1,38 @@
+aid: zitadel
+name: Zitadel
+description: >-
+  Zitadel is an open source identity management platform with built-in OAuth2, OIDC, SAML, and SCIM support for secure authentication and user management.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Authentication
+  - Open Source
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/apis.yml
+created: '2026-03-25'
+modified: '2026-03-25'
+specificationVersion: '0.19'
+apis:
+  - aid: zitadel:zitadel
+    name: Zitadel
+    description: >-
+      Zitadel is an open source identity management platform with built-in OAuth2, OIDC, SAML, and SCIM support for secure authentication and user management.
+    humanURL: https://zitadel.com
+    tags:
+      - Authentication
+      - Open Source
+    properties:
+      - type: Documentation
+        url: https://zitadel.com/docs
+      - type: GitHub Repository
+        url: https://github.com/zitadel/zitadel
+common:
+  - type: Website
+    url: https://zitadel.com
+  - type: Documentation
+    url: https://zitadel.com/docs
+  - type: GitHub Organization
+    url: https://github.com/zitadel/zitadel
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
