@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/json-schema/zitadel-management-organization-schema.json",
+  "title": "Organization",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "state": {"type": "string", "enum": ["ORG_STATE_ACTIVE", "ORG_STATE_INACTIVE", "ORG_STATE_REMOVED"]},
+    "name": {"type": "string"},
+    "primaryDomain": {"type": "string"},
+    "details": {"$ref": "zitadel-management-object-details-schema.json"}
+  },
+  "required": ["id", "name"]
+}

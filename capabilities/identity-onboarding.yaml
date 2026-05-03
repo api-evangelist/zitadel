@@ -1,0 +1,39 @@
+apiVersion: naftiko/v1
+kind: WorkflowCapability
+metadata:
+  name: identity-onboarding
+  provider: zitadel
+info:
+  title: Identity Onboarding
+  description: >-
+    A workflow capability for an Identity Administrator onboarding new
+    organizations, projects, applications, and human users into Zitadel.
+    Combines Zitadel Management operations to automate provisioning of
+    tenant-isolated identity infrastructure.
+  persona: Identity Administrator
+combines:
+  - api: zitadel-management-api
+    capability: capabilities/shared/zitadel-management-api.yaml
+mcp:
+  tools:
+    - name: create-organization
+      description: Create a new Zitadel organization (tenant).
+      operationId: createOrg
+    - name: create-project
+      description: Create a new project under an organization.
+      operationId: createProject
+    - name: create-oidc-application
+      description: Register a new OIDC application under a project.
+      operationId: createOidcApp
+    - name: create-api-application
+      description: Register a new API application under a project.
+      operationId: createApiApp
+    - name: create-human-user
+      description: Onboard a new human end-user into the organization.
+      operationId: createHumanUser
+    - name: create-machine-user
+      description: Onboard a new machine user (service account).
+      operationId: createMachineUser
+    - name: list-users
+      description: Search for users in the organization.
+      operationId: listUsers

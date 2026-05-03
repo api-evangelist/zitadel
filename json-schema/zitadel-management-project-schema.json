@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/json-schema/zitadel-management-project-schema.json",
+  "title": "Project",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "state": {"type": "string", "enum": ["PROJECT_STATE_ACTIVE", "PROJECT_STATE_INACTIVE", "PROJECT_STATE_REMOVED"]},
+    "name": {"type": "string"},
+    "projectRoleAssertion": {"type": "boolean"},
+    "projectRoleCheck": {"type": "boolean"},
+    "hasProjectCheck": {"type": "boolean"},
+    "details": {"$ref": "zitadel-management-object-details-schema.json"}
+  },
+  "required": ["id", "name"]
+}

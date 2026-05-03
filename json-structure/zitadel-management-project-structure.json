@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/schema/v0",
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "state": {"type": "string"},
+    "name": {"type": "string"},
+    "projectRoleAssertion": {"type": "boolean"},
+    "projectRoleCheck": {"type": "boolean"},
+    "hasProjectCheck": {"type": "boolean"}
+  },
+  "required": ["id", "name"]
+}

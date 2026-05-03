@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/schema/v0",
+  "name": "User",
+  "type": "object",
+  "description": "A Zitadel user.",
+  "properties": {
+    "id": {"type": "string"},
+    "state": {"type": "string"},
+    "userName": {"type": "string"},
+    "loginNames": {"type": "array", "items": {"type": "string"}},
+    "preferredLoginName": {"type": "string"},
+    "human": {"$ref": "zitadel-management-human-user-structure.json"},
+    "machine": {"$ref": "zitadel-management-machine-user-structure.json"}
+  },
+  "required": ["id", "userName"]
+}

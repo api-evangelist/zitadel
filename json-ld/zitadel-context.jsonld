@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "zitadel": "https://zitadel.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "User": "zitadel:User",
+    "HumanUser": "zitadel:HumanUser",
+    "MachineUser": "zitadel:MachineUser",
+    "Organization": "zitadel:Organization",
+    "Project": "zitadel:Project",
+    "Application": "zitadel:Application",
+    "id": {"@id": "zitadel:id", "@type": "xsd:string"},
+    "userName": {"@id": "zitadel:userName", "@type": "xsd:string"},
+    "state": {"@id": "zitadel:state", "@type": "xsd:string"},
+    "loginNames": {"@id": "zitadel:loginNames", "@container": "@list"},
+    "preferredLoginName": {"@id": "zitadel:preferredLoginName", "@type": "xsd:string"},
+    "name": {"@id": "schema:name", "@type": "xsd:string"},
+    "primaryDomain": {"@id": "zitadel:primaryDomain", "@type": "xsd:string"},
+    "appType": {"@id": "zitadel:appType", "@type": "xsd:string"},
+    "firstName": {"@id": "schema:givenName", "@type": "xsd:string"},
+    "lastName": {"@id": "schema:familyName", "@type": "xsd:string"},
+    "displayName": {"@id": "zitadel:displayName", "@type": "xsd:string"},
+    "email": {"@id": "schema:email", "@type": "xsd:string"},
+    "phone": {"@id": "schema:telephone", "@type": "xsd:string"},
+    "preferredLanguage": {"@id": "zitadel:preferredLanguage", "@type": "xsd:string"},
+    "gender": {"@id": "schema:gender", "@type": "xsd:string"}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/schema/v0",
+  "name": "Application",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "state": {"type": "string"},
+    "appType": {"type": "string"}
+  },
+  "required": ["id", "name"]
+}

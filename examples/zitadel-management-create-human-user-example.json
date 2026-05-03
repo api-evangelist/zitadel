@@ -1,0 +1,19 @@
+{
+  "userName": "bob@example.com",
+  "profile": {
+    "firstName": "Bob",
+    "lastName": "Jones",
+    "displayName": "Bob Jones",
+    "preferredLanguage": "en",
+    "gender": "GENDER_MALE"
+  },
+  "email": {
+    "email": "bob@example.com",
+    "isVerified": false
+  },
+  "phone": {
+    "phone": "+15555550199",
+    "isVerified": false
+  },
+  "initialPassword": "Sup3rSecret!"
+}

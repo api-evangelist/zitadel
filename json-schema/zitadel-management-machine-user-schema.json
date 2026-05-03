@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/json-schema/zitadel-management-machine-user-schema.json",
+  "title": "MachineUser",
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "accessTokenType": {"type": "string", "enum": ["ACCESS_TOKEN_TYPE_BEARER", "ACCESS_TOKEN_TYPE_JWT"]}
+  },
+  "required": ["name"]
+}

@@ -1,0 +1,40 @@
+{
+  "details": {
+    "totalResult": "2",
+    "viewTimestamp": "2026-05-03T12:00:00Z"
+  },
+  "result": [
+    {
+      "id": "165281449398763121",
+      "state": "USER_STATE_ACTIVE",
+      "userName": "alice@example.com",
+      "loginNames": ["alice@example.com", "alice@example-org.zitadel.cloud"],
+      "preferredLoginName": "alice@example.com",
+      "human": {
+        "profile": {
+          "firstName": "Alice",
+          "lastName": "Smith",
+          "displayName": "Alice Smith",
+          "preferredLanguage": "en",
+          "gender": "GENDER_FEMALE"
+        },
+        "email": {
+          "email": "alice@example.com",
+          "isVerified": true
+        }
+      }
+    },
+    {
+      "id": "165281449398763122",
+      "state": "USER_STATE_ACTIVE",
+      "userName": "ci-bot",
+      "loginNames": ["ci-bot@example-org.zitadel.cloud"],
+      "preferredLoginName": "ci-bot@example-org.zitadel.cloud",
+      "machine": {
+        "name": "ci-bot",
+        "description": "Automated CI bot",
+        "accessTokenType": "ACCESS_TOKEN_TYPE_BEARER"
+      }
+    }
+  ]
+}

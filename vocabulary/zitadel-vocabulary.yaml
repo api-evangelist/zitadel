@@ -1,0 +1,71 @@
+name: Zitadel Vocabulary
+description: >-
+  Unified taxonomy mapping operational and capability concepts in the Zitadel
+  identity infrastructure platform across OpenAPI operations and Naftiko capabilities.
+provider: zitadel
+operational:
+  resources:
+    - name: User
+      description: A Zitadel principal (human or machine).
+    - name: HumanUser
+      description: A human user with profile, email, and phone.
+    - name: MachineUser
+      description: A service account or automation user.
+    - name: Organization
+      description: A tenant in a Zitadel instance.
+    - name: Project
+      description: A logical grouping of applications under an organization.
+    - name: Application
+      description: An OIDC, SAML, or API application registered to a project.
+    - name: Role
+      description: A project-defined role assignable to users.
+    - name: IdentityProvider
+      description: An external identity provider (OIDC, SAML, Google, etc.).
+    - name: Policy
+      description: A login, password, lockout, or notification policy.
+    - name: Membership
+      description: A user's membership in organizations and projects.
+  actions:
+    - name: listUsers
+      description: Search users.
+    - name: createHumanUser
+      description: Create a human user.
+    - name: createMachineUser
+      description: Create a machine user.
+    - name: getUser
+      description: Retrieve a user by ID.
+    - name: removeUser
+      description: Delete a user.
+    - name: deactivateUser
+      description: Deactivate a user.
+    - name: reactivateUser
+      description: Reactivate a user.
+    - name: lockUser
+      description: Lock a user.
+    - name: unlockUser
+      description: Unlock a user.
+    - name: listOrgs
+      description: Search organizations.
+    - name: createOrg
+      description: Create an organization.
+    - name: createProject
+      description: Create a project.
+    - name: listProjects
+      description: Search projects.
+    - name: createOidcApp
+      description: Create an OIDC application.
+    - name: createApiApp
+      description: Create an API application.
+    - name: listApps
+      description: Search applications.
+capability:
+  workflows:
+    - name: identity-onboarding
+      description: Provision organizations, projects, applications, and users.
+  personas:
+    - name: Identity Administrator
+      description: Operates Zitadel and provisions identity resources.
+    - name: Application Developer
+      description: Integrates applications with Zitadel for authentication.
+    - name: Security Engineer
+      description: Configures policies, MFA, and audit controls.

@@ -1,0 +1,50 @@
+extends:
+  - spectral:oas
+rules:
+  zitadel-summary-prefix:
+    description: All operation summaries must start with "Zitadel"
+    severity: warn
+    given: "$.paths.*[get,post,put,delete,patch].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^Zitadel "
+  zitadel-operation-id:
+    description: Every operation must have an operationId
+    severity: error
+    given: "$.paths.*[get,post,put,delete,patch]"
+    then:
+      field: operationId
+      function: truthy
+  zitadel-operation-tags:
+    description: Every operation must have at least one tag
+    severity: warn
+    given: "$.paths.*[get,post,put,delete,patch]"
+    then:
+      field: tags
+      function: truthy
+  zitadel-operation-description:
+    description: Every operation must have a description
+    severity: warn
+    given: "$.paths.*[get,post,put,delete,patch]"
+    then:
+      field: description
+      function: truthy
+  zitadel-bearer-auth:
+    description: Bearer auth security scheme must be defined
+    severity: error
+    given: "$.components.securitySchemes.bearerAuth"
+    then:
+      function: truthy
+  zitadel-no-numeric-error-codes:
+    description: Error responses must include 401, 403 references
+    severity: warn
+    given: "$.paths.*[get,post,put,delete,patch].responses"
+    then:
+      function: truthy
+  zitadel-server-defined:
+    description: Servers must be defined
+    severity: error
+    given: "$.servers"
+    then:
+      function: truthy

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/json-schema/zitadel-management-object-details-schema.json",
+  "title": "ObjectDetails",
+  "type": "object",
+  "properties": {
+    "sequence": {"type": "string"},
+    "creationDate": {"type": "string", "format": "date-time"},
+    "changeDate": {"type": "string", "format": "date-time"},
+    "resourceOwner": {"type": "string"}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/schema/v0",
+  "name": "MachineUser",
+  "type": "object",
+  "properties": {
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "accessTokenType": {"type": "string"}
+  },
+  "required": ["name"]
+}

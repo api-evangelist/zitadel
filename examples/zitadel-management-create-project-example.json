@@ -1,0 +1,6 @@
+{
+  "name": "Customer Portal",
+  "projectRoleAssertion": true,
+  "projectRoleCheck": true,
+  "hasProjectCheck": false
+}

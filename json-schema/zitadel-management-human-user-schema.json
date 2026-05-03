@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/json-schema/zitadel-management-human-user-schema.json",
+  "title": "HumanUser",
+  "type": "object",
+  "properties": {
+    "profile": {
+      "type": "object",
+      "properties": {
+        "firstName": {"type": "string"},
+        "lastName": {"type": "string"},
+        "nickName": {"type": "string"},
+        "displayName": {"type": "string"},
+        "preferredLanguage": {"type": "string"},
+        "gender": {"type": "string", "enum": ["GENDER_UNSPECIFIED", "GENDER_FEMALE", "GENDER_MALE", "GENDER_DIVERSE"]}
+      },
+      "required": ["firstName", "lastName"]
+    },
+    "email": {
+      "type": "object",
+      "properties": {
+        "email": {"type": "string", "format": "email"},
+        "isVerified": {"type": "boolean"}
+      },
+      "required": ["email"]
+    },
+    "phone": {
+      "type": "object",
+      "properties": {
+        "phone": {"type": "string"},
+        "isVerified": {"type": "boolean"}
+      }
+    }
+  }
+}

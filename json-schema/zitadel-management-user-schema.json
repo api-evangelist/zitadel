@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zitadel/refs/heads/main/json-schema/zitadel-management-user-schema.json",
+  "title": "User",
+  "description": "A Zitadel user (human or machine).",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string", "description": "Unique user ID"},
+    "state": {"type": "string", "enum": ["USER_STATE_ACTIVE", "USER_STATE_INACTIVE", "USER_STATE_DELETED", "USER_STATE_LOCKED", "USER_STATE_INITIAL"]},
+    "userName": {"type": "string"},
+    "loginNames": {"type": "array", "items": {"type": "string"}},
+    "preferredLoginName": {"type": "string"},
+    "human": {"$ref": "zitadel-management-human-user-schema.json"},
+    "machine": {"$ref": "zitadel-management-machine-user-schema.json"},
+    "details": {"$ref": "zitadel-management-object-details-schema.json"}
+  },
+  "required": ["id", "userName"]
+}
