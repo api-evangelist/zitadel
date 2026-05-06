@@ -4,107 +4,49 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Zitadel
 providerId: zitadel
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Authentication
   - Authorization
   - Identity Management
-  - Open Source
-  - OAuth 2.0
-  - OIDC
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Zitadel API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+description: |
+  ZITADEL Cloud applies IP-oriented rate limits, with separate ceilings for the
+  login / register / reset UI paths and for all other gRPC / REST / OAuth API
+  endpoints. DDoS mitigation is layered on top, so simply rotating IPs to evade
+  limits can lead to blocking. Self-hosted ZITADEL has no enforced ceiling.
+sources:
+  - https://zitadel.com/docs/legal/policies/rate-limit-policy
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
+  - name: UI paths (/ui/* — Login, Register, Reset)
+    scope: IP
+    metric: requests_per_second
     limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Zitadel Management API
-      - Zitadel Auth API
-      - Zitadel Admin API
-      - Zitadel OIDC / OAuth 2.0
-      - Zitadel SAML API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Zitadel Management API
-      - Zitadel Auth API
-      - Zitadel Admin API
-      - Zitadel OIDC / OAuth 2.0
-      - Zitadel SAML API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Zitadel Management API
-      - Zitadel Auth API
-      - Zitadel Admin API
-      - Zitadel OIDC / OAuth 2.0
-      - Zitadel SAML API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Zitadel Management API
-      - Zitadel Auth API
-      - Zitadel Admin API
-      - Zitadel OIDC / OAuth 2.0
-      - Zitadel SAML API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Zitadel Management API
-      - Zitadel Auth API
-      - Zitadel Admin API
-      - Zitadel OIDC / OAuth 2.0
-      - Zitadel SAML API
+    timeFrame: second
+    notes: Steady-state limit; bursts up to 15 req/s tolerated (3-minute burst window).
+  - name: gRPC / REST / OAuth APIs (all other paths)
+    scope: IP
+    metric: requests_per_second
+    limit: 50
+    timeFrame: second
+    notes: Steady-state and burst both 50 req/s.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: IP-oriented limiting
+    description: Rate limits are bound to the source IP address; ZITADEL Cloud sits
+      behind DDoS mitigation that may block IPs that try to evade limits by rotating.
+  - name: 429 + exponential backoff
+    description: When throttled the API returns HTTP 429; clients should implement
+      exponential backoff with jitter rather than tight retry loops.
+  - name: Shared-IP accommodation
+    description: Customers behind corporate proxies / NAT can request limit adjustments
+      via support@zitadel.com.
+  - name: Load testing requires advance notice
+    description: Load testing requires at least two weeks advance notice via
+      support@zitadel.com; unauthorized load testing risks DDoS flagging and service
+      termination.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

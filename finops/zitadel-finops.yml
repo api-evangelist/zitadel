@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -8,161 +9,85 @@ alignedWith:
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 provider: Zitadel
 providerId: zitadel
-publisherName: Zitadel
-serviceCategory: API
+publisherName: ZITADEL (CAOS AG)
+serviceCategory: Identity / Authentication
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Authentication
   - Authorization
   - Identity Management
-  - Open Source
-  - OAuth 2.0
-  - OIDC
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Zitadel API surface. Provides a FOCUS-aligned mapping
-  for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+description: |
+  FOCUS-aligned FinOps view for ZITADEL Cloud: a tiered subscription anchored on
+  Daily Active Users (DAU), with optional Pro add-ons for extended SLA support and
+  data-location pinning, and custom volume-based pricing at Enterprise. Self-hosting
+  the open-source build has no ZITADEL invoice line.
+sources:
+  - https://zitadel.com/pricing
+  - https://zitadel.com/docs/legal/policies/rate-limit-policy
 billingModel:
-  pricingCategory: Usage-Based
+  pricingCategory: Tiered Subscription
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
+    - Usage
     - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
-  ServiceName: Zitadel
-  ServiceCategory: Developer Tools / API
-  ProviderName: Zitadel
-  PublisherName: Zitadel
-  InvoiceIssuerName: Zitadel
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceName: ZITADEL Cloud
+  ServiceCategory: Identity / Authentication
+  ProviderName: ZITADEL
+  PublisherName: ZITADEL (CAOS AG)
+  InvoiceIssuerName: ZITADEL (CAOS AG)
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Purchase
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
-    aggregation: sum
+  - name: plan_subscription
+    description: Monthly plan subscription (Free / Pro / Enterprise); the primary ZITADEL
+      Cloud billing line.
+    unit: month
+    aggregation: max
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - plan_tier
+  - name: daily_active_users
+    description: DAU consumed against the plan's bundled cap (100 Free / 25,000 Pro /
+      custom Enterprise).
+    unit: dau
+    aggregation: max
+    dimensions:
+      - plan_tier
+  - name: addon_extended_support_sla
+    description: Optional Pro add-on for 99.95% availability and extended support /
+      SLA at $999/month.
+    unit: month
+    aggregation: max
+  - name: addon_data_location
+    description: Optional Pro add-on for region pinning (US / EU / Switzerland /
+      Australia) at $100/month.
+    unit: month
+    aggregation: max
+    dimensions:
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Zitadel Management API
-    baseURL: ''
-    tags:
-      - Identity Management
-      - Authentication
-      - User Management
-      - Organizations
-    serviceName: Zitadel Management API
-    serviceCategory: API
-  - name: Zitadel Auth API
-    baseURL: ''
-    tags:
-      - Authentication
-      - User Profile
-      - Session Management
-      - MFA
-    serviceName: Zitadel Auth API
-    serviceCategory: API
-  - name: Zitadel Admin API
-    baseURL: ''
-    tags:
-      - Administration
-      - Identity Management
-      - Configuration
-    serviceName: Zitadel Admin API
-    serviceCategory: API
-  - name: Zitadel OIDC / OAuth 2.0
-    baseURL: ''
-    tags:
-      - OAuth 2.0
-      - OpenID Connect
-      - Authentication
-      - Authorization
-    serviceName: Zitadel OIDC / OAuth 2.0
-    serviceCategory: API
-  - name: Zitadel SAML API
-    baseURL: ''
-    tags:
-      - SAML
-      - Single Sign-On
-      - Authentication
-    serviceName: Zitadel SAML API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+principles:
+  - name: Visibility
+    description: Use the ZITADEL Cloud customer console for current DAU and plan
+      consumption; self-hosted deployments have no ZITADEL invoice but cost shows up
+      as the underlying compute / DB / storage.
+  - name: Allocation
+    description: Allocate ZITADEL spend per environment (dev / staging / prod) and per
+      tenant organization; tag region pinning to the regulated business unit that
+      requires it.
+  - name: Optimization
+    description: Cost levers are choosing Free vs Pro based on actual DAU, whether the
+      Extended Support and SLA add-on is required by SLAs, and whether self-hosting
+      the open-source build is preferable to ZITADEL Cloud at the customer's scale.
+  - name: Accountability
+    description: Spend ownership sits with the platform / identity team that owns the
+      ZITADEL deployment; review at the monthly DAU report and at Enterprise contract
+      renewal.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
