@@ -1,0 +1,137 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zitadel Management API — Policies
+  description: 'Zitadel Management API — Policies. 3 operations. Lead operation: Zitadel Get Login Policy. Self-contained
+    Naftiko capability covering one Zitadel business surface.'
+  tags:
+  - Zitadel
+  - Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZITADEL_API_KEY: ZITADEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-policies
+    baseUri: https://{instance}.zitadel.cloud
+    description: Zitadel Management API — Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: management-v1-policies-login
+      path: /management/v1/policies/login
+      operations:
+      - name: getloginpolicy
+        method: GET
+        description: Zitadel Get Login Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateloginpolicy
+        method: PUT
+        description: Zitadel Update Login Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: management-v1-policies-passwords-lockout
+      path: /management/v1/policies/passwords/lockout
+      operations:
+      - name: getpasswordlockoutpolicy
+        method: GET
+        description: Zitadel Get Password Lockout Policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ZITADEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-policies-rest
+    port: 8080
+    description: REST adapter for Zitadel Management API — Policies. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/management/v1/policies/login
+      name: management-v1-policies-login
+      description: REST surface for management-v1-policies-login.
+      operations:
+      - method: GET
+        name: getloginpolicy
+        description: Zitadel Get Login Policy
+        call: management-policies.getloginpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateloginpolicy
+        description: Zitadel Update Login Policy
+        call: management-policies.updateloginpolicy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/policies/passwords/lockout
+      name: management-v1-policies-passwords-lockout
+      description: REST surface for management-v1-policies-passwords-lockout.
+      operations:
+      - method: GET
+        name: getpasswordlockoutpolicy
+        description: Zitadel Get Password Lockout Policy
+        call: management-policies.getpasswordlockoutpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zitadel Management API — Policies. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: zitadel-get-login-policy
+      description: Zitadel Get Login Policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: management-policies.getloginpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-update-login-policy
+      description: Zitadel Update Login Policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: management-policies.updateloginpolicy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-get-password-lockout-policy
+      description: Zitadel Get Password Lockout Policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: management-policies.getpasswordlockoutpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

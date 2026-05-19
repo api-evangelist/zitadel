@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zitadel Management API — Roles
+  description: 'Zitadel Management API — Roles. 2 operations. Lead operation: Zitadel Create Project Role. Self-contained
+    Naftiko capability covering one Zitadel business surface.'
+  tags:
+  - Zitadel
+  - Roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZITADEL_API_KEY: ZITADEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-roles
+    baseUri: https://{instance}.zitadel.cloud
+    description: Zitadel Management API — Roles business capability. Self-contained, no shared references.
+    resources:
+    - name: management-v1-projects-projectId-roles
+      path: /management/v1/projects/{projectId}/roles
+      operations:
+      - name: createprojectrole
+        method: POST
+        description: Zitadel Create Project Role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: management-v1-projects-projectId-roles-_search
+      path: /management/v1/projects/{projectId}/roles/_search
+      operations:
+      - name: listprojectroles
+        method: POST
+        description: Zitadel List Project Roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ZITADEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-roles-rest
+    port: 8080
+    description: REST adapter for Zitadel Management API — Roles. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/management/v1/projects/{projectid}/roles
+      name: management-v1-projects-projectid-roles
+      description: REST surface for management-v1-projects-projectId-roles.
+      operations:
+      - method: POST
+        name: createprojectrole
+        description: Zitadel Create Project Role
+        call: management-roles.createprojectrole
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/projects/{projectid}/roles/search
+      name: management-v1-projects-projectid-roles-search
+      description: REST surface for management-v1-projects-projectId-roles-_search.
+      operations:
+      - method: POST
+        name: listprojectroles
+        description: Zitadel List Project Roles
+        call: management-roles.listprojectroles
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zitadel Management API — Roles. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: zitadel-create-project-role
+      description: Zitadel Create Project Role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-roles.createprojectrole
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-list-project-roles
+      description: Zitadel List Project Roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: management-roles.listprojectroles
+      outputParameters:
+      - type: object
+        mapping: $.

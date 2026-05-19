@@ -1,0 +1,204 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zitadel Management API — Projects
+  description: 'Zitadel Management API — Projects. 5 operations. Lead operation: Zitadel Create Project. Self-contained Naftiko
+    capability covering one Zitadel business surface.'
+  tags:
+  - Zitadel
+  - Projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZITADEL_API_KEY: ZITADEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-projects
+    baseUri: https://{instance}.zitadel.cloud
+    description: Zitadel Management API — Projects business capability. Self-contained, no shared references.
+    resources:
+    - name: management-v1-projects
+      path: /management/v1/projects
+      operations:
+      - name: createproject
+        method: POST
+        description: Zitadel Create Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: management-v1-projects-_search
+      path: /management/v1/projects/_search
+      operations:
+      - name: listprojects
+        method: POST
+        description: Zitadel List Projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: management-v1-projects-projectId
+      path: /management/v1/projects/{projectId}
+      operations:
+      - name: getprojectbyid
+        method: GET
+        description: Zitadel Get Project by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateproject
+        method: PUT
+        description: Zitadel Update Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: removeproject
+        method: DELETE
+        description: Zitadel Remove Project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ZITADEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-projects-rest
+    port: 8080
+    description: REST adapter for Zitadel Management API — Projects. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/management/v1/projects
+      name: management-v1-projects
+      description: REST surface for management-v1-projects.
+      operations:
+      - method: POST
+        name: createproject
+        description: Zitadel Create Project
+        call: management-projects.createproject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/projects/search
+      name: management-v1-projects-search
+      description: REST surface for management-v1-projects-_search.
+      operations:
+      - method: POST
+        name: listprojects
+        description: Zitadel List Projects
+        call: management-projects.listprojects
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/projects/{projectid}
+      name: management-v1-projects-projectid
+      description: REST surface for management-v1-projects-projectId.
+      operations:
+      - method: GET
+        name: getprojectbyid
+        description: Zitadel Get Project by ID
+        call: management-projects.getprojectbyid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updateproject
+        description: Zitadel Update Project
+        call: management-projects.updateproject
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: removeproject
+        description: Zitadel Remove Project
+        call: management-projects.removeproject
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zitadel Management API — Projects. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: zitadel-create-project
+      description: Zitadel Create Project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-projects.createproject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-list-projects
+      description: Zitadel List Projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: management-projects.listprojects
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-get-project-id
+      description: Zitadel Get Project by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: management-projects.getprojectbyid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-update-project
+      description: Zitadel Update Project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: management-projects.updateproject
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-remove-project
+      description: Zitadel Remove Project
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: management-projects.removeproject
+      outputParameters:
+      - type: object
+        mapping: $.

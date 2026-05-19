@@ -1,0 +1,423 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zitadel Management API — Users
+  description: 'Zitadel Management API — Users. 11 operations. Lead operation: Zitadel List Users. Self-contained Naftiko
+    capability covering one Zitadel business surface.'
+  tags:
+  - Zitadel
+  - Users
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZITADEL_API_KEY: ZITADEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-users
+    baseUri: https://{instance}.zitadel.cloud
+    description: Zitadel Management API — Users business capability. Self-contained, no shared references.
+    resources:
+    - name: management-v1-users-_search
+      path: /management/v1/users/_search
+      operations:
+      - name: listusers
+        method: POST
+        description: Zitadel List Users
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: management-v1-users-human-_create
+      path: /management/v1/users/human/_create
+      operations:
+      - name: createhumanuser
+        method: POST
+        description: Zitadel Create Human User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: management-v1-users-machine-_create
+      path: /management/v1/users/machine/_create
+      operations:
+      - name: createmachineuser
+        method: POST
+        description: Zitadel Create Machine User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: management-v1-users-userId
+      path: /management/v1/users/{userId}
+      operations:
+      - name: getuserbyid
+        method: GET
+        description: Zitadel Get User by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: removeuser
+        method: DELETE
+        description: Zitadel Remove User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: management-v1-users-userId-deactivate
+      path: /management/v1/users/{userId}/deactivate
+      operations:
+      - name: deactivateuser
+        method: POST
+        description: Zitadel Deactivate User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: management-v1-users-userId-email
+      path: /management/v1/users/{userId}/email
+      operations:
+      - name: updateuseremail
+        method: PUT
+        description: Zitadel Update User Email
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: management-v1-users-userId-lock
+      path: /management/v1/users/{userId}/lock
+      operations:
+      - name: lockuser
+        method: POST
+        description: Zitadel Lock User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: management-v1-users-userId-memberships-_search
+      path: /management/v1/users/{userId}/memberships/_search
+      operations:
+      - name: listusermemberships
+        method: POST
+        description: Zitadel List User Memberships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: management-v1-users-userId-reactivate
+      path: /management/v1/users/{userId}/reactivate
+      operations:
+      - name: reactivateuser
+        method: POST
+        description: Zitadel Reactivate User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: management-v1-users-userId-unlock
+      path: /management/v1/users/{userId}/unlock
+      operations:
+      - name: unlockuser
+        method: POST
+        description: Zitadel Unlock User
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ZITADEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-users-rest
+    port: 8080
+    description: REST adapter for Zitadel Management API — Users. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/management/v1/users/search
+      name: management-v1-users-search
+      description: REST surface for management-v1-users-_search.
+      operations:
+      - method: POST
+        name: listusers
+        description: Zitadel List Users
+        call: management-users.listusers
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/human/create
+      name: management-v1-users-human-create
+      description: REST surface for management-v1-users-human-_create.
+      operations:
+      - method: POST
+        name: createhumanuser
+        description: Zitadel Create Human User
+        call: management-users.createhumanuser
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/machine/create
+      name: management-v1-users-machine-create
+      description: REST surface for management-v1-users-machine-_create.
+      operations:
+      - method: POST
+        name: createmachineuser
+        description: Zitadel Create Machine User
+        call: management-users.createmachineuser
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}
+      name: management-v1-users-userid
+      description: REST surface for management-v1-users-userId.
+      operations:
+      - method: GET
+        name: getuserbyid
+        description: Zitadel Get User by ID
+        call: management-users.getuserbyid
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: removeuser
+        description: Zitadel Remove User
+        call: management-users.removeuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}/deactivate
+      name: management-v1-users-userid-deactivate
+      description: REST surface for management-v1-users-userId-deactivate.
+      operations:
+      - method: POST
+        name: deactivateuser
+        description: Zitadel Deactivate User
+        call: management-users.deactivateuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}/email
+      name: management-v1-users-userid-email
+      description: REST surface for management-v1-users-userId-email.
+      operations:
+      - method: PUT
+        name: updateuseremail
+        description: Zitadel Update User Email
+        call: management-users.updateuseremail
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}/lock
+      name: management-v1-users-userid-lock
+      description: REST surface for management-v1-users-userId-lock.
+      operations:
+      - method: POST
+        name: lockuser
+        description: Zitadel Lock User
+        call: management-users.lockuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}/memberships/search
+      name: management-v1-users-userid-memberships-search
+      description: REST surface for management-v1-users-userId-memberships-_search.
+      operations:
+      - method: POST
+        name: listusermemberships
+        description: Zitadel List User Memberships
+        call: management-users.listusermemberships
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}/reactivate
+      name: management-v1-users-userid-reactivate
+      description: REST surface for management-v1-users-userId-reactivate.
+      operations:
+      - method: POST
+        name: reactivateuser
+        description: Zitadel Reactivate User
+        call: management-users.reactivateuser
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/management/v1/users/{userid}/unlock
+      name: management-v1-users-userid-unlock
+      description: REST surface for management-v1-users-userId-unlock.
+      operations:
+      - method: POST
+        name: unlockuser
+        description: Zitadel Unlock User
+        call: management-users.unlockuser
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-users-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zitadel Management API — Users. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: zitadel-list-users
+      description: Zitadel List Users
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: management-users.listusers
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-create-human-user
+      description: Zitadel Create Human User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-users.createhumanuser
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-create-machine-user
+      description: Zitadel Create Machine User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-users.createmachineuser
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-get-user-id
+      description: Zitadel Get User by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: management-users.getuserbyid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-remove-user
+      description: Zitadel Remove User
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: management-users.removeuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-deactivate-user
+      description: Zitadel Deactivate User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-users.deactivateuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-update-user-email
+      description: Zitadel Update User Email
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: management-users.updateuseremail
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-lock-user
+      description: Zitadel Lock User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-users.lockuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-list-user-memberships
+      description: Zitadel List User Memberships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: management-users.listusermemberships
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-reactivate-user
+      description: Zitadel Reactivate User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-users.reactivateuser
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: zitadel-unlock-user
+      description: Zitadel Unlock User
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: management-users.unlockuser
+      outputParameters:
+      - type: object
+        mapping: $.

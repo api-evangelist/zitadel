@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Zitadel Management API — Identity Providers
+  description: 'Zitadel Management API — Identity Providers. 1 operations. Lead operation: Zitadel List Identity Providers.
+    Self-contained Naftiko capability covering one Zitadel business surface.'
+  tags:
+  - Zitadel
+  - Identity Providers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ZITADEL_API_KEY: ZITADEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: management-identity-providers
+    baseUri: https://{instance}.zitadel.cloud
+    description: Zitadel Management API — Identity Providers business capability. Self-contained, no shared references.
+    resources:
+    - name: management-v1-idps-_search
+      path: /management/v1/idps/_search
+      operations:
+      - name: listidps
+        method: POST
+        description: Zitadel List Identity Providers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ZITADEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: management-identity-providers-rest
+    port: 8080
+    description: REST adapter for Zitadel Management API — Identity Providers. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/management/v1/idps/search
+      name: management-v1-idps-search
+      description: REST surface for management-v1-idps-_search.
+      operations:
+      - method: POST
+        name: listidps
+        description: Zitadel List Identity Providers
+        call: management-identity-providers.listidps
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: management-identity-providers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Zitadel Management API — Identity Providers. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: zitadel-list-identity-providers
+      description: Zitadel List Identity Providers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: management-identity-providers.listidps
+      outputParameters:
+      - type: object
+        mapping: $.
