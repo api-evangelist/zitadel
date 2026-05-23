@@ -1,0 +1,494 @@
+{
+  "provider": "Zitadel",
+  "providerId": "zitadel",
+  "kind": "json-structure",
+  "description": "Structural overview of the Zitadel API surface; extracted from openapi/.",
+  "schemaCount": 30,
+  "operationCount": 32,
+  "schemas": [
+    {
+      "name": "Error",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "User",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "HumanUser",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "HumanProfile",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "HumanEmail",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "HumanPhone",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "MachineUser",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CreateHumanUserRequest",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "userName"
+      ]
+    },
+    {
+      "name": "CreateMachineUserRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "userName",
+        "name"
+      ]
+    },
+    {
+      "name": "CreateUserResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListUsersRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListUsersResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UserResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Organization",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "OrgResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListOrgsRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListOrgsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Project",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "CreateProjectRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "ProjectResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListProjectsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Application",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CreateOidcAppRequest",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "name",
+        "redirectUris",
+        "responseTypes",
+        "grantTypes"
+      ]
+    },
+    {
+      "name": "CreateApiAppRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "name"
+      ]
+    },
+    {
+      "name": "AppResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Membership",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "LoginPolicy",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "ObjectDetails",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ListDetails",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ListQuery",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/management/v1/users/_search",
+      "operationId": "listUsers",
+      "summary": "Zitadel List Users",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/human/_create",
+      "operationId": "createHumanUser",
+      "summary": "Zitadel Create Human User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/machine/_create",
+      "operationId": "createMachineUser",
+      "summary": "Zitadel Create Machine User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/management/v1/users/{userId}",
+      "operationId": "getUserById",
+      "summary": "Zitadel Get User by ID",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/management/v1/users/{userId}",
+      "operationId": "removeUser",
+      "summary": "Zitadel Remove User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/{userId}/deactivate",
+      "operationId": "deactivateUser",
+      "summary": "Zitadel Deactivate User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/{userId}/reactivate",
+      "operationId": "reactivateUser",
+      "summary": "Zitadel Reactivate User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/{userId}/lock",
+      "operationId": "lockUser",
+      "summary": "Zitadel Lock User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/{userId}/unlock",
+      "operationId": "unlockUser",
+      "summary": "Zitadel Unlock User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/management/v1/users/{userId}/email",
+      "operationId": "updateUserEmail",
+      "summary": "Zitadel Update User Email",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/users/{userId}/memberships/_search",
+      "operationId": "listUserMemberships",
+      "summary": "Zitadel List User Memberships",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/orgs/_search",
+      "operationId": "listOrganizations",
+      "summary": "Zitadel List Organizations",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/orgs",
+      "operationId": "createOrganization",
+      "summary": "Zitadel Create Organization",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/management/v1/orgs/me",
+      "operationId": "getMyOrg",
+      "summary": "Zitadel Get My Organization",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/orgs/me/members/_search",
+      "operationId": "listOrgMembers",
+      "summary": "Zitadel List Organization Members",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/orgs/me/members",
+      "operationId": "addOrgMember",
+      "summary": "Zitadel Add Organization Member",
+      "tags": [
+        "Organizations"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects",
+      "operationId": "createProject",
+      "summary": "Zitadel Create Project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects/_search",
+      "operationId": "listProjects",
+      "summary": "Zitadel List Projects",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/management/v1/projects/{projectId}",
+      "operationId": "getProjectById",
+      "summary": "Zitadel Get Project by ID",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/management/v1/projects/{projectId}",
+      "operationId": "updateProject",
+      "summary": "Zitadel Update Project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/management/v1/projects/{projectId}",
+      "operationId": "removeProject",
+      "summary": "Zitadel Remove Project",
+      "tags": [
+        "Projects"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects/{projectId}/apps/oidc",
+      "operationId": "createOidcApp",
+      "summary": "Zitadel Create OIDC Application",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects/{projectId}/apps/api",
+      "operationId": "createApiApp",
+      "summary": "Zitadel Create API Application",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects/{projectId}/apps/_search",
+      "operationId": "listApps",
+      "summary": "Zitadel List Applications",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/management/v1/projects/{projectId}/apps/{appId}",
+      "operationId": "getAppById",
+      "summary": "Zitadel Get Application by ID",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/management/v1/projects/{projectId}/apps/{appId}",
+      "operationId": "removeApp",
+      "summary": "Zitadel Remove Application",
+      "tags": [
+        "Applications"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects/{projectId}/roles",
+      "operationId": "createProjectRole",
+      "summary": "Zitadel Create Project Role",
+      "tags": [
+        "Roles"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/projects/{projectId}/roles/_search",
+      "operationId": "listProjectRoles",
+      "summary": "Zitadel List Project Roles",
+      "tags": [
+        "Roles"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/management/v1/idps/_search",
+      "operationId": "listIdps",
+      "summary": "Zitadel List Identity Providers",
+      "tags": [
+        "Identity Providers"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/management/v1/policies/login",
+      "operationId": "getLoginPolicy",
+      "summary": "Zitadel Get Login Policy",
+      "tags": [
+        "Policies"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/management/v1/policies/login",
+      "operationId": "updateLoginPolicy",
+      "summary": "Zitadel Update Login Policy",
+      "tags": [
+        "Policies"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/management/v1/policies/passwords/lockout",
+      "operationId": "getPasswordLockoutPolicy",
+      "summary": "Zitadel Get Password Lockout Policy",
+      "tags": [
+        "Policies"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Organization",
+  "title": "Organization",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "details": {
+      "$ref": "#/components/schemas/ObjectDetails"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "primaryDomain": {
+      "type": "string"
+    }
+  }
+}

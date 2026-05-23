@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AppResponse",
+  "title": "AppResponse",
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "string"
+    },
+    "details": {
+      "$ref": "#/components/schemas/ObjectDetails"
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "clientSecret": {
+      "type": "string"
+    }
+  }
+}

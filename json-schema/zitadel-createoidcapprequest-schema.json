@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateOidcAppRequest",
+  "title": "CreateOidcAppRequest",
+  "type": "object",
+  "required": [
+    "name",
+    "redirectUris",
+    "responseTypes",
+    "grantTypes"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "redirectUris": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "responseTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "grantTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "appType": {
+      "type": "string"
+    },
+    "authMethodType": {
+      "type": "string"
+    },
+    "postLogoutRedirectUris": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "devMode": {
+      "type": "boolean"
+    },
+    "accessTokenType": {
+      "type": "string"
+    },
+    "idTokenRoleAssertion": {
+      "type": "boolean"
+    },
+    "idTokenUserinfoAssertion": {
+      "type": "boolean"
+    }
+  }
+}

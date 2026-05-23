@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateHumanUserRequest",
+  "title": "CreateHumanUserRequest",
+  "type": "object",
+  "required": [
+    "userName"
+  ],
+  "properties": {
+    "userName": {
+      "type": "string"
+    },
+    "profile": {
+      "$ref": "#/components/schemas/HumanProfile"
+    },
+    "email": {
+      "$ref": "#/components/schemas/HumanEmail"
+    },
+    "phone": {
+      "$ref": "#/components/schemas/HumanPhone"
+    },
+    "password": {
+      "type": "string"
+    },
+    "passwordChangeRequired": {
+      "type": "boolean"
+    }
+  }
+}

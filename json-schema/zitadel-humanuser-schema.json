@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HumanUser",
+  "title": "HumanUser",
+  "type": "object",
+  "properties": {
+    "profile": {
+      "$ref": "#/components/schemas/HumanProfile"
+    },
+    "email": {
+      "$ref": "#/components/schemas/HumanEmail"
+    },
+    "phone": {
+      "$ref": "#/components/schemas/HumanPhone"
+    },
+    "passwordChangeRequired": {
+      "type": "boolean"
+    },
+    "passwordChanged": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

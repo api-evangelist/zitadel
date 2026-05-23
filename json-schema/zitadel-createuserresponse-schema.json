@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateUserResponse",
+  "title": "CreateUserResponse",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "details": {
+      "$ref": "#/components/schemas/ObjectDetails"
+    }
+  }
+}

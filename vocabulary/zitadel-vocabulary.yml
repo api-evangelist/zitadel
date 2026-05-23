@@ -1,0 +1,19 @@
+name: Zitadel Domain Vocabulary
+provider: Zitadel
+providerId: zitadel
+description: Tag-derived vocabulary for the Zitadel API surface; sourced from openapi/ tags.
+terms:
+- term: Users
+  description: Manage human and machine users
+- term: Organizations
+  description: Manage organizations and organizational domains
+- term: Projects
+  description: Manage projects and project grants
+- term: Applications
+  description: Manage OIDC, SAML, and API applications
+- term: Roles
+  description: Manage project roles and role grants
+- term: Identity Providers
+  description: Manage external identity provider configurations
+- term: Policies
+  description: Manage login, password, and notification policies

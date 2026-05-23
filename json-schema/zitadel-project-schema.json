@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Project",
+  "title": "Project",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "details": {
+      "$ref": "#/components/schemas/ObjectDetails"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
+    },
+    "projectRoleAssertion": {
+      "type": "boolean"
+    },
+    "projectRoleCheck": {
+      "type": "boolean"
+    },
+    "hasProjectCheck": {
+      "type": "boolean"
+    },
+    "privateLabelingSetting": {
+      "type": "string"
+    }
+  }
+}

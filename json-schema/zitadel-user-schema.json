@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/User",
+  "title": "User",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the user"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "UNSPECIFIED",
+        "ACTIVE",
+        "INACTIVE",
+        "LOCKED",
+        "DELETED",
+        "INITIAL"
+      ]
+    },
+    "userName": {
+      "type": "string"
+    },
+    "loginNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preferredLoginName": {
+      "type": "string"
+    },
+    "human": {
+      "$ref": "#/components/schemas/HumanUser"
+    },
+    "machine": {
+      "$ref": "#/components/schemas/MachineUser"
+    }
+  }
+}

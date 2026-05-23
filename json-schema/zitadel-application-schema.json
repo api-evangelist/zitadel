@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Application",
+  "title": "Application",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "details": {
+      "$ref": "#/components/schemas/ObjectDetails"
+    },
+    "name": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}

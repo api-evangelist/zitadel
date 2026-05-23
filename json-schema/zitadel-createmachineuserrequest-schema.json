@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateMachineUserRequest",
+  "title": "CreateMachineUserRequest",
+  "type": "object",
+  "required": [
+    "userName",
+    "name"
+  ],
+  "properties": {
+    "userName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "accessTokenType": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListQuery",
+  "title": "ListQuery",
+  "type": "object",
+  "properties": {
+    "offset": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "asc": {
+      "type": "boolean"
+    }
+  }
+}

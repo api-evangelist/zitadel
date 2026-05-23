@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LoginPolicy",
+  "title": "LoginPolicy",
+  "type": "object",
+  "properties": {
+    "allowUsernamePassword": {
+      "type": "boolean"
+    },
+    "allowRegister": {
+      "type": "boolean"
+    },
+    "allowExternalIdp": {
+      "type": "boolean"
+    },
+    "forceMfa": {
+      "type": "boolean"
+    },
+    "passwordlessType": {
+      "type": "string"
+    },
+    "hidePasswordReset": {
+      "type": "boolean"
+    },
+    "ignoreUnknownUsernames": {
+      "type": "boolean"
+    },
+    "defaultRedirectUri": {
+      "type": "string"
+    },
+    "passwordCheckLifetime": {
+      "type": "string"
+    },
+    "externalLoginCheckLifetime": {
+      "type": "string"
+    },
+    "mfaInitSkipLifetime": {
+      "type": "string"
+    },
+    "secondFactorCheckLifetime": {
+      "type": "string"
+    },
+    "multiFactorCheckLifetime": {
+      "type": "string"
+    }
+  }
+}

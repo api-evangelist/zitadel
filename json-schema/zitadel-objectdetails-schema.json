@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ObjectDetails",
+  "title": "ObjectDetails",
+  "type": "object",
+  "properties": {
+    "sequence": {
+      "type": "string"
+    },
+    "creationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "changeDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "resourceOwner": {
+      "type": "string"
+    }
+  }
+}

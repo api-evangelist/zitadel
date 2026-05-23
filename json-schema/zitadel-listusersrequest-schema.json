@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListUsersRequest",
+  "title": "ListUsersRequest",
+  "type": "object",
+  "properties": {
+    "query": {
+      "$ref": "#/components/schemas/ListQuery"
+    },
+    "queries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userNameQuery": {
+            "type": "object",
+            "properties": {
+              "userName": {
+                "type": "string"
+              },
+              "method": {
+                "type": "string"
+              }
+            }
+          },
+          "emailQuery": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
