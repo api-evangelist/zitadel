@@ -1,0 +1,632 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zitadel Management API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel List Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/_search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for users within the organization using filter criteria."
+        },
+        {
+          "info": {
+            "name": "Zitadel Create Human User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/human/_create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new human user in the organization with profile, email, and optional password."
+        },
+        {
+          "info": {
+            "name": "Zitadel Create Machine User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/machine/_create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new machine (service account) user for programmatic access."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get User by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Retrieve a user's profile and metadata by their unique identifier."
+        },
+        {
+          "info": {
+            "name": "Zitadel Remove User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Permanently delete a user from the organization."
+        },
+        {
+          "info": {
+            "name": "Zitadel Deactivate User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId/deactivate",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Deactivate a user account, preventing login while preserving data."
+        },
+        {
+          "info": {
+            "name": "Zitadel Reactivate User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId/reactivate",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Reactivate a previously deactivated user account."
+        },
+        {
+          "info": {
+            "name": "Zitadel Lock User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId/lock",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Lock a user account due to suspicious activity or policy violation."
+        },
+        {
+          "info": {
+            "name": "Zitadel Unlock User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId/unlock",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Unlock a previously locked user account."
+        },
+        {
+          "info": {
+            "name": "Zitadel Update User Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId/email",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the email address for a user account."
+        },
+        {
+          "info": {
+            "name": "Zitadel List User Memberships",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/users/:userId/memberships/_search",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Retrieve all organization and project memberships for a user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel List Organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/_search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for organizations accessible to the caller."
+        },
+        {
+          "info": {
+            "name": "Zitadel Create Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new organization within the Zitadel instance."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get My Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/me"
+          },
+          "docs": "Retrieve the organization associated with the caller's context."
+        },
+        {
+          "info": {
+            "name": "Zitadel List Organization Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/me/members/_search"
+          },
+          "docs": "List all members of the organization with their roles."
+        },
+        {
+          "info": {
+            "name": "Zitadel Add Organization Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/me/members",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a user as a member of the organization with specified roles."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel Create Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project within the organization for grouping applications and roles."
+        },
+        {
+          "info": {
+            "name": "Zitadel List Projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/_search"
+          },
+          "docs": "Search for projects within the organization."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get Project by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ]
+          },
+          "docs": "Retrieve a project by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Zitadel Update Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update project configuration and settings."
+        },
+        {
+          "info": {
+            "name": "Zitadel Remove Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ]
+          },
+          "docs": "Permanently delete a project and all its applications and roles."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel Create OIDC Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/oidc",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new OIDC application within a project."
+        },
+        {
+          "info": {
+            "name": "Zitadel Create API Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/api",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new API application (machine-to-machine) within a project."
+        },
+        {
+          "info": {
+            "name": "Zitadel List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/_search",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ]
+          },
+          "docs": "List all applications within a project."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get Application by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/:appId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific application configuration."
+        },
+        {
+          "info": {
+            "name": "Zitadel Remove Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/:appId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              }
+            ]
+          },
+          "docs": "Delete an application from a project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel Create Project Role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/roles",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new role within a project for access control."
+        },
+        {
+          "info": {
+            "name": "Zitadel List Project Roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/roles/_search",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ]
+          },
+          "docs": "List all roles defined in a project."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Identity Providers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel List Identity Providers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/idps/_search"
+          },
+          "docs": "List all configured external identity providers for the organization."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel Get Login Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/policies/login"
+          },
+          "docs": "Retrieve the login policy configuration for the organization."
+        },
+        {
+          "info": {
+            "name": "Zitadel Update Login Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{instance}.zitadel.cloud/management/v1/policies/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the login policy to configure allowed authentication methods."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get Password Lockout Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/policies/passwords/lockout"
+          },
+          "docs": "Retrieve the password lockout policy for the organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

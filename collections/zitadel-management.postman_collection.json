@@ -1,0 +1,4243 @@
+{
+  "item": [
+    {
+      "id": "71b3d0e9-8230-4fce-acf5-50b90af40caf",
+      "name": "Users",
+      "description": {
+        "content": "Manage human and machine users",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "194fa49c-6af4-4bb6-9409-eb2618bd49d0",
+          "name": "Zitadel List Users",
+          "request": {
+            "name": "Zitadel List Users",
+            "description": {
+              "content": "Search for users within the organization using filter criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bef4d9fe-aff1-40df-8abb-eca00979148d",
+              "name": "List of users matching the search criteria",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"offset\": \"string\",\n    \"limit\": 5781,\n    \"asc\": false\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"details\": {\n    \"totalResult\": \"string\",\n    \"processedSequence\": \"string\",\n    \"timestamp\": \"1957-05-28T08:45:47.225Z\"\n  },\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"state\": \"UNSPECIFIED\",\n      \"userName\": \"string\",\n      \"loginNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"preferredLoginName\": \"string\",\n      \"human\": {\n        \"profile\": {\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"nickName\": \"string\",\n          \"displayName\": \"string\",\n          \"preferredLanguage\": \"string\",\n          \"gender\": \"DIVERSE\",\n          \"avatarUrl\": \"string\"\n        },\n        \"email\": {\n          \"email\": \"sQkuagEw@uMBgtQqjmDnCYBMa.egx\",\n          \"isEmailVerified\": true\n        },\n        \"phone\": {\n          \"phone\": \"string\",\n          \"isPhoneVerified\": false\n        },\n        \"passwordChangeRequired\": true,\n        \"passwordChanged\": \"2017-09-21T23:30:22.501Z\"\n      },\n      \"machine\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"accessTokenType\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"state\": \"INACTIVE\",\n      \"userName\": \"string\",\n      \"loginNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"preferredLoginName\": \"string\",\n      \"human\": {\n        \"profile\": {\n          \"firstName\": \"string\",\n          \"lastName\": \"string\",\n          \"nickName\": \"string\",\n          \"displayName\": \"string\",\n          \"preferredLanguage\": \"string\",\n          \"gender\": \"FEMALE\",\n          \"avatarUrl\": \"string\"\n        },\n        \"email\": {\n          \"email\": \"76ThNt3VJPQcu6@utGPtWUkdjuyBuGVGiNtqiYfZkAgiGslD.ockk\",\n          \"isEmailVerified\": false\n        },\n        \"phone\": {\n          \"phone\": \"string\",\n          \"isPhoneVerified\": false\n        },\n        \"passwordChangeRequired\": true,\n        \"passwordChanged\": \"2024-04-16T02:39:08.767Z\"\n      },\n      \"machine\": {\n        \"name\": \"string\",\n        \"description\": \"string\",\n        \"accessTokenType\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bee24d83-1cb3-4b59-8007-7d6a91dfdb8c",
+              "name": "Unauthorized - missing or invalid authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"offset\": \"string\",\n    \"limit\": 5781,\n    \"asc\": false\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2164,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98623fda-1946-4c83-809d-b9ce5eb60ec1",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"offset\": \"string\",\n    \"limit\": 5781,\n    \"asc\": false\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2164,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70eff1ff-aed8-40b4-9465-2a28a2271dd0",
+          "name": "Zitadel Create Human User",
+          "request": {
+            "name": "Zitadel Create Human User",
+            "description": {
+              "content": "Create a new human user in the organization with profile, email, and optional password.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                "human",
+                "_create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"nickName\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"preferredLanguage\": \"<string>\",\n    \"gender\": \"<string>\",\n    \"avatarUrl\": \"<string>\"\n  },\n  \"email\": {\n    \"email\": \"<email>\",\n    \"isEmailVerified\": \"<boolean>\"\n  },\n  \"phone\": {\n    \"phone\": \"<string>\",\n    \"isPhoneVerified\": \"<boolean>\"\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b4ff535-3b44-4d05-9b9a-92135d9f939a",
+              "name": "Human user created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "human",
+                    "_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"nickName\": \"string\",\n    \"displayName\": \"string\",\n    \"preferredLanguage\": \"string\",\n    \"gender\": \"FEMALE\",\n    \"avatarUrl\": \"string\"\n  },\n  \"email\": {\n    \"email\": \"t78tj@hkXIJuAZLdVGvWhuwVygYKWrUjNMWYM.qmax\",\n    \"isEmailVerified\": true\n  },\n  \"phone\": {\n    \"phone\": \"string\",\n    \"isPhoneVerified\": true\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"details\": {\n    \"sequence\": \"string\",\n    \"creationDate\": \"1982-02-01T11:44:58.968Z\",\n    \"changeDate\": \"1949-11-08T01:02:12.133Z\",\n    \"resourceOwner\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03bf8074-c71b-456c-af8f-311ea3405332",
+              "name": "Bad request - invalid input parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "human",
+                    "_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"nickName\": \"string\",\n    \"displayName\": \"string\",\n    \"preferredLanguage\": \"string\",\n    \"gender\": \"FEMALE\",\n    \"avatarUrl\": \"string\"\n  },\n  \"email\": {\n    \"email\": \"t78tj@hkXIJuAZLdVGvWhuwVygYKWrUjNMWYM.qmax\",\n    \"isEmailVerified\": true\n  },\n  \"phone\": {\n    \"phone\": \"string\",\n    \"isPhoneVerified\": true\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2164,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b08b39a-9218-428b-b34d-5da504e3df4c",
+              "name": "Unauthorized - missing or invalid authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "human",
+                    "_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"nickName\": \"string\",\n    \"displayName\": \"string\",\n    \"preferredLanguage\": \"string\",\n    \"gender\": \"FEMALE\",\n    \"avatarUrl\": \"string\"\n  },\n  \"email\": {\n    \"email\": \"t78tj@hkXIJuAZLdVGvWhuwVygYKWrUjNMWYM.qmax\",\n    \"isEmailVerified\": true\n  },\n  \"phone\": {\n    \"phone\": \"string\",\n    \"isPhoneVerified\": true\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 554,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bb3a51d-1d59-4846-880e-e2f60faaf16a",
+          "name": "Zitadel Create Machine User",
+          "request": {
+            "name": "Zitadel Create Machine User",
+            "description": {
+              "content": "Create a new machine (service account) user for programmatic access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                "machine",
+                "_create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessTokenType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b6ef3b9c-9fab-4baa-b70a-6d5ca0f42cef",
+              "name": "Machine user created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "machine",
+                    "_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessTokenType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"details\": {\n    \"sequence\": \"string\",\n    \"creationDate\": \"1982-02-01T11:44:58.968Z\",\n    \"changeDate\": \"1949-11-08T01:02:12.133Z\",\n    \"resourceOwner\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e6a85373-25cd-4333-b3d3-60409953f81b",
+              "name": "Unauthorized - missing or invalid authentication token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    "machine",
+                    "_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessTokenType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 554,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5bec7c8-e4e8-4792-97de-1bae6b7d29ae",
+          "name": "Zitadel Get User by ID",
+          "request": {
+            "name": "Zitadel Get User by ID",
+            "description": {
+              "content": "Retrieve a user's profile and metadata by their unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a11f2a6d-30a6-4fbf-95d2-48022c203079",
+              "name": "User details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"id\": \"string\",\n    \"state\": \"UNSPECIFIED\",\n    \"userName\": \"string\",\n    \"loginNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"preferredLoginName\": \"string\",\n    \"human\": {\n      \"profile\": {\n        \"firstName\": \"string\",\n        \"lastName\": \"string\",\n        \"nickName\": \"string\",\n        \"displayName\": \"string\",\n        \"preferredLanguage\": \"string\",\n        \"gender\": \"DIVERSE\",\n        \"avatarUrl\": \"string\"\n      },\n      \"email\": {\n        \"email\": \"OBk22Ia5oS@UuygFVptMVcaePeQrDdghxCeKFk.ag\",\n        \"isEmailVerified\": true\n      },\n      \"phone\": {\n        \"phone\": \"string\",\n        \"isPhoneVerified\": true\n      },\n      \"passwordChangeRequired\": false,\n      \"passwordChanged\": \"2009-01-16T04:13:20.103Z\"\n    },\n    \"machine\": {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"accessTokenType\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddefbac2-c4a4-40f9-8a88-b61ed23cc304",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2164,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8517a5ac-b86b-4d87-8c9e-f744c99bdddf",
+          "name": "Zitadel Remove User",
+          "request": {
+            "name": "Zitadel Remove User",
+            "description": {
+              "content": "Permanently delete a user from the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97684d01-5147-4a51-a258-6f75707d4e9c",
+              "name": "User removed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d598b85-f8fb-4627-9baa-f7658c1d09c9",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 554,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4505a939-2b9b-4d01-a23e-778d00600e6d",
+          "name": "Zitadel Deactivate User",
+          "request": {
+            "name": "Zitadel Deactivate User",
+            "description": {
+              "content": "Deactivate a user account, preventing login while preserving data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0eba1c95-2415-4b8c-bf7d-f626328f6f25",
+              "name": "User deactivated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9c949cca-4700-4311-85e5-bebf4cbce4f1",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 554,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "934fb437-9aee-4340-907e-d820dd29f62f",
+          "name": "Zitadel Reactivate User",
+          "request": {
+            "name": "Zitadel Reactivate User",
+            "description": {
+              "content": "Reactivate a previously deactivated user account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId",
+                "reactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "412704e9-dea9-4018-b44a-c9445d6bea34",
+              "name": "User reactivated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "reactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6407ece9-31a1-4fb8-8035-9fea6e704229",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "reactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 554,\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "715dbef0-3074-41fa-bdd0-f6d9d8d69552",
+          "name": "Zitadel Lock User",
+          "request": {
+            "name": "Zitadel Lock User",
+            "description": {
+              "content": "Lock a user account due to suspicious activity or policy violation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId",
+                "lock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c12b7569-e7a6-4e55-9beb-f120a47185d3",
+              "name": "User locked successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "lock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e3e4972-96b2-4e0d-af2d-4ef4c4d773b8",
+          "name": "Zitadel Unlock User",
+          "request": {
+            "name": "Zitadel Unlock User",
+            "description": {
+              "content": "Unlock a previously locked user account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId",
+                "unlock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "20285a8a-7aee-455f-a39e-5d3866c2c5a2",
+              "name": "User unlocked successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "unlock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e02984f6-1d73-46a4-9c49-1ccb508658c3",
+          "name": "Zitadel Update User Email",
+          "request": {
+            "name": "Zitadel Update User Email",
+            "description": {
+              "content": "Update the email address for a user account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<email>\",\n  \"isEmailVerified\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c306ac7b-29f4-43f4-992d-128168a5487c",
+              "name": "Email updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<email>\",\n  \"isEmailVerified\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae86552e-9502-4ea3-a80a-b271e15318cb",
+          "name": "Zitadel List User Memberships",
+          "request": {
+            "name": "Zitadel List User Memberships",
+            "description": {
+              "content": "Retrieve all organization and project memberships for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "users",
+                ":userId",
+                "memberships",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c6059eb-5296-412d-927f-f6a47ec757cb",
+              "name": "List of user memberships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "users",
+                    ":userId",
+                    "memberships",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": [\n    {\n      \"userId\": \"string\",\n      \"displayName\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"creationDate\": \"2016-01-29T14:15:37.740Z\"\n    },\n    {\n      \"userId\": \"string\",\n      \"displayName\": \"string\",\n      \"roles\": [\n        \"string\",\n        \"string\"\n      ],\n      \"creationDate\": \"2010-03-04T04:04:22.017Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "486e1c28-3490-4b4c-b304-c353529ee67d",
+      "name": "Organizations",
+      "description": {
+        "content": "Manage organizations and organizational domains",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3031e56a-b570-4f33-b521-dec8ea57a5e6",
+          "name": "Zitadel List Organizations",
+          "request": {
+            "name": "Zitadel List Organizations",
+            "description": {
+              "content": "Search for organizations accessible to the caller.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "orgs",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  },\n  \"queries\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00d4888d-0de4-45ec-9866-c8543ccd0cf1",
+              "name": "List of organizations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "orgs",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"offset\": \"string\",\n    \"limit\": 1486,\n    \"asc\": true\n  },\n  \"queries\": [\n    \"<object>\",\n    \"<object>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"details\": {\n    \"totalResult\": \"string\",\n    \"processedSequence\": \"string\",\n    \"timestamp\": \"1961-03-23T01:21:14.030Z\"\n  },\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"details\": {\n        \"sequence\": \"string\",\n        \"creationDate\": \"2002-03-14T01:31:34.953Z\",\n        \"changeDate\": \"1952-04-23T05:27:44.451Z\",\n        \"resourceOwner\": \"string\"\n      },\n      \"state\": \"INACTIVE\",\n      \"name\": \"string\",\n      \"primaryDomain\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"details\": {\n        \"sequence\": \"string\",\n        \"creationDate\": \"1952-08-21T20:45:14.054Z\",\n        \"changeDate\": \"1979-04-21T05:23:32.156Z\",\n        \"resourceOwner\": \"string\"\n      },\n      \"state\": \"INACTIVE\",\n      \"name\": \"string\",\n      \"primaryDomain\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "693eb202-ae12-4fe8-b1a4-d0e88941fa48",
+          "name": "Zitadel Create Organization",
+          "request": {
+            "name": "Zitadel Create Organization",
+            "description": {
+              "content": "Create a new organization within the Zitadel instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "orgs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "63cef462-c8f2-40cd-be71-a413e76d901d",
+              "name": "Organization created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "orgs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"org\": {\n    \"id\": \"string\",\n    \"details\": {\n      \"sequence\": \"string\",\n      \"creationDate\": \"2024-05-18T14:14:33.284Z\",\n      \"changeDate\": \"1947-03-01T01:26:51.024Z\",\n      \"resourceOwner\": \"string\"\n    },\n    \"state\": \"INACTIVE\",\n    \"name\": \"string\",\n    \"primaryDomain\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c0b64bc-0a9e-4561-994d-c9ccef47dc7a",
+          "name": "Zitadel Get My Organization",
+          "request": {
+            "name": "Zitadel Get My Organization",
+            "description": {
+              "content": "Retrieve the organization associated with the caller's context.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "orgs",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27b17871-b592-4a4d-8dac-5b1ca2be482d",
+              "name": "Organization details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "orgs",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"org\": {\n    \"id\": \"string\",\n    \"details\": {\n      \"sequence\": \"string\",\n      \"creationDate\": \"2024-05-18T14:14:33.284Z\",\n      \"changeDate\": \"1947-03-01T01:26:51.024Z\",\n      \"resourceOwner\": \"string\"\n    },\n    \"state\": \"INACTIVE\",\n    \"name\": \"string\",\n    \"primaryDomain\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d57276d9-2030-4867-95a4-c543cb77029a",
+          "name": "Zitadel List Organization Members",
+          "request": {
+            "name": "Zitadel List Organization Members",
+            "description": {
+              "content": "List all members of the organization with their roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "orgs",
+                "me",
+                "members",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "262dbfbe-ec5d-4788-b7cc-a838df08c098",
+              "name": "List of organization members",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "orgs",
+                    "me",
+                    "members",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "538f1633-ce09-4032-9793-d395b7300c37",
+          "name": "Zitadel Add Organization Member",
+          "request": {
+            "name": "Zitadel Add Organization Member",
+            "description": {
+              "content": "Add a user as a member of the organization with specified roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "orgs",
+                "me",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d2ab11f3-91e4-4690-aa92-8ce3d06c0207",
+              "name": "Member added successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "orgs",
+                    "me",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "78c827f5-8c01-40c7-bd68-fff579bf184f",
+      "name": "Projects",
+      "description": {
+        "content": "Manage projects and project grants",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "638f8a22-9e3d-467c-902b-37d591995107",
+          "name": "Zitadel Create Project",
+          "request": {
+            "name": "Zitadel Create Project",
+            "description": {
+              "content": "Create a new project within the organization for grouping applications and roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ba6e211-c36f-40c0-94a4-9674c0c13aa7",
+              "name": "Project created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project\": {\n    \"id\": \"string\",\n    \"details\": {\n      \"sequence\": \"string\",\n      \"creationDate\": \"1956-04-05T21:55:56.877Z\",\n      \"changeDate\": \"2015-03-14T21:08:21.819Z\",\n      \"resourceOwner\": \"string\"\n    },\n    \"name\": \"string\",\n    \"state\": \"INACTIVE\",\n    \"projectRoleAssertion\": false,\n    \"projectRoleCheck\": false,\n    \"hasProjectCheck\": true,\n    \"privateLabelingSetting\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52b21f97-3a4e-4204-900d-323515b34662",
+          "name": "Zitadel List Projects",
+          "request": {
+            "name": "Zitadel List Projects",
+            "description": {
+              "content": "Search for projects within the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c9fa18d-7f02-455d-97f3-11bf627ec54e",
+              "name": "List of projects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"details\": {\n    \"totalResult\": \"string\",\n    \"processedSequence\": \"string\",\n    \"timestamp\": \"1989-01-01T17:04:41.174Z\"\n  },\n  \"result\": [\n    {\n      \"id\": \"string\",\n      \"details\": {\n        \"sequence\": \"string\",\n        \"creationDate\": \"1974-06-28T08:37:30.735Z\",\n        \"changeDate\": \"1963-03-02T06:15:37.239Z\",\n        \"resourceOwner\": \"string\"\n      },\n      \"name\": \"string\",\n      \"state\": \"ACTIVE\",\n      \"projectRoleAssertion\": true,\n      \"projectRoleCheck\": false,\n      \"hasProjectCheck\": false,\n      \"privateLabelingSetting\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"details\": {\n        \"sequence\": \"string\",\n        \"creationDate\": \"2006-02-27T16:11:05.344Z\",\n        \"changeDate\": \"1969-10-26T20:31:26.324Z\",\n        \"resourceOwner\": \"string\"\n      },\n      \"name\": \"string\",\n      \"state\": \"INACTIVE\",\n      \"projectRoleAssertion\": true,\n      \"projectRoleCheck\": false,\n      \"hasProjectCheck\": true,\n      \"privateLabelingSetting\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05b3b312-73bb-4dfc-a0e1-5e172ab423bb",
+          "name": "Zitadel Get Project by ID",
+          "request": {
+            "name": "Zitadel Get Project by ID",
+            "description": {
+              "content": "Retrieve a project by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1bfcdef3-f3d5-4b97-ab2d-d7d62de71baf",
+              "name": "Project details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"project\": {\n    \"id\": \"string\",\n    \"details\": {\n      \"sequence\": \"string\",\n      \"creationDate\": \"1956-04-05T21:55:56.877Z\",\n      \"changeDate\": \"2015-03-14T21:08:21.819Z\",\n      \"resourceOwner\": \"string\"\n    },\n    \"name\": \"string\",\n    \"state\": \"INACTIVE\",\n    \"projectRoleAssertion\": false,\n    \"projectRoleCheck\": false,\n    \"hasProjectCheck\": true,\n    \"privateLabelingSetting\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4527290c-8e81-4a07-ac6d-2e7fd87faa6e",
+          "name": "Zitadel Update Project",
+          "request": {
+            "name": "Zitadel Update Project",
+            "description": {
+              "content": "Update project configuration and settings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b22b3076-e686-4bf8-99f2-321f7467955e",
+              "name": "Project updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8053f964-1d57-453d-9033-25628e1dd7b7",
+          "name": "Zitadel Remove Project",
+          "request": {
+            "name": "Zitadel Remove Project",
+            "description": {
+              "content": "Permanently delete a project and all its applications and roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f519763-988a-44d8-b7c6-392ec9a4d5ad",
+              "name": "Project removed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "38ae70ff-e179-418a-8bac-04d32ba59888",
+      "name": "Applications",
+      "description": {
+        "content": "Manage OIDC, SAML, and API applications",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36280db4-2af0-44ef-8def-040ad55cd35b",
+          "name": "Zitadel Create OIDC Application",
+          "request": {
+            "name": "Zitadel Create OIDC Application",
+            "description": {
+              "content": "Create a new OIDC application within a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "apps",
+                "oidc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"responseTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grantTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"appType\": \"<string>\",\n  \"authMethodType\": \"<string>\",\n  \"postLogoutRedirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"devMode\": \"<boolean>\",\n  \"accessTokenType\": \"<string>\",\n  \"idTokenRoleAssertion\": \"<boolean>\",\n  \"idTokenUserinfoAssertion\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ea2846c-046e-4a2e-ab95-0dbf458558b6",
+              "name": "OIDC application created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "apps",
+                    "oidc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"responseTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grantTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"appType\": \"<string>\",\n  \"authMethodType\": \"<string>\",\n  \"postLogoutRedirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"devMode\": \"<boolean>\",\n  \"accessTokenType\": \"<string>\",\n  \"idTokenRoleAssertion\": \"<boolean>\",\n  \"idTokenUserinfoAssertion\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appId\": \"string\",\n  \"details\": {\n    \"sequence\": \"string\",\n    \"creationDate\": \"2002-08-13T09:31:30.948Z\",\n    \"changeDate\": \"1988-01-19T11:19:34.714Z\",\n    \"resourceOwner\": \"string\"\n  },\n  \"clientId\": \"string\",\n  \"clientSecret\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf258089-d234-4f4b-9811-05754c964ce0",
+          "name": "Zitadel Create API Application",
+          "request": {
+            "name": "Zitadel Create API Application",
+            "description": {
+              "content": "Create a new API application (machine-to-machine) within a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "apps",
+                "api"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"authMethodType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e254229b-2455-468f-8d4c-e89dd651027a",
+              "name": "API application created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "apps",
+                    "api"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"authMethodType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fbcf0ec9-506d-4e0c-afb5-6eab78bab21a",
+          "name": "Zitadel List Applications",
+          "request": {
+            "name": "Zitadel List Applications",
+            "description": {
+              "content": "List all applications within a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "apps",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f8c0ddf1-b781-4b94-8b82-bbc17fc590ba",
+              "name": "List of applications",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "apps",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "142f0493-0ab9-4b70-9e15-15d456534e43",
+          "name": "Zitadel Get Application by ID",
+          "request": {
+            "name": "Zitadel Get Application by ID",
+            "description": {
+              "content": "Retrieve a specific application configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "apps",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) Unique identifier of the application"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93ea280b-0128-4a5c-ae2d-0b534c0a0afc",
+              "name": "Application details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97f41753-1eba-406e-ad4e-ae90cabc185d",
+          "name": "Zitadel Remove Application",
+          "request": {
+            "name": "Zitadel Remove Application",
+            "description": {
+              "content": "Delete an application from a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "apps",
+                ":appId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "appId",
+                  "description": "(Required) Unique identifier of the application"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "02fa8d42-bea9-4a94-b624-d958e2cffb96",
+              "name": "Application removed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "apps",
+                    ":appId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "appId",
+                      "description": "(Required) Unique identifier of the application"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e8b060ee-8b94-42ea-b226-ec1e56bd1753",
+      "name": "Roles",
+      "description": {
+        "content": "Manage project roles and role grants",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de8b3a6f-3ab5-48ee-9ccc-a22324b620f3",
+          "name": "Zitadel Create Project Role",
+          "request": {
+            "name": "Zitadel Create Project Role",
+            "description": {
+              "content": "Create a new role within a project for access control.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "roles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleKey\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"group\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bd45b83-28ae-4e98-aa67-8413d391dc11",
+              "name": "Role created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "roles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"roleKey\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"group\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1012152a-eae8-484e-a43a-3b19d25f0c7e",
+          "name": "Zitadel List Project Roles",
+          "request": {
+            "name": "Zitadel List Project Roles",
+            "description": {
+              "content": "List all roles defined in a project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "projects",
+                ":projectId",
+                "roles",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) Unique identifier of the project"
+                },
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae3eff50-e002-4b31-a13b-8b02c5fc3650",
+              "name": "List of project roles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "projects",
+                    ":projectId",
+                    "roles",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) Unique identifier of the project"
+                    },
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "39eb4182-7d40-4f6d-b92f-8c7c8f41b746",
+      "name": "Identity Providers",
+      "description": {
+        "content": "Manage external identity provider configurations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "635d8822-a5cb-407f-b957-6f997e8b01ba",
+          "name": "Zitadel List Identity Providers",
+          "request": {
+            "name": "Zitadel List Identity Providers",
+            "description": {
+              "content": "List all configured external identity providers for the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "idps",
+                "_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c750942-5391-41ef-8e71-02ebb59adaeb",
+              "name": "List of identity providers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "idps",
+                    "_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0e6ffa0e-e036-4857-9671-0c9a67abbe1c",
+      "name": "Policies",
+      "description": {
+        "content": "Manage login, password, and notification policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fe536ed0-035b-4a72-8e1c-89e3474aa17b",
+          "name": "Zitadel Get Login Policy",
+          "request": {
+            "name": "Zitadel Get Login Policy",
+            "description": {
+              "content": "Retrieve the login policy configuration for the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "policies",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a12db0c1-c2ab-4170-9cf5-fd5dde042dce",
+              "name": "Login policy details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "policies",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allowUsernamePassword\": false,\n  \"allowRegister\": true,\n  \"allowExternalIdp\": true,\n  \"forceMfa\": true,\n  \"passwordlessType\": \"string\",\n  \"hidePasswordReset\": false,\n  \"ignoreUnknownUsernames\": true,\n  \"defaultRedirectUri\": \"string\",\n  \"passwordCheckLifetime\": \"string\",\n  \"externalLoginCheckLifetime\": \"string\",\n  \"mfaInitSkipLifetime\": \"string\",\n  \"secondFactorCheckLifetime\": \"string\",\n  \"multiFactorCheckLifetime\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "117be848-5224-4ef8-9057-a8160b60ada8",
+          "name": "Zitadel Update Login Policy",
+          "request": {
+            "name": "Zitadel Update Login Policy",
+            "description": {
+              "content": "Update the login policy to configure allowed authentication methods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "policies",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0425bd41-a340-478f-803a-4dffb385d0e6",
+              "name": "Login policy updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "policies",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41b643d0-6e56-40ef-af52-acba25c1ed0a",
+          "name": "Zitadel Get Password Lockout Policy",
+          "request": {
+            "name": "Zitadel Get Password Lockout Policy",
+            "description": {
+              "content": "Retrieve the password lockout policy for the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "policies",
+                "passwords",
+                "lockout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edb819c7-78d4-489e-b956-ceb948f63f8a",
+              "name": "Password lockout policy details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "policies",
+                    "passwords",
+                    "lockout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Zitadel cloud instance name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-instance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.zitadel.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0c8a09f7-9a08-4471-8fc2-8487d615443c",
+    "name": "Zitadel Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+      "type": "text/plain"
+    }
+  }
+}
