@@ -64,13 +64,13 @@ apis:
         url: json-structure/zitadel-management-project-structure.json
       - type: JSONStructure
         url: json-structure/zitadel-management-application-structure.json
-      - type: Example
+      - type: Examples
         url: examples/zitadel-management-list-users-example.json
-      - type: Example
+      - type: Examples
         url: examples/zitadel-management-create-human-user-example.json
-      - type: Example
+      - type: Examples
         url: examples/zitadel-management-create-organization-example.json
-      - type: Example
+      - type: Examples
         url: examples/zitadel-management-create-project-example.json
   - aid: zitadel:auth-api
     name: Zitadel Auth API
@@ -137,10 +137,10 @@ common:
     url: https://zitadel.com/docs
   - type: GitHubOrganization
     url: https://github.com/zitadel
-  - type: SDK
+  - type: SDKs
     url: https://github.com/zitadel/zitadel-go
     name: zitadel-go (Go)
-  - type: SDK
+  - type: SDKs
     url: https://github.com/zitadel/zitadel-java
     name: zitadel-java (Java)
   - type: Tools
@@ -149,7 +149,7 @@ common:
   - type: Tools
     url: https://github.com/zitadel/zitadel-charts
     name: Zitadel Helm Charts
-  - type: SignUp
+  - type: Signup
     url: https://zitadel.cloud/ui/register
   - type: Pricing
     url: https://zitadel.com/pricing
