@@ -129,6 +129,14 @@ apis:
       - type: Documentation
         url: https://zitadel.com/docs/guides/integrate/login/saml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/zitadel-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/zitadel-domain-security.yml
+  - type: Authentication
+    url: authentication/zitadel-authentication.yml
+  - url: https://zitadel.com/blog
+    type: Blog
   - type: LinkedIn
     url: https://www.linkedin.com/company/zitadel
   - type: Website
