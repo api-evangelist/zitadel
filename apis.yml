@@ -129,6 +129,8 @@ apis:
       - type: Documentation
         url: https://zitadel.com/docs/guides/integrate/login/saml
 common:
+  - type: AgenticAccess
+    url: agentic-access/zitadel-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/zitadel-vulnerability-disclosure.yml
   - type: DomainSecurity
