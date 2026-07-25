@@ -1,0 +1,50 @@
+openapi: 3.1.0
+info:
+  title: Zitadel Management Applications Identity Providers API
+  description: The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.
+  version: 1.0.0
+  contact:
+    name: Zitadel
+    url: https://zitadel.com
+  license:
+    name: GNU AGPLv3
+    url: https://github.com/zitadel/zitadel/blob/main/LICENSE
+  termsOfService: https://zitadel.com/legal/terms-of-service
+servers:
+- url: https://{instance}.zitadel.cloud
+  description: Zitadel Cloud instance
+  variables:
+    instance:
+      default: your-instance
+      description: Your Zitadel cloud instance name
+- url: https://{custom-domain}
+  description: Self-hosted Zitadel instance
+  variables:
+    custom-domain:
+      default: localhost:8080
+      description: Your self-hosted Zitadel domain
+security:
+- bearerAuth: []
+tags:
+- name: Identity Providers
+  description: Manage external identity provider configurations
+paths:
+  /management/v1/idps/_search:
+    post:
+      operationId: listIdps
+      summary: Zitadel List Identity Providers
+      description: List all configured external identity providers for the organization.
+      tags:
+      - Identity Providers
+      responses:
+        '200':
+          description: List of identity providers
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Zitadel API Reference
+  url: https://zitadel.com/docs/apis/introduction

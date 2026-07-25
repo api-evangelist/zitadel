@@ -1,0 +1,109 @@
+openapi: 3.1.0
+info:
+  title: Zitadel Management Applications Policies API
+  description: The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.
+  version: 1.0.0
+  contact:
+    name: Zitadel
+    url: https://zitadel.com
+  license:
+    name: GNU AGPLv3
+    url: https://github.com/zitadel/zitadel/blob/main/LICENSE
+  termsOfService: https://zitadel.com/legal/terms-of-service
+servers:
+- url: https://{instance}.zitadel.cloud
+  description: Zitadel Cloud instance
+  variables:
+    instance:
+      default: your-instance
+      description: Your Zitadel cloud instance name
+- url: https://{custom-domain}
+  description: Self-hosted Zitadel instance
+  variables:
+    custom-domain:
+      default: localhost:8080
+      description: Your self-hosted Zitadel domain
+security:
+- bearerAuth: []
+tags:
+- name: Policies
+  description: Manage login, password, and notification policies
+paths:
+  /management/v1/policies/login:
+    get:
+      operationId: getLoginPolicy
+      summary: Zitadel Get Login Policy
+      description: Retrieve the login policy configuration for the organization.
+      tags:
+      - Policies
+      responses:
+        '200':
+          description: Login policy details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginPolicy'
+    put:
+      operationId: updateLoginPolicy
+      summary: Zitadel Update Login Policy
+      description: Update the login policy to configure allowed authentication methods.
+      tags:
+      - Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginPolicy'
+      responses:
+        '200':
+          description: Login policy updated successfully
+  /management/v1/policies/passwords/lockout:
+    get:
+      operationId: getPasswordLockoutPolicy
+      summary: Zitadel Get Password Lockout Policy
+      description: Retrieve the password lockout policy for the organization.
+      tags:
+      - Policies
+      responses:
+        '200':
+          description: Password lockout policy details
+components:
+  schemas:
+    LoginPolicy:
+      type: object
+      properties:
+        allowUsernamePassword:
+          type: boolean
+        allowRegister:
+          type: boolean
+        allowExternalIdp:
+          type: boolean
+        forceMfa:
+          type: boolean
+        passwordlessType:
+          type: string
+        hidePasswordReset:
+          type: boolean
+        ignoreUnknownUsernames:
+          type: boolean
+        defaultRedirectUri:
+          type: string
+        passwordCheckLifetime:
+          type: string
+        externalLoginCheckLifetime:
+          type: string
+        mfaInitSkipLifetime:
+          type: string
+        secondFactorCheckLifetime:
+          type: string
+        multiFactorCheckLifetime:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Zitadel API Reference
+  url: https://zitadel.com/docs/apis/introduction

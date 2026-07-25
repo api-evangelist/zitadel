@@ -1,0 +1,205 @@
+openapi: 3.1.0
+info:
+  title: Zitadel Management Applications Organizations API
+  description: The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.
+  version: 1.0.0
+  contact:
+    name: Zitadel
+    url: https://zitadel.com
+  license:
+    name: GNU AGPLv3
+    url: https://github.com/zitadel/zitadel/blob/main/LICENSE
+  termsOfService: https://zitadel.com/legal/terms-of-service
+servers:
+- url: https://{instance}.zitadel.cloud
+  description: Zitadel Cloud instance
+  variables:
+    instance:
+      default: your-instance
+      description: Your Zitadel cloud instance name
+- url: https://{custom-domain}
+  description: Self-hosted Zitadel instance
+  variables:
+    custom-domain:
+      default: localhost:8080
+      description: Your self-hosted Zitadel domain
+security:
+- bearerAuth: []
+tags:
+- name: Organizations
+  description: Manage organizations and organizational domains
+paths:
+  /management/v1/orgs/_search:
+    post:
+      operationId: listOrganizations
+      summary: Zitadel List Organizations
+      description: Search for organizations accessible to the caller.
+      tags:
+      - Organizations
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOrgsRequest'
+      responses:
+        '200':
+          description: List of organizations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrgsResponse'
+  /management/v1/orgs:
+    post:
+      operationId: createOrganization
+      summary: Zitadel Create Organization
+      description: Create a new organization within the Zitadel instance.
+      tags:
+      - Organizations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the organization
+      responses:
+        '200':
+          description: Organization created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgResponse'
+  /management/v1/orgs/me:
+    get:
+      operationId: getMyOrg
+      summary: Zitadel Get My Organization
+      description: Retrieve the organization associated with the caller's context.
+      tags:
+      - Organizations
+      responses:
+        '200':
+          description: Organization details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgResponse'
+  /management/v1/orgs/me/members/_search:
+    post:
+      operationId: listOrgMembers
+      summary: Zitadel List Organization Members
+      description: List all members of the organization with their roles.
+      tags:
+      - Organizations
+      responses:
+        '200':
+          description: List of organization members
+  /management/v1/orgs/me/members:
+    post:
+      operationId: addOrgMember
+      summary: Zitadel Add Organization Member
+      description: Add a user as a member of the organization with specified roles.
+      tags:
+      - Organizations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                roles:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Member added successfully
+components:
+  schemas:
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: string
+        limit:
+          type: integer
+        asc:
+          type: boolean
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+        state:
+          type: string
+          enum:
+          - ACTIVE
+          - INACTIVE
+        name:
+          type: string
+        primaryDomain:
+          type: string
+    OrgResponse:
+      type: object
+      properties:
+        org:
+          $ref: '#/components/schemas/Organization'
+    ListOrgsRequest:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
+    ListOrgsResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Zitadel API Reference
+  url: https://zitadel.com/docs/apis/introduction

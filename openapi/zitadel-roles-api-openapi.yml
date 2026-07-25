@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Zitadel Management Applications Roles API
+  description: The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.
+  version: 1.0.0
+  contact:
+    name: Zitadel
+    url: https://zitadel.com
+  license:
+    name: GNU AGPLv3
+    url: https://github.com/zitadel/zitadel/blob/main/LICENSE
+  termsOfService: https://zitadel.com/legal/terms-of-service
+servers:
+- url: https://{instance}.zitadel.cloud
+  description: Zitadel Cloud instance
+  variables:
+    instance:
+      default: your-instance
+      description: Your Zitadel cloud instance name
+- url: https://{custom-domain}
+  description: Self-hosted Zitadel instance
+  variables:
+    custom-domain:
+      default: localhost:8080
+      description: Your self-hosted Zitadel domain
+security:
+- bearerAuth: []
+tags:
+- name: Roles
+  description: Manage project roles and role grants
+paths:
+  /management/v1/projects/{projectId}/roles:
+    post:
+      operationId: createProjectRole
+      summary: Zitadel Create Project Role
+      description: Create a new role within a project for access control.
+      tags:
+      - Roles
+      parameters:
+      - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - roleKey
+              - displayName
+              properties:
+                roleKey:
+                  type: string
+                displayName:
+                  type: string
+                group:
+                  type: string
+      responses:
+        '200':
+          description: Role created successfully
+  /management/v1/projects/{projectId}/roles/_search:
+    post:
+      operationId: listProjectRoles
+      summary: Zitadel List Project Roles
+      description: List all roles defined in a project.
+      tags:
+      - Roles
+      parameters:
+      - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: List of project roles
+components:
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      description: Unique identifier of the project
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Zitadel API Reference
+  url: https://zitadel.com/docs/apis/introduction
