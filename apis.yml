@@ -6,7 +6,20 @@ description: >-
   fine-grained authorization, and a comprehensive management API for building and operating identity-first applications.
   Available as cloud-hosted and self-hosted deployments.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zitadel.png
 tags:
   - Authentication
   - Authorization
@@ -19,116 +32,395 @@ created: '2026-03-25'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: zitadel:management-api
-    name: Zitadel Management API
-    description: >-
-      The Zitadel Management API provides administrative operations for managing users, organizations, projects,
-      applications, roles, policies, and identity providers within a Zitadel instance. Accessible via REST at
-      /management/v1/ and via gRPC. Supports comprehensive CRUD operations for all identity management resources.
-    humanURL: https://zitadel.com/docs/reference/api/management
-    tags:
-      - Identity Management
-      - Authentication
-      - User Management
-      - Organizations
-    properties:
-      - type: Documentation
-        url: https://zitadel.com/docs/reference/api/management
-      - type: GitHubRepository
-        url: https://github.com/zitadel/zitadel
-      - type: OpenAPI
-        url: openapi/zitadel-management-openapi.yml
-      - type: JSONSchema
-        url: json-schema/zitadel-management-user-schema.json
-      - type: JSONSchema
-        url: json-schema/zitadel-management-human-user-schema.json
-      - type: JSONSchema
-        url: json-schema/zitadel-management-machine-user-schema.json
-      - type: JSONSchema
-        url: json-schema/zitadel-management-organization-schema.json
-      - type: JSONSchema
-        url: json-schema/zitadel-management-project-schema.json
-      - type: JSONSchema
-        url: json-schema/zitadel-management-application-schema.json
-      - type: JSONSchema
-        url: json-schema/zitadel-management-object-details-schema.json
-      - type: JSONStructure
-        url: json-structure/zitadel-management-user-structure.json
-      - type: JSONStructure
-        url: json-structure/zitadel-management-human-user-structure.json
-      - type: JSONStructure
-        url: json-structure/zitadel-management-machine-user-structure.json
-      - type: JSONStructure
-        url: json-structure/zitadel-management-organization-structure.json
-      - type: JSONStructure
-        url: json-structure/zitadel-management-project-structure.json
-      - type: JSONStructure
-        url: json-structure/zitadel-management-application-structure.json
-      - type: Examples
-        url: examples/zitadel-management-list-users-example.json
-      - type: Examples
-        url: examples/zitadel-management-create-human-user-example.json
-      - type: Examples
-        url: examples/zitadel-management-create-organization-example.json
-      - type: Examples
-        url: examples/zitadel-management-create-project-example.json
-  - aid: zitadel:auth-api
-    name: Zitadel Auth API
-    description: >-
-      The Zitadel Auth API provides endpoints for authenticated users to perform operations on their own accounts,
-      including profile management, session handling, MFA setup, and personal data management. Accessible at /auth/v1/.
-    humanURL: https://zitadel.com/docs/apis/introduction
-    tags:
-      - Authentication
-      - User Profile
-      - Session Management
-      - MFA
-    properties:
-      - type: Documentation
-        url: https://zitadel.com/docs/apis/introduction
-  - aid: zitadel:admin-api
-    name: Zitadel Admin API
-    description: >-
-      The Zitadel Admin API provides instance-level configuration for Zitadel administrators. Used to configure
-      instance-wide settings, default policies, SMTP, SMS providers, and manage identity providers at the system level.
-      Accessible at /admin/v1/.
-    humanURL: https://zitadel.com/docs/apis/introduction
-    tags:
-      - Administration
-      - Identity Management
-      - Configuration
-    properties:
-      - type: Documentation
-        url: https://zitadel.com/docs/apis/introduction
-  - aid: zitadel:oidc-oauth
-    name: Zitadel OIDC / OAuth 2.0
-    description: >-
-      Zitadel implements the OpenID Connect and OAuth 2.0 standards for authentication and authorization flows. Provides
-      authorization code flow, client credentials, device code, token introspection, and userinfo endpoints. Available
-      at /oauth/v2/ and /oidc/v1/.
-    humanURL: https://zitadel.com/docs/guides/integrate/login/oidc
-    tags:
-      - OAuth 2.0
-      - OpenID Connect
-      - Authentication
-      - Authorization
-    properties:
-      - type: Documentation
-        url: https://zitadel.com/docs/guides/integrate/login/oidc
-  - aid: zitadel:saml-api
-    name: Zitadel SAML API
-    description: >-
-      Zitadel provides SAML 2.0 single sign-on support, enabling enterprises to integrate with Zitadel using SAML
-      identity federation. Accessible at /saml/v2/.
-    humanURL: https://zitadel.com/docs/guides/integrate/login/saml
-    tags:
-      - SAML
-      - Single Sign-On
-      - Authentication
-    properties:
-      - type: Documentation
-        url: https://zitadel.com/docs/guides/integrate/login/saml
+- aid: zitadel:auth-api
+  name: Zitadel Auth API
+  description: >-
+    The Zitadel Auth API provides endpoints for authenticated users to perform operations on their own
+    accounts, including profile management, session handling, MFA setup, and personal data management.
+    Accessible at /auth/v1/.
+  humanURL: https://zitadel.com/docs/apis/introduction
+  tags:
+  - Authentication
+  - User Profile
+  - Session Management
+  - MFA
+  properties:
+  - type: Documentation
+    url: https://zitadel.com/docs/apis/introduction
+- aid: zitadel:admin-api
+  name: Zitadel Admin API
+  description: >-
+    The Zitadel Admin API provides instance-level configuration for Zitadel administrators. Used to configure
+    instance-wide settings, default policies, SMTP, SMS providers, and manage identity providers at the
+    system level. Accessible at /admin/v1/.
+  humanURL: https://zitadel.com/docs/apis/introduction
+  tags:
+  - Administration
+  - Identity Management
+  - Configuration
+  properties:
+  - type: Documentation
+    url: https://zitadel.com/docs/apis/introduction
+- aid: zitadel:oidc-oauth
+  name: Zitadel OIDC / OAuth 2.0
+  description: >-
+    Zitadel implements the OpenID Connect and OAuth 2.0 standards for authentication and authorization
+    flows. Provides authorization code flow, client credentials, device code, token introspection, and
+    userinfo endpoints. Available at /oauth/v2/ and /oidc/v1/.
+  humanURL: https://zitadel.com/docs/guides/integrate/login/oidc
+  tags:
+  - OAuth 2.0
+  - OpenID Connect
+  - Authentication
+  - Authorization
+  properties:
+  - type: Documentation
+    url: https://zitadel.com/docs/guides/integrate/login/oidc
+- aid: zitadel:saml-api
+  name: Zitadel SAML API
+  description: >-
+    Zitadel provides SAML 2.0 single sign-on support, enabling enterprises to integrate with Zitadel using
+    SAML identity federation. Accessible at /saml/v2/.
+  humanURL: https://zitadel.com/docs/guides/integrate/login/saml
+  tags:
+  - SAML
+  - Single Sign-On
+  - Authentication
+  properties:
+  - type: Documentation
+    url: https://zitadel.com/docs/guides/integrate/login/saml
+- aid: zitadel:zitadel-applications-api
+  name: Zitadel Applications API
+  description: Manage OIDC, SAML, and API applications
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-applications-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
+- aid: zitadel:zitadel-identity-providers-api
+  name: Zitadel Identity Providers API
+  description: Manage external identity provider configurations
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Identity Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-identity-providers-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
+- aid: zitadel:zitadel-organizations-api
+  name: Zitadel Organizations API
+  description: Manage organizations and organizational domains
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
+- aid: zitadel:zitadel-policies-api
+  name: Zitadel Policies API
+  description: Manage login, password, and notification policies
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-policies-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
+- aid: zitadel:zitadel-projects-api
+  name: Zitadel Projects API
+  description: Manage projects and project grants
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-projects-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
+- aid: zitadel:zitadel-roles-api
+  name: Zitadel Roles API
+  description: Manage project roles and role grants
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-roles-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
+- aid: zitadel:zitadel-users-api
+  name: Zitadel Users API
+  description: Manage human and machine users
+  humanURL: https://zitadel.com/docs/reference/api/management
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/zitadel-users-api-openapi.yml
+  - type: Documentation
+    url: https://zitadel.com/docs/reference/api/management
+  - type: GitHubRepository
+    url: https://github.com/zitadel/zitadel
+  - type: JSONSchema
+    url: json-schema/zitadel-management-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-human-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-machine-user-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-organization-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-project-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-application-schema.json
+  - type: JSONSchema
+    url: json-schema/zitadel-management-object-details-schema.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-human-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-machine-user-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-organization-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-project-structure.json
+  - type: JSONStructure
+    url: json-structure/zitadel-management-application-structure.json
+  - type: Examples
+    url: examples/zitadel-management-list-users-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-human-user-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-organization-example.json
+  - type: Examples
+    url: examples/zitadel-management-create-project-example.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/zitadel/overview
   - type: AgenticAccess
     url: agentic-access/zitadel-agentic-access.yml
   - type: VulnerabilityDisclosure
