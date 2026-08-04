@@ -1,0 +1,553 @@
+{
+  "info": {
+    "_postman_id": "6b386dc3-75e2-4f0e-932a-5a230b71f092",
+    "name": "Zitadel Management Applications Organizations API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:28.000Z",
+    "updatedAt": "2026-07-28T03:38:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6b386dc3-75e2-4f0e-932a-5a230b71f092"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "orgs",
+              "item": [
+                {
+                  "name": "_search",
+                  "item": [
+                    {
+                      "name": "Zitadel List Organizations",
+                      "id": "c746caff-19e3-41ab-be60-d0e1144ea441",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/orgs/_search",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "orgs",
+                            "_search"
+                          ]
+                        },
+                        "description": "Search for organizations accessible to the caller."
+                      },
+                      "response": [
+                        {
+                          "id": "3c494ec6-3bf3-4449-bfa1-7125798f03f5",
+                          "name": "List of organizations",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/orgs/_search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "orgs",
+                                "_search"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"details\": {\n    \"totalResult\": \"<string>\",\n    \"processedSequence\": \"<string>\",\n    \"timestamp\": \"<dateTime>\"\n  },\n  \"result\": [\n    {\n      \"id\": \"<string>\",\n      \"details\": {\n        \"sequence\": \"<string>\",\n        \"creationDate\": \"<dateTime>\",\n        \"changeDate\": \"<dateTime>\",\n        \"resourceOwner\": \"<string>\"\n      },\n      \"state\": \"ACTIVE\",\n      \"name\": \"<string>\",\n      \"primaryDomain\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"details\": {\n        \"sequence\": \"<string>\",\n        \"creationDate\": \"<dateTime>\",\n        \"changeDate\": \"<dateTime>\",\n        \"resourceOwner\": \"<string>\"\n      },\n      \"state\": \"ACTIVE\",\n      \"name\": \"<string>\",\n      \"primaryDomain\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:38:28.000Z",
+                          "updatedAt": "2026-07-28T03:38:28.000Z",
+                          "uid": "35240-3c494ec6-3bf3-4449-bfa1-7125798f03f5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:28.000Z",
+                      "updatedAt": "2026-07-28T03:38:28.000Z",
+                      "uid": "35240-c746caff-19e3-41ab-be60-d0e1144ea441"
+                    }
+                  ],
+                  "id": "a3fc2573-dc29-4f44-869b-a3712a9a9e4d",
+                  "createdAt": "2026-07-28T03:38:28.000Z",
+                  "updatedAt": "2026-07-28T03:38:28.000Z",
+                  "uid": "35240-a3fc2573-dc29-4f44-869b-a3712a9a9e4d"
+                },
+                {
+                  "name": "me",
+                  "item": [
+                    {
+                      "name": "members",
+                      "item": [
+                        {
+                          "name": "_search",
+                          "item": [
+                            {
+                              "name": "Zitadel List Organization Members",
+                              "id": "3d5dcf73-22d4-4b91-b070-b511b49df9d1",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/orgs/me/members/_search",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "orgs",
+                                    "me",
+                                    "members",
+                                    "_search"
+                                  ]
+                                },
+                                "description": "List all members of the organization with their roles."
+                              },
+                              "response": [
+                                {
+                                  "id": "9f7ab85b-426b-4836-a72d-4ce1a44127a0",
+                                  "name": "List of organization members",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/orgs/me/members/_search",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "orgs",
+                                        "me",
+                                        "members",
+                                        "_search"
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:38:28.000Z",
+                                  "updatedAt": "2026-07-28T03:38:28.000Z",
+                                  "uid": "35240-9f7ab85b-426b-4836-a72d-4ce1a44127a0"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:28.000Z",
+                              "updatedAt": "2026-07-28T03:38:28.000Z",
+                              "uid": "35240-3d5dcf73-22d4-4b91-b070-b511b49df9d1"
+                            }
+                          ],
+                          "id": "c83117ab-d811-47d3-8e39-93e1e174e0bf",
+                          "createdAt": "2026-07-28T03:38:28.000Z",
+                          "updatedAt": "2026-07-28T03:38:28.000Z",
+                          "uid": "35240-c83117ab-d811-47d3-8e39-93e1e174e0bf"
+                        },
+                        {
+                          "name": "Zitadel Add Organization Member",
+                          "id": "9c42f08c-8fd2-4e54-a8e6-61cf3b66a11f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/orgs/me/members",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "orgs",
+                                "me",
+                                "members"
+                              ]
+                            },
+                            "description": "Add a user as a member of the organization with specified roles."
+                          },
+                          "response": [
+                            {
+                              "id": "c3ec2849-f246-4ae1-ac88-a9cc014713f9",
+                              "name": "Member added successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"userId\": \"<string>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/orgs/me/members",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "orgs",
+                                    "me",
+                                    "members"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:28.000Z",
+                              "updatedAt": "2026-07-28T03:38:28.000Z",
+                              "uid": "35240-c3ec2849-f246-4ae1-ac88-a9cc014713f9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:28.000Z",
+                          "updatedAt": "2026-07-28T03:38:28.000Z",
+                          "uid": "35240-9c42f08c-8fd2-4e54-a8e6-61cf3b66a11f"
+                        }
+                      ],
+                      "id": "278878ba-229f-4f01-9994-5dbc68aa0b37",
+                      "createdAt": "2026-07-28T03:38:28.000Z",
+                      "updatedAt": "2026-07-28T03:38:28.000Z",
+                      "uid": "35240-278878ba-229f-4f01-9994-5dbc68aa0b37"
+                    },
+                    {
+                      "name": "Zitadel Get My Organization",
+                      "id": "ede468b5-0872-497e-ab69-dd3d6222cf7c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/orgs/me",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "orgs",
+                            "me"
+                          ]
+                        },
+                        "description": "Retrieve the organization associated with the caller's context."
+                      },
+                      "response": [
+                        {
+                          "id": "617c9da0-c3f1-41ae-8828-10d9f962f06a",
+                          "name": "Organization details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/orgs/me",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "orgs",
+                                "me"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"org\": {\n    \"id\": \"<string>\",\n    \"details\": {\n      \"sequence\": \"<string>\",\n      \"creationDate\": \"<dateTime>\",\n      \"changeDate\": \"<dateTime>\",\n      \"resourceOwner\": \"<string>\"\n    },\n    \"state\": \"INACTIVE\",\n    \"name\": \"<string>\",\n    \"primaryDomain\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:38:28.000Z",
+                          "updatedAt": "2026-07-28T03:38:28.000Z",
+                          "uid": "35240-617c9da0-c3f1-41ae-8828-10d9f962f06a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:28.000Z",
+                      "updatedAt": "2026-07-28T03:38:28.000Z",
+                      "uid": "35240-ede468b5-0872-497e-ab69-dd3d6222cf7c"
+                    }
+                  ],
+                  "id": "b96d5a8b-5b19-435e-829e-38c41c44f53e",
+                  "createdAt": "2026-07-28T03:38:28.000Z",
+                  "updatedAt": "2026-07-28T03:38:28.000Z",
+                  "uid": "35240-b96d5a8b-5b19-435e-829e-38c41c44f53e"
+                },
+                {
+                  "name": "Zitadel Create Organization",
+                  "id": "2753e2cc-c052-4ae6-a131-a14dac020eb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/management/v1/orgs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "management",
+                        "v1",
+                        "orgs"
+                      ]
+                    },
+                    "description": "Create a new organization within the Zitadel instance."
+                  },
+                  "response": [
+                    {
+                      "id": "8ebbf8e1-08f1-4b4f-83e0-74d9c71e1be0",
+                      "name": "Organization created successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/orgs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "orgs"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"org\": {\n    \"id\": \"<string>\",\n    \"details\": {\n      \"sequence\": \"<string>\",\n      \"creationDate\": \"<dateTime>\",\n      \"changeDate\": \"<dateTime>\",\n      \"resourceOwner\": \"<string>\"\n    },\n    \"state\": \"INACTIVE\",\n    \"name\": \"<string>\",\n    \"primaryDomain\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:38:28.000Z",
+                      "updatedAt": "2026-07-28T03:38:28.000Z",
+                      "uid": "35240-8ebbf8e1-08f1-4b4f-83e0-74d9c71e1be0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:38:28.000Z",
+                  "updatedAt": "2026-07-28T03:38:28.000Z",
+                  "uid": "35240-2753e2cc-c052-4ae6-a131-a14dac020eb5"
+                }
+              ],
+              "id": "e8ae9410-3b9b-42be-a6d0-f666fbc9133e",
+              "createdAt": "2026-07-28T03:38:28.000Z",
+              "updatedAt": "2026-07-28T03:38:28.000Z",
+              "uid": "35240-e8ae9410-3b9b-42be-a6d0-f666fbc9133e"
+            }
+          ],
+          "id": "a1d7c3bb-aaef-417d-8473-9d24710226c7",
+          "createdAt": "2026-07-28T03:38:28.000Z",
+          "updatedAt": "2026-07-28T03:38:28.000Z",
+          "uid": "35240-a1d7c3bb-aaef-417d-8473-9d24710226c7"
+        }
+      ],
+      "id": "789d358f-e87a-4a56-bdb7-dbe622623cc3",
+      "createdAt": "2026-07-28T03:38:28.000Z",
+      "updatedAt": "2026-07-28T03:38:28.000Z",
+      "uid": "35240-789d358f-e87a-4a56-bdb7-dbe622623cc3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}

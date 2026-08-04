@@ -1,0 +1,328 @@
+{
+  "info": {
+    "_postman_id": "125f5fed-ffaa-49e3-afb3-d5e949fb8eed",
+    "name": "Zitadel Management Applications Policies API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:28.000Z",
+    "updatedAt": "2026-07-28T03:38:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-125f5fed-ffaa-49e3-afb3-d5e949fb8eed"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "policies",
+              "item": [
+                {
+                  "name": "login",
+                  "item": [
+                    {
+                      "name": "Zitadel Get Login Policy",
+                      "id": "ce848670-5c49-4bf2-8622-864786d22604",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/policies/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "policies",
+                            "login"
+                          ]
+                        },
+                        "description": "Retrieve the login policy configuration for the organization."
+                      },
+                      "response": [
+                        {
+                          "id": "62ef08ea-62fa-4241-bb82-6b9362e1ae78",
+                          "name": "Login policy details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/policies/login",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "policies",
+                                "login"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:38:29.000Z",
+                          "updatedAt": "2026-07-28T03:38:29.000Z",
+                          "uid": "35240-62ef08ea-62fa-4241-bb82-6b9362e1ae78"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:29.000Z",
+                      "updatedAt": "2026-07-28T03:38:29.000Z",
+                      "uid": "35240-ce848670-5c49-4bf2-8622-864786d22604"
+                    },
+                    {
+                      "name": "Zitadel Update Login Policy",
+                      "id": "be9f6984-afde-43cc-b806-a7a789a1ed82",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/policies/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "policies",
+                            "login"
+                          ]
+                        },
+                        "description": "Update the login policy to configure allowed authentication methods."
+                      },
+                      "response": [
+                        {
+                          "id": "b8348564-4abc-42de-835f-e23039197810",
+                          "name": "Login policy updated successfully",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/policies/login",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "policies",
+                                "login"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:29.000Z",
+                          "updatedAt": "2026-07-28T03:38:29.000Z",
+                          "uid": "35240-b8348564-4abc-42de-835f-e23039197810"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:29.000Z",
+                      "updatedAt": "2026-07-28T03:38:29.000Z",
+                      "uid": "35240-be9f6984-afde-43cc-b806-a7a789a1ed82"
+                    }
+                  ],
+                  "id": "827523d6-9d56-46d8-92fc-e1bc8a109af9",
+                  "createdAt": "2026-07-28T03:38:29.000Z",
+                  "updatedAt": "2026-07-28T03:38:29.000Z",
+                  "uid": "35240-827523d6-9d56-46d8-92fc-e1bc8a109af9"
+                },
+                {
+                  "name": "passwords",
+                  "item": [
+                    {
+                      "name": "lockout",
+                      "item": [
+                        {
+                          "name": "Zitadel Get Password Lockout Policy",
+                          "id": "2c7d341c-dd65-409b-92cd-fc56a3576890",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/policies/passwords/lockout",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "policies",
+                                "passwords",
+                                "lockout"
+                              ]
+                            },
+                            "description": "Retrieve the password lockout policy for the organization."
+                          },
+                          "response": [
+                            {
+                              "id": "e41f11b9-3f9b-486d-8003-0b015d7ef248",
+                              "name": "Password lockout policy details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/policies/passwords/lockout",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "policies",
+                                    "passwords",
+                                    "lockout"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:29.000Z",
+                              "updatedAt": "2026-07-28T03:38:29.000Z",
+                              "uid": "35240-e41f11b9-3f9b-486d-8003-0b015d7ef248"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:29.000Z",
+                          "updatedAt": "2026-07-28T03:38:29.000Z",
+                          "uid": "35240-2c7d341c-dd65-409b-92cd-fc56a3576890"
+                        }
+                      ],
+                      "id": "ea6082f7-87e7-406b-bbcf-1e1f377186b1",
+                      "createdAt": "2026-07-28T03:38:29.000Z",
+                      "updatedAt": "2026-07-28T03:38:29.000Z",
+                      "uid": "35240-ea6082f7-87e7-406b-bbcf-1e1f377186b1"
+                    }
+                  ],
+                  "id": "9c1f26cb-03c2-4b4a-8d63-e02a17485167",
+                  "createdAt": "2026-07-28T03:38:29.000Z",
+                  "updatedAt": "2026-07-28T03:38:29.000Z",
+                  "uid": "35240-9c1f26cb-03c2-4b4a-8d63-e02a17485167"
+                }
+              ],
+              "id": "9447cb94-61ad-4a0a-b98d-fdfe921b25cc",
+              "createdAt": "2026-07-28T03:38:29.000Z",
+              "updatedAt": "2026-07-28T03:38:29.000Z",
+              "uid": "35240-9447cb94-61ad-4a0a-b98d-fdfe921b25cc"
+            }
+          ],
+          "id": "0c370b75-6d27-4c93-80cd-4bb3bef854a0",
+          "createdAt": "2026-07-28T03:38:29.000Z",
+          "updatedAt": "2026-07-28T03:38:29.000Z",
+          "uid": "35240-0c370b75-6d27-4c93-80cd-4bb3bef854a0"
+        }
+      ],
+      "id": "4f09a805-ccef-48fb-b4e4-f7c7f520702a",
+      "createdAt": "2026-07-28T03:38:29.000Z",
+      "updatedAt": "2026-07-28T03:38:29.000Z",
+      "uid": "35240-4f09a805-ccef-48fb-b4e4-f7c7f520702a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}

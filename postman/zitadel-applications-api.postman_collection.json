@@ -1,0 +1,614 @@
+{
+  "info": {
+    "_postman_id": "e698202a-25ba-4975-978d-967c2165ef62",
+    "name": "Zitadel Management Applications API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:26.000Z",
+    "updatedAt": "2026-07-28T03:38:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e698202a-25ba-4975-978d-967c2165ef62"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "{projectId}",
+                  "item": [
+                    {
+                      "name": "apps",
+                      "item": [
+                        {
+                          "name": "oidc",
+                          "item": [
+                            {
+                              "name": "Zitadel Create OIDC Application",
+                              "id": "063c9afe-c31d-4edf-aca1-f15d1e154b64",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"responseTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grantTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"appType\": \"<string>\",\n  \"authMethodType\": \"<string>\",\n  \"postLogoutRedirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"devMode\": \"<boolean>\",\n  \"accessTokenType\": \"<string>\",\n  \"idTokenRoleAssertion\": \"<boolean>\",\n  \"idTokenUserinfoAssertion\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/oidc",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "apps",
+                                    "oidc"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "8710c99c-7361-4f13-a76c-35a83dad9a00",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the project"
+                                    }
+                                  ]
+                                },
+                                "description": "Create a new OIDC application within a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "dd22a261-4978-4e63-943c-4f60c1ccfa22",
+                                  "name": "OIDC application created successfully",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"redirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"responseTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"grantTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"appType\": \"<string>\",\n  \"authMethodType\": \"<string>\",\n  \"postLogoutRedirectUris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"devMode\": \"<boolean>\",\n  \"accessTokenType\": \"<string>\",\n  \"idTokenRoleAssertion\": \"<boolean>\",\n  \"idTokenUserinfoAssertion\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/oidc",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "apps",
+                                        "oidc"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"appId\": \"<string>\",\n  \"details\": {\n    \"sequence\": \"<string>\",\n    \"creationDate\": \"<dateTime>\",\n    \"changeDate\": \"<dateTime>\",\n    \"resourceOwner\": \"<string>\"\n  },\n  \"clientId\": \"<string>\",\n  \"clientSecret\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T03:38:26.000Z",
+                                  "updatedAt": "2026-07-28T03:38:26.000Z",
+                                  "uid": "35240-dd22a261-4978-4e63-943c-4f60c1ccfa22"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:26.000Z",
+                              "updatedAt": "2026-07-28T03:38:26.000Z",
+                              "uid": "35240-063c9afe-c31d-4edf-aca1-f15d1e154b64"
+                            }
+                          ],
+                          "id": "424736b6-e21b-49ea-91de-d87efd802c46",
+                          "createdAt": "2026-07-28T03:38:26.000Z",
+                          "updatedAt": "2026-07-28T03:38:26.000Z",
+                          "uid": "35240-424736b6-e21b-49ea-91de-d87efd802c46"
+                        },
+                        {
+                          "name": "api",
+                          "item": [
+                            {
+                              "name": "Zitadel Create API Application",
+                              "id": "8711df9d-401a-4b64-8a77-e4412448dd9b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"authMethodType\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/api",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "apps",
+                                    "api"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ecb37183-4160-426b-b51c-80a0a2daf6e9",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the project"
+                                    }
+                                  ]
+                                },
+                                "description": "Create a new API application (machine-to-machine) within a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "b09d823d-4ab1-4cf3-bf0e-8e74b0399f67",
+                                  "name": "API application created successfully",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"name\": \"<string>\",\n  \"authMethodType\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/api",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "apps",
+                                        "api"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:38:26.000Z",
+                                  "updatedAt": "2026-07-28T03:38:26.000Z",
+                                  "uid": "35240-b09d823d-4ab1-4cf3-bf0e-8e74b0399f67"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:26.000Z",
+                              "updatedAt": "2026-07-28T03:38:26.000Z",
+                              "uid": "35240-8711df9d-401a-4b64-8a77-e4412448dd9b"
+                            }
+                          ],
+                          "id": "2a30f36b-03ec-46d0-9dda-bde279882410",
+                          "createdAt": "2026-07-28T03:38:26.000Z",
+                          "updatedAt": "2026-07-28T03:38:26.000Z",
+                          "uid": "35240-2a30f36b-03ec-46d0-9dda-bde279882410"
+                        },
+                        {
+                          "name": "_search",
+                          "item": [
+                            {
+                              "name": "Zitadel List Applications",
+                              "id": "da452dc7-f3ba-4791-8645-86798b181a9a",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/_search",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "apps",
+                                    "_search"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "7244d51c-d1a3-4d0b-b36f-5eb274592efe",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the project"
+                                    }
+                                  ]
+                                },
+                                "description": "List all applications within a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "7ade8e9e-ad87-44ff-8c9f-0d0b385c4c63",
+                                  "name": "List of applications",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/_search",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "apps",
+                                        "_search"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:38:26.000Z",
+                                  "updatedAt": "2026-07-28T03:38:26.000Z",
+                                  "uid": "35240-7ade8e9e-ad87-44ff-8c9f-0d0b385c4c63"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:26.000Z",
+                              "updatedAt": "2026-07-28T03:38:26.000Z",
+                              "uid": "35240-da452dc7-f3ba-4791-8645-86798b181a9a"
+                            }
+                          ],
+                          "id": "cf57d5f4-0586-4d32-b67b-5480843387bd",
+                          "createdAt": "2026-07-28T03:38:26.000Z",
+                          "updatedAt": "2026-07-28T03:38:26.000Z",
+                          "uid": "35240-cf57d5f4-0586-4d32-b67b-5480843387bd"
+                        },
+                        {
+                          "name": "{appId}",
+                          "item": [
+                            {
+                              "name": "Zitadel Get Application by ID",
+                              "id": "c6a7178e-b587-4eaa-b343-6fe4a5490cd3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/:appId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "apps",
+                                    ":appId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "037e1800-d1f8-43a9-9696-4fda9642b1b0",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the project"
+                                    },
+                                    {
+                                      "id": "2fb37b97-5d9e-4ef7-bf1f-8b2a126ab09a",
+                                      "key": "appId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the application"
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieve a specific application configuration."
+                              },
+                              "response": [
+                                {
+                                  "id": "82b14b9e-c9fb-4025-b947-c8feb0992339",
+                                  "name": "Application details",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/:appId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "apps",
+                                        ":appId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "appId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:38:26.000Z",
+                                  "updatedAt": "2026-07-28T03:38:26.000Z",
+                                  "uid": "35240-82b14b9e-c9fb-4025-b947-c8feb0992339"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:26.000Z",
+                              "updatedAt": "2026-07-28T03:38:26.000Z",
+                              "uid": "35240-c6a7178e-b587-4eaa-b343-6fe4a5490cd3"
+                            },
+                            {
+                              "name": "Zitadel Remove Application",
+                              "id": "25e7c3a3-28de-4e26-a78f-4c9eaaa91958",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/:appId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "apps",
+                                    ":appId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b25c82a0-502b-436d-aacb-00c86b77e0d8",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the project"
+                                    },
+                                    {
+                                      "id": "99ee4a66-ed31-423c-98ff-e33da9c0a910",
+                                      "key": "appId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the application"
+                                    }
+                                  ]
+                                },
+                                "description": "Delete an application from a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "42189ed8-bce1-4df4-a477-d0e6a9da7655",
+                                  "name": "Application removed successfully",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/projects/:projectId/apps/:appId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "apps",
+                                        ":appId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        },
+                                        {
+                                          "key": "appId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:38:26.000Z",
+                                  "updatedAt": "2026-07-28T03:38:26.000Z",
+                                  "uid": "35240-42189ed8-bce1-4df4-a477-d0e6a9da7655"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:26.000Z",
+                              "updatedAt": "2026-07-28T03:38:26.000Z",
+                              "uid": "35240-25e7c3a3-28de-4e26-a78f-4c9eaaa91958"
+                            }
+                          ],
+                          "id": "10504688-6ab5-422d-8ac8-0a3820fdd726",
+                          "createdAt": "2026-07-28T03:38:26.000Z",
+                          "updatedAt": "2026-07-28T03:38:26.000Z",
+                          "uid": "35240-10504688-6ab5-422d-8ac8-0a3820fdd726"
+                        }
+                      ],
+                      "id": "406e4b16-0e18-43ad-acde-b602b4fc9432",
+                      "createdAt": "2026-07-28T03:38:26.000Z",
+                      "updatedAt": "2026-07-28T03:38:26.000Z",
+                      "uid": "35240-406e4b16-0e18-43ad-acde-b602b4fc9432"
+                    }
+                  ],
+                  "id": "7ce7d0d7-6eac-4412-bc42-c697dbf4ce9d",
+                  "createdAt": "2026-07-28T03:38:26.000Z",
+                  "updatedAt": "2026-07-28T03:38:26.000Z",
+                  "uid": "35240-7ce7d0d7-6eac-4412-bc42-c697dbf4ce9d"
+                }
+              ],
+              "id": "bb0d8a49-1e59-4a30-9e4a-b67dd5be5ee6",
+              "createdAt": "2026-07-28T03:38:26.000Z",
+              "updatedAt": "2026-07-28T03:38:26.000Z",
+              "uid": "35240-bb0d8a49-1e59-4a30-9e4a-b67dd5be5ee6"
+            }
+          ],
+          "id": "56879793-5712-46e2-aa65-1c23fae141c1",
+          "createdAt": "2026-07-28T03:38:26.000Z",
+          "updatedAt": "2026-07-28T03:38:26.000Z",
+          "uid": "35240-56879793-5712-46e2-aa65-1c23fae141c1"
+        }
+      ],
+      "id": "72cc12be-e3ec-425b-81cd-c20692ff7d2b",
+      "createdAt": "2026-07-28T03:38:26.000Z",
+      "updatedAt": "2026-07-28T03:38:26.000Z",
+      "uid": "35240-72cc12be-e3ec-425b-81cd-c20692ff7d2b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}

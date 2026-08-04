@@ -1,0 +1,26 @@
+{
+  "provider": "zitadel",
+  "sources": [
+    "zitadel-applications-api-openapi.yml",
+    "zitadel-identity-providers-api-openapi.yml",
+    "zitadel-organizations-api-openapi.yml",
+    "zitadel-policies-api-openapi.yml",
+    "zitadel-projects-api-openapi.yml",
+    "zitadel-roles-api-openapi.yml",
+    "zitadel-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "zitadel-applications-api-openapi.yml",
+    "zitadel-identity-providers-api-openapi.yml",
+    "zitadel-organizations-api-openapi.yml",
+    "zitadel-policies-api-openapi.yml",
+    "zitadel-projects-api-openapi.yml",
+    "zitadel-roles-api-openapi.yml",
+    "zitadel-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

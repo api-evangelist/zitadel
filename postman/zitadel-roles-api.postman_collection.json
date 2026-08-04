@@ -1,0 +1,279 @@
+{
+  "info": {
+    "_postman_id": "4d2d203e-74f6-4d67-ad9e-2c85d944876e",
+    "name": "Zitadel Management Applications Roles API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:47.000Z",
+    "updatedAt": "2026-07-28T03:38:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4d2d203e-74f6-4d67-ad9e-2c85d944876e"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "{projectId}",
+                  "item": [
+                    {
+                      "name": "roles",
+                      "item": [
+                        {
+                          "name": "_search",
+                          "item": [
+                            {
+                              "name": "Zitadel List Project Roles",
+                              "id": "919c732d-b087-4450-9ee9-27a98550fa34",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/roles/_search",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "roles",
+                                    "_search"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "e60c8ae4-b6a4-4fe0-aabc-b51c2afa97a7",
+                                      "key": "projectId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the project"
+                                    }
+                                  ]
+                                },
+                                "description": "List all roles defined in a project."
+                              },
+                              "response": [
+                                {
+                                  "id": "2a3acc01-5848-41cd-8fa8-6067c9c583e4",
+                                  "name": "List of project roles",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/projects/:projectId/roles/_search",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "projects",
+                                        ":projectId",
+                                        "roles",
+                                        "_search"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "projectId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T03:38:47.000Z",
+                                  "updatedAt": "2026-07-28T03:38:47.000Z",
+                                  "uid": "35240-2a3acc01-5848-41cd-8fa8-6067c9c583e4"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:47.000Z",
+                              "updatedAt": "2026-07-28T03:38:47.000Z",
+                              "uid": "35240-919c732d-b087-4450-9ee9-27a98550fa34"
+                            }
+                          ],
+                          "id": "b7d58865-361a-43f4-8051-91b845e910c0",
+                          "createdAt": "2026-07-28T03:38:47.000Z",
+                          "updatedAt": "2026-07-28T03:38:47.000Z",
+                          "uid": "35240-b7d58865-361a-43f4-8051-91b845e910c0"
+                        },
+                        {
+                          "name": "Zitadel Create Project Role",
+                          "id": "6456f0b5-07b0-4c65-a9b2-d7997870acf3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"roleKey\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"group\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/projects/:projectId/roles",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "projects",
+                                ":projectId",
+                                "roles"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c1d9665f-48ac-4dd6-b592-64d6526cfcd5",
+                                  "key": "projectId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the project"
+                                }
+                              ]
+                            },
+                            "description": "Create a new role within a project for access control."
+                          },
+                          "response": [
+                            {
+                              "id": "a8a8d6f1-efb5-4861-a68a-f95f8a2c76bb",
+                              "name": "Role created successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"roleKey\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"group\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/projects/:projectId/roles",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "projects",
+                                    ":projectId",
+                                    "roles"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "projectId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:47.000Z",
+                              "updatedAt": "2026-07-28T03:38:47.000Z",
+                              "uid": "35240-a8a8d6f1-efb5-4861-a68a-f95f8a2c76bb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:47.000Z",
+                          "updatedAt": "2026-07-28T03:38:47.000Z",
+                          "uid": "35240-6456f0b5-07b0-4c65-a9b2-d7997870acf3"
+                        }
+                      ],
+                      "id": "6e14f0e6-2acc-4bcb-bf71-81213d6f319b",
+                      "createdAt": "2026-07-28T03:38:47.000Z",
+                      "updatedAt": "2026-07-28T03:38:47.000Z",
+                      "uid": "35240-6e14f0e6-2acc-4bcb-bf71-81213d6f319b"
+                    }
+                  ],
+                  "id": "58864f8b-0849-4a5b-9d7c-b1c21e07185b",
+                  "createdAt": "2026-07-28T03:38:47.000Z",
+                  "updatedAt": "2026-07-28T03:38:47.000Z",
+                  "uid": "35240-58864f8b-0849-4a5b-9d7c-b1c21e07185b"
+                }
+              ],
+              "id": "140869ea-0d07-4944-bee0-1d3c2185bff0",
+              "createdAt": "2026-07-28T03:38:47.000Z",
+              "updatedAt": "2026-07-28T03:38:47.000Z",
+              "uid": "35240-140869ea-0d07-4944-bee0-1d3c2185bff0"
+            }
+          ],
+          "id": "b94c5b09-6a95-4f72-88c4-705578553ff6",
+          "createdAt": "2026-07-28T03:38:47.000Z",
+          "updatedAt": "2026-07-28T03:38:47.000Z",
+          "uid": "35240-b94c5b09-6a95-4f72-88c4-705578553ff6"
+        }
+      ],
+      "id": "1067764b-3b29-4eb1-93eb-d76b78898103",
+      "createdAt": "2026-07-28T03:38:47.000Z",
+      "updatedAt": "2026-07-28T03:38:47.000Z",
+      "uid": "35240-1067764b-3b29-4eb1-93eb-d76b78898103"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}

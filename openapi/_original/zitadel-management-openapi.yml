@@ -1,0 +1,1044 @@
+openapi: 3.1.0
+info:
+  title: Zitadel Management API
+  description: >-
+    The Zitadel Management API provides comprehensive identity infrastructure management
+    including users, organizations, projects, applications, roles, policies, and identity
+    providers. Accessible via REST at /management/v1/ with gRPC transcoding support.
+    Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM,
+    FIDO2, and passkeys.
+  version: 1.0.0
+  contact:
+    name: Zitadel
+    url: https://zitadel.com
+  license:
+    name: GNU AGPLv3
+    url: https://github.com/zitadel/zitadel/blob/main/LICENSE
+  termsOfService: https://zitadel.com/legal/terms-of-service
+externalDocs:
+  description: Zitadel API Reference
+  url: https://zitadel.com/docs/apis/introduction
+servers:
+  - url: https://{instance}.zitadel.cloud
+    description: Zitadel Cloud instance
+    variables:
+      instance:
+        default: your-instance
+        description: Your Zitadel cloud instance name
+  - url: https://{custom-domain}
+    description: Self-hosted Zitadel instance
+    variables:
+      custom-domain:
+        default: localhost:8080
+        description: Your self-hosted Zitadel domain
+security:
+  - bearerAuth: []
+tags:
+  - name: Users
+    description: Manage human and machine users
+  - name: Organizations
+    description: Manage organizations and organizational domains
+  - name: Projects
+    description: Manage projects and project grants
+  - name: Applications
+    description: Manage OIDC, SAML, and API applications
+  - name: Roles
+    description: Manage project roles and role grants
+  - name: Identity Providers
+    description: Manage external identity provider configurations
+  - name: Policies
+    description: Manage login, password, and notification policies
+paths:
+  /management/v1/users/_search:
+    post:
+      operationId: listUsers
+      summary: Zitadel List Users
+      description: Search for users within the organization using filter criteria.
+      tags:
+        - Users
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListUsersRequest'
+      responses:
+        '200':
+          description: List of users matching the search criteria
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListUsersResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+  /management/v1/users/human/_create:
+    post:
+      operationId: createHumanUser
+      summary: Zitadel Create Human User
+      description: Create a new human user in the organization with profile, email, and optional password.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateHumanUserRequest'
+      responses:
+        '200':
+          description: Human user created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /management/v1/users/machine/_create:
+    post:
+      operationId: createMachineUser
+      summary: Zitadel Create Machine User
+      description: Create a new machine (service account) user for programmatic access.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMachineUserRequest'
+      responses:
+        '200':
+          description: Machine user created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUserResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /management/v1/users/{userId}:
+    get:
+      operationId: getUserById
+      summary: Zitadel Get User by ID
+      description: Retrieve a user's profile and metadata by their unique identifier.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: removeUser
+      summary: Zitadel Remove User
+      description: Permanently delete a user from the organization.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User removed successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /management/v1/users/{userId}/deactivate:
+    post:
+      operationId: deactivateUser
+      summary: Zitadel Deactivate User
+      description: Deactivate a user account, preventing login while preserving data.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User deactivated successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /management/v1/users/{userId}/reactivate:
+    post:
+      operationId: reactivateUser
+      summary: Zitadel Reactivate User
+      description: Reactivate a previously deactivated user account.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User reactivated successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /management/v1/users/{userId}/lock:
+    post:
+      operationId: lockUser
+      summary: Zitadel Lock User
+      description: Lock a user account due to suspicious activity or policy violation.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User locked successfully
+  /management/v1/users/{userId}/unlock:
+    post:
+      operationId: unlockUser
+      summary: Zitadel Unlock User
+      description: Unlock a previously locked user account.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: User unlocked successfully
+  /management/v1/users/{userId}/email:
+    put:
+      operationId: updateUserEmail
+      summary: Zitadel Update User Email
+      description: Update the email address for a user account.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                isEmailVerified:
+                  type: boolean
+      responses:
+        '200':
+          description: Email updated successfully
+  /management/v1/users/{userId}/memberships/_search:
+    post:
+      operationId: listUserMemberships
+      summary: Zitadel List User Memberships
+      description: Retrieve all organization and project memberships for a user.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: List of user memberships
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Membership'
+  /management/v1/orgs/_search:
+    post:
+      operationId: listOrganizations
+      summary: Zitadel List Organizations
+      description: Search for organizations accessible to the caller.
+      tags:
+        - Organizations
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListOrgsRequest'
+      responses:
+        '200':
+          description: List of organizations
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrgsResponse'
+  /management/v1/orgs:
+    post:
+      operationId: createOrganization
+      summary: Zitadel Create Organization
+      description: Create a new organization within the Zitadel instance.
+      tags:
+        - Organizations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the organization
+      responses:
+        '200':
+          description: Organization created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgResponse'
+  /management/v1/orgs/me:
+    get:
+      operationId: getMyOrg
+      summary: Zitadel Get My Organization
+      description: Retrieve the organization associated with the caller's context.
+      tags:
+        - Organizations
+      responses:
+        '200':
+          description: Organization details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrgResponse'
+  /management/v1/orgs/me/members/_search:
+    post:
+      operationId: listOrgMembers
+      summary: Zitadel List Organization Members
+      description: List all members of the organization with their roles.
+      tags:
+        - Organizations
+      responses:
+        '200':
+          description: List of organization members
+  /management/v1/orgs/me/members:
+    post:
+      operationId: addOrgMember
+      summary: Zitadel Add Organization Member
+      description: Add a user as a member of the organization with specified roles.
+      tags:
+        - Organizations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userId:
+                  type: string
+                roles:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Member added successfully
+  /management/v1/projects:
+    post:
+      operationId: createProject
+      summary: Zitadel Create Project
+      description: Create a new project within the organization for grouping applications and roles.
+      tags:
+        - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      responses:
+        '200':
+          description: Project created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResponse'
+  /management/v1/projects/_search:
+    post:
+      operationId: listProjects
+      summary: Zitadel List Projects
+      description: Search for projects within the organization.
+      tags:
+        - Projects
+      responses:
+        '200':
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListProjectsResponse'
+  /management/v1/projects/{projectId}:
+    get:
+      operationId: getProjectById
+      summary: Zitadel Get Project by ID
+      description: Retrieve a project by its unique identifier.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: Project details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectResponse'
+    put:
+      operationId: updateProject
+      summary: Zitadel Update Project
+      description: Update project configuration and settings.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      responses:
+        '200':
+          description: Project updated successfully
+    delete:
+      operationId: removeProject
+      summary: Zitadel Remove Project
+      description: Permanently delete a project and all its applications and roles.
+      tags:
+        - Projects
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: Project removed successfully
+  /management/v1/projects/{projectId}/apps/oidc:
+    post:
+      operationId: createOidcApp
+      summary: Zitadel Create OIDC Application
+      description: Create a new OIDC application within a project.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOidcAppRequest'
+      responses:
+        '200':
+          description: OIDC application created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppResponse'
+  /management/v1/projects/{projectId}/apps/api:
+    post:
+      operationId: createApiApp
+      summary: Zitadel Create API Application
+      description: Create a new API application (machine-to-machine) within a project.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateApiAppRequest'
+      responses:
+        '200':
+          description: API application created successfully
+  /management/v1/projects/{projectId}/apps/_search:
+    post:
+      operationId: listApps
+      summary: Zitadel List Applications
+      description: List all applications within a project.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: List of applications
+  /management/v1/projects/{projectId}/apps/{appId}:
+    get:
+      operationId: getAppById
+      summary: Zitadel Get Application by ID
+      description: Retrieve a specific application configuration.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/AppId'
+      responses:
+        '200':
+          description: Application details
+    delete:
+      operationId: removeApp
+      summary: Zitadel Remove Application
+      description: Delete an application from a project.
+      tags:
+        - Applications
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/AppId'
+      responses:
+        '200':
+          description: Application removed successfully
+  /management/v1/projects/{projectId}/roles:
+    post:
+      operationId: createProjectRole
+      summary: Zitadel Create Project Role
+      description: Create a new role within a project for access control.
+      tags:
+        - Roles
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - roleKey
+                - displayName
+              properties:
+                roleKey:
+                  type: string
+                displayName:
+                  type: string
+                group:
+                  type: string
+      responses:
+        '200':
+          description: Role created successfully
+  /management/v1/projects/{projectId}/roles/_search:
+    post:
+      operationId: listProjectRoles
+      summary: Zitadel List Project Roles
+      description: List all roles defined in a project.
+      tags:
+        - Roles
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: List of project roles
+  /management/v1/idps/_search:
+    post:
+      operationId: listIdps
+      summary: Zitadel List Identity Providers
+      description: List all configured external identity providers for the organization.
+      tags:
+        - Identity Providers
+      responses:
+        '200':
+          description: List of identity providers
+  /management/v1/policies/login:
+    get:
+      operationId: getLoginPolicy
+      summary: Zitadel Get Login Policy
+      description: Retrieve the login policy configuration for the organization.
+      tags:
+        - Policies
+      responses:
+        '200':
+          description: Login policy details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginPolicy'
+    put:
+      operationId: updateLoginPolicy
+      summary: Zitadel Update Login Policy
+      description: Update the login policy to configure allowed authentication methods.
+      tags:
+        - Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginPolicy'
+      responses:
+        '200':
+          description: Login policy updated successfully
+  /management/v1/policies/passwords/lockout:
+    get:
+      operationId: getPasswordLockoutPolicy
+      summary: Zitadel Get Password Lockout Policy
+      description: Retrieve the password lockout policy for the organization.
+      tags:
+        - Policies
+      responses:
+        '200':
+          description: Password lockout policy details
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: Unique identifier of the user
+      schema:
+        type: string
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      description: Unique identifier of the project
+      schema:
+        type: string
+    AppId:
+      name: appId
+      in: path
+      required: true
+      description: Unique identifier of the application
+      schema:
+        type: string
+  responses:
+    BadRequest:
+      description: Bad request - invalid input parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - missing or invalid authentication token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the user
+        state:
+          type: string
+          enum:
+            - UNSPECIFIED
+            - ACTIVE
+            - INACTIVE
+            - LOCKED
+            - DELETED
+            - INITIAL
+        userName:
+          type: string
+        loginNames:
+          type: array
+          items:
+            type: string
+        preferredLoginName:
+          type: string
+        human:
+          $ref: '#/components/schemas/HumanUser'
+        machine:
+          $ref: '#/components/schemas/MachineUser'
+    HumanUser:
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        passwordChangeRequired:
+          type: boolean
+        passwordChanged:
+          type: string
+          format: date-time
+    HumanProfile:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        nickName:
+          type: string
+        displayName:
+          type: string
+        preferredLanguage:
+          type: string
+        gender:
+          type: string
+          enum:
+            - UNSPECIFIED
+            - FEMALE
+            - MALE
+            - DIVERSE
+        avatarUrl:
+          type: string
+    HumanEmail:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        isEmailVerified:
+          type: boolean
+    HumanPhone:
+      type: object
+      properties:
+        phone:
+          type: string
+        isPhoneVerified:
+          type: boolean
+    MachineUser:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        accessTokenType:
+          type: string
+    CreateHumanUserRequest:
+      type: object
+      required:
+        - userName
+      properties:
+        userName:
+          type: string
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        password:
+          type: string
+        passwordChangeRequired:
+          type: boolean
+    CreateMachineUserRequest:
+      type: object
+      required:
+        - userName
+        - name
+      properties:
+        userName:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        accessTokenType:
+          type: string
+    CreateUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+    ListUsersRequest:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
+            properties:
+              userNameQuery:
+                type: object
+                properties:
+                  userName:
+                    type: string
+                  method:
+                    type: string
+              emailQuery:
+                type: object
+                properties:
+                  emailAddress:
+                    type: string
+    ListUsersResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    UserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+        state:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+        name:
+          type: string
+        primaryDomain:
+          type: string
+    OrgResponse:
+      type: object
+      properties:
+        org:
+          $ref: '#/components/schemas/Organization'
+    ListOrgsRequest:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
+    ListOrgsResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Organization'
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+        name:
+          type: string
+        state:
+          type: string
+          enum:
+            - ACTIVE
+            - INACTIVE
+        projectRoleAssertion:
+          type: boolean
+        projectRoleCheck:
+          type: boolean
+        hasProjectCheck:
+          type: boolean
+        privateLabelingSetting:
+          type: string
+    CreateProjectRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        projectRoleAssertion:
+          type: boolean
+        projectRoleCheck:
+          type: boolean
+        hasProjectCheck:
+          type: boolean
+    ProjectResponse:
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/Project'
+    ListProjectsResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+        name:
+          type: string
+        state:
+          type: string
+    CreateOidcAppRequest:
+      type: object
+      required:
+        - name
+        - redirectUris
+        - responseTypes
+        - grantTypes
+      properties:
+        name:
+          type: string
+        redirectUris:
+          type: array
+          items:
+            type: string
+        responseTypes:
+          type: array
+          items:
+            type: string
+        grantTypes:
+          type: array
+          items:
+            type: string
+        appType:
+          type: string
+        authMethodType:
+          type: string
+        postLogoutRedirectUris:
+          type: array
+          items:
+            type: string
+        devMode:
+          type: boolean
+        accessTokenType:
+          type: string
+        idTokenRoleAssertion:
+          type: boolean
+        idTokenUserinfoAssertion:
+          type: boolean
+    CreateApiAppRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        authMethodType:
+          type: string
+    AppResponse:
+      type: object
+      properties:
+        appId:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+    Membership:
+      type: object
+      properties:
+        userId:
+          type: string
+        displayName:
+          type: string
+        roles:
+          type: array
+          items:
+            type: string
+        creationDate:
+          type: string
+          format: date-time
+    LoginPolicy:
+      type: object
+      properties:
+        allowUsernamePassword:
+          type: boolean
+        allowRegister:
+          type: boolean
+        allowExternalIdp:
+          type: boolean
+        forceMfa:
+          type: boolean
+        passwordlessType:
+          type: string
+        hidePasswordReset:
+          type: boolean
+        ignoreUnknownUsernames:
+          type: boolean
+        defaultRedirectUri:
+          type: string
+        passwordCheckLifetime:
+          type: string
+        externalLoginCheckLifetime:
+          type: string
+        mfaInitSkipLifetime:
+          type: string
+        secondFactorCheckLifetime:
+          type: string
+        multiFactorCheckLifetime:
+          type: string
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: string
+        limit:
+          type: integer
+        asc:
+          type: boolean

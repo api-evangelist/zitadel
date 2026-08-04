@@ -1,0 +1,1713 @@
+{
+  "info": {
+    "_postman_id": "0917008a-5801-4b74-bdf1-5e6a00167de2",
+    "name": "Zitadel Management Applications Users API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:48.000Z",
+    "updatedAt": "2026-07-28T03:38:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0917008a-5801-4b74-bdf1-5e6a00167de2"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "users",
+              "item": [
+                {
+                  "name": "_search",
+                  "item": [
+                    {
+                      "name": "Zitadel List Users",
+                      "id": "e0c83f35-1706-450e-b972-63d17779b945",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/users/_search",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "users",
+                            "_search"
+                          ]
+                        },
+                        "description": "Search for users within the organization using filter criteria."
+                      },
+                      "response": [
+                        {
+                          "id": "d91a4aaf-9292-4e7f-854f-e5786666b5db",
+                          "name": "List of users matching the search criteria",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/_search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                "_search"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"details\": {\n    \"totalResult\": \"<string>\",\n    \"processedSequence\": \"<string>\",\n    \"timestamp\": \"<dateTime>\"\n  },\n  \"result\": [\n    {\n      \"id\": \"<string>\",\n      \"state\": \"INACTIVE\",\n      \"userName\": \"<string>\",\n      \"loginNames\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"preferredLoginName\": \"<string>\",\n      \"human\": {\n        \"profile\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"nickName\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"preferredLanguage\": \"<string>\",\n          \"gender\": \"DIVERSE\",\n          \"avatarUrl\": \"<string>\"\n        },\n        \"email\": {\n          \"email\": \"<email>\",\n          \"isEmailVerified\": \"<boolean>\"\n        },\n        \"phone\": {\n          \"phone\": \"<string>\",\n          \"isPhoneVerified\": \"<boolean>\"\n        },\n        \"passwordChangeRequired\": \"<boolean>\",\n        \"passwordChanged\": \"<dateTime>\"\n      },\n      \"machine\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"accessTokenType\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"state\": \"ACTIVE\",\n      \"userName\": \"<string>\",\n      \"loginNames\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"preferredLoginName\": \"<string>\",\n      \"human\": {\n        \"profile\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"nickName\": \"<string>\",\n          \"displayName\": \"<string>\",\n          \"preferredLanguage\": \"<string>\",\n          \"gender\": \"UNSPECIFIED\",\n          \"avatarUrl\": \"<string>\"\n        },\n        \"email\": {\n          \"email\": \"<email>\",\n          \"isEmailVerified\": \"<boolean>\"\n        },\n        \"phone\": {\n          \"phone\": \"<string>\",\n          \"isPhoneVerified\": \"<boolean>\"\n        },\n        \"passwordChangeRequired\": \"<boolean>\",\n        \"passwordChanged\": \"<dateTime>\"\n      },\n      \"machine\": {\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"accessTokenType\": \"<string>\"\n      }\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-d91a4aaf-9292-4e7f-854f-e5786666b5db"
+                        },
+                        {
+                          "id": "71cbe7f5-ae1c-422f-bb84-bef37bbcab03",
+                          "name": "Unauthorized - missing or invalid authentication token",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/_search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                "_search"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-71cbe7f5-ae1c-422f-bb84-bef37bbcab03"
+                        },
+                        {
+                          "id": "819447c7-b805-4bcd-8630-896e64c37b89",
+                          "name": "Forbidden - insufficient permissions",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"query\": {\n    \"offset\": \"<string>\",\n    \"limit\": \"<integer>\",\n    \"asc\": \"<boolean>\"\n  },\n  \"queries\": [\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    },\n    {\n      \"userNameQuery\": {\n        \"userName\": \"<string>\",\n        \"method\": \"<string>\"\n      },\n      \"emailQuery\": {\n        \"emailAddress\": \"<string>\"\n      }\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/_search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                "_search"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-819447c7-b805-4bcd-8630-896e64c37b89"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-e0c83f35-1706-450e-b972-63d17779b945"
+                    }
+                  ],
+                  "id": "f58e151e-3977-4bf3-ba7c-5d02f0e3b604",
+                  "createdAt": "2026-07-28T03:38:48.000Z",
+                  "updatedAt": "2026-07-28T03:38:48.000Z",
+                  "uid": "35240-f58e151e-3977-4bf3-ba7c-5d02f0e3b604"
+                },
+                {
+                  "name": "human",
+                  "item": [
+                    {
+                      "name": "_create",
+                      "item": [
+                        {
+                          "name": "Zitadel Create Human User",
+                          "id": "8c83bfdb-1c40-4d7f-8ef7-095bc13aa7fa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"nickName\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"preferredLanguage\": \"<string>\",\n    \"gender\": \"DIVERSE\",\n    \"avatarUrl\": \"<string>\"\n  },\n  \"email\": {\n    \"email\": \"<email>\",\n    \"isEmailVerified\": \"<boolean>\"\n  },\n  \"phone\": {\n    \"phone\": \"<string>\",\n    \"isPhoneVerified\": \"<boolean>\"\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/human/_create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                "human",
+                                "_create"
+                              ]
+                            },
+                            "description": "Create a new human user in the organization with profile, email, and optional password."
+                          },
+                          "response": [
+                            {
+                              "id": "6814fc7c-c457-48c2-a353-04bf5b69b5f4",
+                              "name": "Human user created successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"nickName\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"preferredLanguage\": \"<string>\",\n    \"gender\": \"DIVERSE\",\n    \"avatarUrl\": \"<string>\"\n  },\n  \"email\": {\n    \"email\": \"<email>\",\n    \"isEmailVerified\": \"<boolean>\"\n  },\n  \"phone\": {\n    \"phone\": \"<string>\",\n    \"isPhoneVerified\": \"<boolean>\"\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/human/_create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    "human",
+                                    "_create"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"userId\": \"<string>\",\n  \"details\": {\n    \"sequence\": \"<string>\",\n    \"creationDate\": \"<dateTime>\",\n    \"changeDate\": \"<dateTime>\",\n    \"resourceOwner\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-6814fc7c-c457-48c2-a353-04bf5b69b5f4"
+                            },
+                            {
+                              "id": "f1345ac9-41de-4744-bc15-d29e9a8e8293",
+                              "name": "Bad request - invalid input parameters",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"nickName\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"preferredLanguage\": \"<string>\",\n    \"gender\": \"DIVERSE\",\n    \"avatarUrl\": \"<string>\"\n  },\n  \"email\": {\n    \"email\": \"<email>\",\n    \"isEmailVerified\": \"<boolean>\"\n  },\n  \"phone\": {\n    \"phone\": \"<string>\",\n    \"isPhoneVerified\": \"<boolean>\"\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/human/_create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    "human",
+                                    "_create"
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-f1345ac9-41de-4744-bc15-d29e9a8e8293"
+                            },
+                            {
+                              "id": "42f33298-4a30-462e-ae8c-54f5d2758483",
+                              "name": "Unauthorized - missing or invalid authentication token",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"userName\": \"<string>\",\n  \"profile\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"nickName\": \"<string>\",\n    \"displayName\": \"<string>\",\n    \"preferredLanguage\": \"<string>\",\n    \"gender\": \"DIVERSE\",\n    \"avatarUrl\": \"<string>\"\n  },\n  \"email\": {\n    \"email\": \"<email>\",\n    \"isEmailVerified\": \"<boolean>\"\n  },\n  \"phone\": {\n    \"phone\": \"<string>\",\n    \"isPhoneVerified\": \"<boolean>\"\n  },\n  \"password\": \"<string>\",\n  \"passwordChangeRequired\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/human/_create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    "human",
+                                    "_create"
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-42f33298-4a30-462e-ae8c-54f5d2758483"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-8c83bfdb-1c40-4d7f-8ef7-095bc13aa7fa"
+                        }
+                      ],
+                      "id": "7bf994cd-1c69-4599-9791-6a2bd2eef33a",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-7bf994cd-1c69-4599-9791-6a2bd2eef33a"
+                    }
+                  ],
+                  "id": "548f984f-c156-4fc7-bf21-f2099db537bf",
+                  "createdAt": "2026-07-28T03:38:48.000Z",
+                  "updatedAt": "2026-07-28T03:38:48.000Z",
+                  "uid": "35240-548f984f-c156-4fc7-bf21-f2099db537bf"
+                },
+                {
+                  "name": "machine",
+                  "item": [
+                    {
+                      "name": "_create",
+                      "item": [
+                        {
+                          "name": "Zitadel Create Machine User",
+                          "id": "2601d0e4-a575-44cc-8f84-77af530c34e2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessTokenType\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/machine/_create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                "machine",
+                                "_create"
+                              ]
+                            },
+                            "description": "Create a new machine (service account) user for programmatic access."
+                          },
+                          "response": [
+                            {
+                              "id": "26fc50eb-8f5e-4d8f-a0ff-0b4bd7e41e52",
+                              "name": "Machine user created successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessTokenType\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/machine/_create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    "machine",
+                                    "_create"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"userId\": \"<string>\",\n  \"details\": {\n    \"sequence\": \"<string>\",\n    \"creationDate\": \"<dateTime>\",\n    \"changeDate\": \"<dateTime>\",\n    \"resourceOwner\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-26fc50eb-8f5e-4d8f-a0ff-0b4bd7e41e52"
+                            },
+                            {
+                              "id": "3e63df0c-e9d6-4e3a-bfa4-be334daa54bb",
+                              "name": "Unauthorized - missing or invalid authentication token",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"accessTokenType\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/machine/_create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    "machine",
+                                    "_create"
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-3e63df0c-e9d6-4e3a-bfa4-be334daa54bb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-2601d0e4-a575-44cc-8f84-77af530c34e2"
+                        }
+                      ],
+                      "id": "6bb21047-5f82-4716-830d-a92582321328",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-6bb21047-5f82-4716-830d-a92582321328"
+                    }
+                  ],
+                  "id": "2afa5781-264b-4598-b125-17ce2df396e9",
+                  "createdAt": "2026-07-28T03:38:48.000Z",
+                  "updatedAt": "2026-07-28T03:38:48.000Z",
+                  "uid": "35240-2afa5781-264b-4598-b125-17ce2df396e9"
+                },
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "deactivate",
+                      "item": [
+                        {
+                          "name": "Zitadel Deactivate User",
+                          "id": "e9d25581-a5ab-44d5-b078-282016b8eae5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "deactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1fc6831e-fad2-43d2-8fb9-765c332b87ba",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the user"
+                                }
+                              ]
+                            },
+                            "description": "Deactivate a user account, preventing login while preserving data."
+                          },
+                          "response": [
+                            {
+                              "id": "f16b6768-8dac-4cd9-a0eb-f117be66a784",
+                              "name": "User deactivated successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/deactivate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "deactivate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-f16b6768-8dac-4cd9-a0eb-f117be66a784"
+                            },
+                            {
+                              "id": "22262093-d706-4211-8ba4-3b6c3d0dcf8e",
+                              "name": "Resource not found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/deactivate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "deactivate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-22262093-d706-4211-8ba4-3b6c3d0dcf8e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-e9d25581-a5ab-44d5-b078-282016b8eae5"
+                        }
+                      ],
+                      "id": "fd1155a9-09e7-4479-9407-c78a98c9c1c8",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-fd1155a9-09e7-4479-9407-c78a98c9c1c8"
+                    },
+                    {
+                      "name": "reactivate",
+                      "item": [
+                        {
+                          "name": "Zitadel Reactivate User",
+                          "id": "ad4e7d62-ed02-4dd8-ad67-cc4b044b3945",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId/reactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "reactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7513f603-799c-41eb-8b81-e08a554212c3",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the user"
+                                }
+                              ]
+                            },
+                            "description": "Reactivate a previously deactivated user account."
+                          },
+                          "response": [
+                            {
+                              "id": "b4d94251-6dad-45ba-a7ae-a0334beeb95e",
+                              "name": "User reactivated successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/reactivate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "reactivate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-b4d94251-6dad-45ba-a7ae-a0334beeb95e"
+                            },
+                            {
+                              "id": "f6d90e5b-bbc7-4f5f-9aef-9384e0b69389",
+                              "name": "Resource not found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/reactivate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "reactivate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-f6d90e5b-bbc7-4f5f-9aef-9384e0b69389"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-ad4e7d62-ed02-4dd8-ad67-cc4b044b3945"
+                        }
+                      ],
+                      "id": "98211898-92cd-457b-85f7-a87c6dfadb72",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-98211898-92cd-457b-85f7-a87c6dfadb72"
+                    },
+                    {
+                      "name": "lock",
+                      "item": [
+                        {
+                          "name": "Zitadel Lock User",
+                          "id": "cb60025b-a7bb-4a17-b941-30d6c71f7edf",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId/lock",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "lock"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7c8738ef-2047-4ac4-a55b-03f686d42189",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the user"
+                                }
+                              ]
+                            },
+                            "description": "Lock a user account due to suspicious activity or policy violation."
+                          },
+                          "response": [
+                            {
+                              "id": "1b95552a-901b-43e8-9c09-e7d5517e3706",
+                              "name": "User locked successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/lock",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "lock"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-1b95552a-901b-43e8-9c09-e7d5517e3706"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-cb60025b-a7bb-4a17-b941-30d6c71f7edf"
+                        }
+                      ],
+                      "id": "3b0b3828-9cde-48a1-a24f-5eb43401910f",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-3b0b3828-9cde-48a1-a24f-5eb43401910f"
+                    },
+                    {
+                      "name": "unlock",
+                      "item": [
+                        {
+                          "name": "Zitadel Unlock User",
+                          "id": "2d4f6d72-3337-4858-90b1-775475b758c2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId/unlock",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "unlock"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b022b105-1bd7-4f3a-9671-488cad3162cb",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the user"
+                                }
+                              ]
+                            },
+                            "description": "Unlock a previously locked user account."
+                          },
+                          "response": [
+                            {
+                              "id": "45910a80-9dff-43d1-a122-2800399d13f5",
+                              "name": "User unlocked successfully",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/unlock",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "unlock"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-45910a80-9dff-43d1-a122-2800399d13f5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-2d4f6d72-3337-4858-90b1-775475b758c2"
+                        }
+                      ],
+                      "id": "32893e22-7f78-4439-9bfb-1ff0f009d619",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-32893e22-7f78-4439-9bfb-1ff0f009d619"
+                    },
+                    {
+                      "name": "email",
+                      "item": [
+                        {
+                          "name": "Zitadel Update User Email",
+                          "id": "352ef8a0-dbf4-45a8-b8b6-2eb50922a906",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"email\": \"<email>\",\n  \"isEmailVerified\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId/email",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId",
+                                "email"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "36000e96-3fc8-4048-8e28-192e432f87f1",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the user"
+                                }
+                              ]
+                            },
+                            "description": "Update the email address for a user account."
+                          },
+                          "response": [
+                            {
+                              "id": "a7cafcd2-a2ca-4bdf-81d8-97bd924240d4",
+                              "name": "Email updated successfully",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"email\": \"<email>\",\n  \"isEmailVerified\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/email",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "email"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-a7cafcd2-a2ca-4bdf-81d8-97bd924240d4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-352ef8a0-dbf4-45a8-b8b6-2eb50922a906"
+                        }
+                      ],
+                      "id": "d0f2b0ba-db29-414f-b2a2-5281493d6a47",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-d0f2b0ba-db29-414f-b2a2-5281493d6a47"
+                    },
+                    {
+                      "name": "memberships",
+                      "item": [
+                        {
+                          "name": "_search",
+                          "item": [
+                            {
+                              "name": "Zitadel List User Memberships",
+                              "id": "4e6aa16f-eb7b-4170-9e22-435f34aab0df",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/management/v1/users/:userId/memberships/_search",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "management",
+                                    "v1",
+                                    "users",
+                                    ":userId",
+                                    "memberships",
+                                    "_search"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5209a0e9-bd13-42bf-bd65-dc878cc23000",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the user"
+                                    }
+                                  ]
+                                },
+                                "description": "Retrieve all organization and project memberships for a user."
+                              },
+                              "response": [
+                                {
+                                  "id": "31dab79c-2edc-494e-842b-3c30b8c36501",
+                                  "name": "List of user memberships",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/management/v1/users/:userId/memberships/_search",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "management",
+                                        "v1",
+                                        "users",
+                                        ":userId",
+                                        "memberships",
+                                        "_search"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"result\": [\n    {\n      \"userId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"creationDate\": \"<dateTime>\"\n    },\n    {\n      \"userId\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"roles\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"creationDate\": \"<dateTime>\"\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T03:38:48.000Z",
+                                  "updatedAt": "2026-07-28T03:38:48.000Z",
+                                  "uid": "35240-31dab79c-2edc-494e-842b-3c30b8c36501"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T03:38:48.000Z",
+                              "updatedAt": "2026-07-28T03:38:48.000Z",
+                              "uid": "35240-4e6aa16f-eb7b-4170-9e22-435f34aab0df"
+                            }
+                          ],
+                          "id": "c5b3732d-ed5c-4a4c-8ab5-b03ef98bfadd",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-c5b3732d-ed5c-4a4c-8ab5-b03ef98bfadd"
+                        }
+                      ],
+                      "id": "7282c900-8319-4fa8-83a1-0dc323a83115",
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-7282c900-8319-4fa8-83a1-0dc323a83115"
+                    },
+                    {
+                      "name": "Zitadel Get User by ID",
+                      "id": "0614a932-c5de-4762-b395-a568c56f8dc0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c8373317-1de4-4c3c-b9aa-f095db8c9ae5",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the user"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a user's profile and metadata by their unique identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "f5c46cbd-d00a-4245-8721-a57100fefcf6",
+                          "name": "User details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"user\": {\n    \"id\": \"<string>\",\n    \"state\": \"UNSPECIFIED\",\n    \"userName\": \"<string>\",\n    \"loginNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"preferredLoginName\": \"<string>\",\n    \"human\": {\n      \"profile\": {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"nickName\": \"<string>\",\n        \"displayName\": \"<string>\",\n        \"preferredLanguage\": \"<string>\",\n        \"gender\": \"MALE\",\n        \"avatarUrl\": \"<string>\"\n      },\n      \"email\": {\n        \"email\": \"<email>\",\n        \"isEmailVerified\": \"<boolean>\"\n      },\n      \"phone\": {\n        \"phone\": \"<string>\",\n        \"isPhoneVerified\": \"<boolean>\"\n      },\n      \"passwordChangeRequired\": \"<boolean>\",\n      \"passwordChanged\": \"<dateTime>\"\n    },\n    \"machine\": {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"accessTokenType\": \"<string>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-f5c46cbd-d00a-4245-8721-a57100fefcf6"
+                        },
+                        {
+                          "id": "4a862ae5-c124-42c9-9de0-82ce6f63a110",
+                          "name": "Resource not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-4a862ae5-c124-42c9-9de0-82ce6f63a110"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-0614a932-c5de-4762-b395-a568c56f8dc0"
+                    },
+                    {
+                      "name": "Zitadel Remove User",
+                      "id": "5fef16b0-d79a-4c14-b089-f723ad954be0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "199b96d9-70b5-49fc-9c33-4d4c95258d27",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the user"
+                            }
+                          ]
+                        },
+                        "description": "Permanently delete a user from the organization."
+                      },
+                      "response": [
+                        {
+                          "id": "b15d4006-0c63-40f9-8f8d-e794b74ead44",
+                          "name": "User removed successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-b15d4006-0c63-40f9-8f8d-e794b74ead44"
+                        },
+                        {
+                          "id": "981578e0-8213-472f-a1b8-9145258462fa",
+                          "name": "Resource not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"code\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T03:38:48.000Z",
+                          "updatedAt": "2026-07-28T03:38:48.000Z",
+                          "uid": "35240-981578e0-8213-472f-a1b8-9145258462fa"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:48.000Z",
+                      "updatedAt": "2026-07-28T03:38:48.000Z",
+                      "uid": "35240-5fef16b0-d79a-4c14-b089-f723ad954be0"
+                    }
+                  ],
+                  "id": "21d698ce-4831-4b02-8db0-ff6ef397bd3c",
+                  "createdAt": "2026-07-28T03:38:48.000Z",
+                  "updatedAt": "2026-07-28T03:38:48.000Z",
+                  "uid": "35240-21d698ce-4831-4b02-8db0-ff6ef397bd3c"
+                }
+              ],
+              "id": "59ee0568-9058-4e81-ac9f-44567f0da408",
+              "createdAt": "2026-07-28T03:38:48.000Z",
+              "updatedAt": "2026-07-28T03:38:48.000Z",
+              "uid": "35240-59ee0568-9058-4e81-ac9f-44567f0da408"
+            }
+          ],
+          "id": "d6bb0853-906a-403a-866e-91e8c1d10c26",
+          "createdAt": "2026-07-28T03:38:48.000Z",
+          "updatedAt": "2026-07-28T03:38:48.000Z",
+          "uid": "35240-d6bb0853-906a-403a-866e-91e8c1d10c26"
+        }
+      ],
+      "id": "bbe6ec0f-e013-4bd9-996d-d078be9c90a3",
+      "createdAt": "2026-07-28T03:38:48.000Z",
+      "updatedAt": "2026-07-28T03:38:48.000Z",
+      "uid": "35240-bbe6ec0f-e013-4bd9-996d-d078be9c90a3"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}

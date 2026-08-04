@@ -1,0 +1,135 @@
+{
+  "info": {
+    "_postman_id": "f398ae6a-1b3b-41db-bda0-deaefa5e7ef2",
+    "name": "Zitadel Management Applications Identity Providers API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:27.000Z",
+    "updatedAt": "2026-07-28T03:38:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f398ae6a-1b3b-41db-bda0-deaefa5e7ef2"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "idps",
+              "item": [
+                {
+                  "name": "_search",
+                  "item": [
+                    {
+                      "name": "Zitadel List Identity Providers",
+                      "id": "b60f5de0-5385-481f-9c0e-086dd24b285e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/idps/_search",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "idps",
+                            "_search"
+                          ]
+                        },
+                        "description": "List all configured external identity providers for the organization."
+                      },
+                      "response": [
+                        {
+                          "id": "4ce98530-b44f-4250-9748-67ef223e2a41",
+                          "name": "List of identity providers",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/idps/_search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "idps",
+                                "_search"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:27.000Z",
+                          "updatedAt": "2026-07-28T03:38:27.000Z",
+                          "uid": "35240-4ce98530-b44f-4250-9748-67ef223e2a41"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:27.000Z",
+                      "updatedAt": "2026-07-28T03:38:27.000Z",
+                      "uid": "35240-b60f5de0-5385-481f-9c0e-086dd24b285e"
+                    }
+                  ],
+                  "id": "d35a6bef-6a97-4391-acd1-1f3e05fbd902",
+                  "createdAt": "2026-07-28T03:38:27.000Z",
+                  "updatedAt": "2026-07-28T03:38:27.000Z",
+                  "uid": "35240-d35a6bef-6a97-4391-acd1-1f3e05fbd902"
+                }
+              ],
+              "id": "4f4e9f54-1c36-4979-930c-9b7176430de7",
+              "createdAt": "2026-07-28T03:38:27.000Z",
+              "updatedAt": "2026-07-28T03:38:27.000Z",
+              "uid": "35240-4f4e9f54-1c36-4979-930c-9b7176430de7"
+            }
+          ],
+          "id": "68f72afa-237e-4901-b664-0c2941c61de1",
+          "createdAt": "2026-07-28T03:38:27.000Z",
+          "updatedAt": "2026-07-28T03:38:27.000Z",
+          "uid": "35240-68f72afa-237e-4901-b664-0c2941c61de1"
+        }
+      ],
+      "id": "d6e4e9d7-9bcb-48f3-9fce-362be7393c63",
+      "createdAt": "2026-07-28T03:38:27.000Z",
+      "updatedAt": "2026-07-28T03:38:27.000Z",
+      "uid": "35240-d6e4e9d7-9bcb-48f3-9fce-362be7393c63"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "info": {
+    "_postman_id": "abc7bca5-cd66-47e2-ab9d-169856d21d38",
+    "name": "Zitadel Management Applications Projects API",
+    "description": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:38:36.000Z",
+    "updatedAt": "2026-07-28T03:38:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-abc7bca5-cd66-47e2-ab9d-169856d21d38"
+  },
+  "item": [
+    {
+      "name": "management",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "projects",
+              "item": [
+                {
+                  "name": "_search",
+                  "item": [
+                    {
+                      "name": "Zitadel List Projects",
+                      "id": "3c3c6a37-c205-4581-a26a-887ebbf7420e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/projects/_search",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "projects",
+                            "_search"
+                          ]
+                        },
+                        "description": "Search for projects within the organization."
+                      },
+                      "response": [
+                        {
+                          "id": "5a5cbbb5-b088-46d2-aa3a-12c88f026346",
+                          "name": "List of projects",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/projects/_search",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "projects",
+                                "_search"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"details\": {\n    \"totalResult\": \"<string>\",\n    \"processedSequence\": \"<string>\",\n    \"timestamp\": \"<dateTime>\"\n  },\n  \"result\": [\n    {\n      \"id\": \"<string>\",\n      \"details\": {\n        \"sequence\": \"<string>\",\n        \"creationDate\": \"<dateTime>\",\n        \"changeDate\": \"<dateTime>\",\n        \"resourceOwner\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"state\": \"ACTIVE\",\n      \"projectRoleAssertion\": \"<boolean>\",\n      \"projectRoleCheck\": \"<boolean>\",\n      \"hasProjectCheck\": \"<boolean>\",\n      \"privateLabelingSetting\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"details\": {\n        \"sequence\": \"<string>\",\n        \"creationDate\": \"<dateTime>\",\n        \"changeDate\": \"<dateTime>\",\n        \"resourceOwner\": \"<string>\"\n      },\n      \"name\": \"<string>\",\n      \"state\": \"INACTIVE\",\n      \"projectRoleAssertion\": \"<boolean>\",\n      \"projectRoleCheck\": \"<boolean>\",\n      \"hasProjectCheck\": \"<boolean>\",\n      \"privateLabelingSetting\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:38:36.000Z",
+                          "updatedAt": "2026-07-28T03:38:36.000Z",
+                          "uid": "35240-5a5cbbb5-b088-46d2-aa3a-12c88f026346"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:36.000Z",
+                      "updatedAt": "2026-07-28T03:38:36.000Z",
+                      "uid": "35240-3c3c6a37-c205-4581-a26a-887ebbf7420e"
+                    }
+                  ],
+                  "id": "d832129f-1bb6-43f1-a5b0-6243c7b9dcad",
+                  "createdAt": "2026-07-28T03:38:36.000Z",
+                  "updatedAt": "2026-07-28T03:38:36.000Z",
+                  "uid": "35240-d832129f-1bb6-43f1-a5b0-6243c7b9dcad"
+                },
+                {
+                  "name": "{projectId}",
+                  "item": [
+                    {
+                      "name": "Zitadel Get Project by ID",
+                      "id": "966e2efc-8841-4a7d-9656-fdd715d16f4c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/projects/:projectId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "projects",
+                            ":projectId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "39986309-238f-4674-81cb-7c87d244156e",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the project"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve a project by its unique identifier."
+                      },
+                      "response": [
+                        {
+                          "id": "c670bc62-5ee3-43fc-b917-7e5271b03203",
+                          "name": "Project details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/projects/:projectId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "projects",
+                                ":projectId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"project\": {\n    \"id\": \"<string>\",\n    \"details\": {\n      \"sequence\": \"<string>\",\n      \"creationDate\": \"<dateTime>\",\n      \"changeDate\": \"<dateTime>\",\n      \"resourceOwner\": \"<string>\"\n    },\n    \"name\": \"<string>\",\n    \"state\": \"INACTIVE\",\n    \"projectRoleAssertion\": \"<boolean>\",\n    \"projectRoleCheck\": \"<boolean>\",\n    \"hasProjectCheck\": \"<boolean>\",\n    \"privateLabelingSetting\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T03:38:36.000Z",
+                          "updatedAt": "2026-07-28T03:38:36.000Z",
+                          "uid": "35240-c670bc62-5ee3-43fc-b917-7e5271b03203"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:36.000Z",
+                      "updatedAt": "2026-07-28T03:38:36.000Z",
+                      "uid": "35240-966e2efc-8841-4a7d-9656-fdd715d16f4c"
+                    },
+                    {
+                      "name": "Zitadel Update Project",
+                      "id": "6c763e05-39c2-468e-a9aa-6324276b24a7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/projects/:projectId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "projects",
+                            ":projectId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a9f72583-41e5-448e-b3c3-691ad96b95bd",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the project"
+                            }
+                          ]
+                        },
+                        "description": "Update project configuration and settings."
+                      },
+                      "response": [
+                        {
+                          "id": "8f268a16-b69a-49ed-853e-492b3bc0f028",
+                          "name": "Project updated successfully",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/projects/:projectId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "projects",
+                                ":projectId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:36.000Z",
+                          "updatedAt": "2026-07-28T03:38:36.000Z",
+                          "uid": "35240-8f268a16-b69a-49ed-853e-492b3bc0f028"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:36.000Z",
+                      "updatedAt": "2026-07-28T03:38:36.000Z",
+                      "uid": "35240-6c763e05-39c2-468e-a9aa-6324276b24a7"
+                    },
+                    {
+                      "name": "Zitadel Remove Project",
+                      "id": "a9c4c4cd-2df3-4a32-bf97-ef4cedc14180",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/projects/:projectId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "projects",
+                            ":projectId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b7e924c2-bc21-4f43-b818-0e2329b4c972",
+                              "key": "projectId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the project"
+                            }
+                          ]
+                        },
+                        "description": "Permanently delete a project and all its applications and roles."
+                      },
+                      "response": [
+                        {
+                          "id": "b70494b3-01be-42bc-a9fb-028979a78a14",
+                          "name": "Project removed successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/management/v1/projects/:projectId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "management",
+                                "v1",
+                                "projects",
+                                ":projectId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "projectId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:38:36.000Z",
+                          "updatedAt": "2026-07-28T03:38:36.000Z",
+                          "uid": "35240-b70494b3-01be-42bc-a9fb-028979a78a14"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:38:36.000Z",
+                      "updatedAt": "2026-07-28T03:38:36.000Z",
+                      "uid": "35240-a9c4c4cd-2df3-4a32-bf97-ef4cedc14180"
+                    }
+                  ],
+                  "id": "d9d341d2-c23b-48ab-ad32-e0fb8aa10aa1",
+                  "createdAt": "2026-07-28T03:38:36.000Z",
+                  "updatedAt": "2026-07-28T03:38:36.000Z",
+                  "uid": "35240-d9d341d2-c23b-48ab-ad32-e0fb8aa10aa1"
+                },
+                {
+                  "name": "Zitadel Create Project",
+                  "id": "cf112be3-21ce-4c6a-bb4c-e21db2ecffb2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/management/v1/projects",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "management",
+                        "v1",
+                        "projects"
+                      ]
+                    },
+                    "description": "Create a new project within the organization for grouping applications and roles."
+                  },
+                  "response": [
+                    {
+                      "id": "4d19c557-ae8c-4713-ad6b-d045bf60a7a2",
+                      "name": "Project created successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"projectRoleAssertion\": \"<boolean>\",\n  \"projectRoleCheck\": \"<boolean>\",\n  \"hasProjectCheck\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/management/v1/projects",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "management",
+                            "v1",
+                            "projects"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"project\": {\n    \"id\": \"<string>\",\n    \"details\": {\n      \"sequence\": \"<string>\",\n      \"creationDate\": \"<dateTime>\",\n      \"changeDate\": \"<dateTime>\",\n      \"resourceOwner\": \"<string>\"\n    },\n    \"name\": \"<string>\",\n    \"state\": \"INACTIVE\",\n    \"projectRoleAssertion\": \"<boolean>\",\n    \"projectRoleCheck\": \"<boolean>\",\n    \"hasProjectCheck\": \"<boolean>\",\n    \"privateLabelingSetting\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T03:38:36.000Z",
+                      "updatedAt": "2026-07-28T03:38:36.000Z",
+                      "uid": "35240-4d19c557-ae8c-4713-ad6b-d045bf60a7a2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:38:36.000Z",
+                  "updatedAt": "2026-07-28T03:38:36.000Z",
+                  "uid": "35240-cf112be3-21ce-4c6a-bb4c-e21db2ecffb2"
+                }
+              ],
+              "id": "04a7d14f-99ae-4391-a08c-0bff12a5b428",
+              "createdAt": "2026-07-28T03:38:36.000Z",
+              "updatedAt": "2026-07-28T03:38:36.000Z",
+              "uid": "35240-04a7d14f-99ae-4391-a08c-0bff12a5b428"
+            }
+          ],
+          "id": "41eebb59-b2ca-4eb8-b68d-e648c9818668",
+          "createdAt": "2026-07-28T03:38:36.000Z",
+          "updatedAt": "2026-07-28T03:38:36.000Z",
+          "uid": "35240-41eebb59-b2ca-4eb8-b68d-e648c9818668"
+        }
+      ],
+      "id": "40fc8527-d14d-41df-aeca-12677310bf5a",
+      "createdAt": "2026-07-28T03:38:36.000Z",
+      "updatedAt": "2026-07-28T03:38:36.000Z",
+      "uid": "35240-40fc8527-d14d-41df-aeca-12677310bf5a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "instance",
+      "value": "your-instance"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{instance}}.zitadel.cloud"
+    }
+  ]
+}
