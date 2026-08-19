@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zitadel Management Applications Policies API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel Get Login Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/policies/login"
+          },
+          "docs": "Retrieve the login policy configuration for the organization."
+        },
+        {
+          "info": {
+            "name": "Zitadel Update Login Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{instance}.zitadel.cloud/management/v1/policies/login",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the login policy to configure allowed authentication methods."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get Password Lockout Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/policies/passwords/lockout"
+          },
+          "docs": "Retrieve the password lockout policy for the organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

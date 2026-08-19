@@ -1,0 +1,349 @@
+{
+  "item": [
+    {
+      "id": "e48b3a3b-4deb-45b9-accc-c679523649e8",
+      "name": "Policies",
+      "description": {
+        "content": "Manage login, password, and notification policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "12b3a39f-92fa-41ed-8f31-ac57f1e51d00",
+          "name": "Zitadel Get Login Policy",
+          "request": {
+            "name": "Zitadel Get Login Policy",
+            "description": {
+              "content": "Retrieve the login policy configuration for the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "policies",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d9d6de21-d546-44c7-8359-8622fd7bf762",
+              "name": "Login policy details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "policies",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allowUsernamePassword\": false,\n  \"allowRegister\": true,\n  \"allowExternalIdp\": true,\n  \"forceMfa\": false,\n  \"passwordlessType\": \"string\",\n  \"hidePasswordReset\": true,\n  \"ignoreUnknownUsernames\": true,\n  \"defaultRedirectUri\": \"string\",\n  \"passwordCheckLifetime\": \"string\",\n  \"externalLoginCheckLifetime\": \"string\",\n  \"mfaInitSkipLifetime\": \"string\",\n  \"secondFactorCheckLifetime\": \"string\",\n  \"multiFactorCheckLifetime\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c667bee-a4e0-4ce1-ba67-8fd7eacb1a49",
+          "name": "Zitadel Update Login Policy",
+          "request": {
+            "name": "Zitadel Update Login Policy",
+            "description": {
+              "content": "Update the login policy to configure allowed authentication methods.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "policies",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8c40291-3492-40c1-a870-e330c4fcd787",
+              "name": "Login policy updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "policies",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allowUsernamePassword\": \"<boolean>\",\n  \"allowRegister\": \"<boolean>\",\n  \"allowExternalIdp\": \"<boolean>\",\n  \"forceMfa\": \"<boolean>\",\n  \"passwordlessType\": \"<string>\",\n  \"hidePasswordReset\": \"<boolean>\",\n  \"ignoreUnknownUsernames\": \"<boolean>\",\n  \"defaultRedirectUri\": \"<string>\",\n  \"passwordCheckLifetime\": \"<string>\",\n  \"externalLoginCheckLifetime\": \"<string>\",\n  \"mfaInitSkipLifetime\": \"<string>\",\n  \"secondFactorCheckLifetime\": \"<string>\",\n  \"multiFactorCheckLifetime\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e288a29-1899-4d9f-a5cb-58292da8964a",
+          "name": "Zitadel Get Password Lockout Policy",
+          "request": {
+            "name": "Zitadel Get Password Lockout Policy",
+            "description": {
+              "content": "Retrieve the password lockout policy for the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "management",
+                "v1",
+                "policies",
+                "passwords",
+                "lockout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Zitadel cloud instance name",
+                  "type": "any",
+                  "value": "{{instance}}",
+                  "key": "instance"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fbc7458-989c-4953-861d-a3ad0c0c0a51",
+              "name": "Password lockout policy details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "management",
+                    "v1",
+                    "policies",
+                    "passwords",
+                    "lockout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Zitadel cloud instance name",
+                      "type": "any",
+                      "value": "{{instance}}",
+                      "key": "instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Zitadel cloud instance name",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-instance",
+      "key": "instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{instance}}.zitadel.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f82fda17-d86b-4660-b445-2f070b151987",
+    "name": "Zitadel Management Applications Policies API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.\n\nContact Support:\n Name: Zitadel",
+      "type": "text/plain"
+    }
+  }
+}

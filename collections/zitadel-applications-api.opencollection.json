@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zitadel Management Applications API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel Create OIDC Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/oidc",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new OIDC application within a project."
+        },
+        {
+          "info": {
+            "name": "Zitadel Create API Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/api",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new API application (machine-to-machine) within a project."
+        },
+        {
+          "info": {
+            "name": "Zitadel List Applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/_search",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              }
+            ]
+          },
+          "docs": "List all applications within a project."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get Application by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/:appId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific application configuration."
+        },
+        {
+          "info": {
+            "name": "Zitadel Remove Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{instance}.zitadel.cloud/management/v1/projects/:projectId/apps/:appId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the project"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the application"
+              }
+            ]
+          },
+          "docs": "Delete an application from a project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

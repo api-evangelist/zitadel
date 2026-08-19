@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zitadel Management Applications Organizations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Zitadel List Organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/_search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Search for organizations accessible to the caller."
+        },
+        {
+          "info": {
+            "name": "Zitadel Create Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new organization within the Zitadel instance."
+        },
+        {
+          "info": {
+            "name": "Zitadel Get My Organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/me"
+          },
+          "docs": "Retrieve the organization associated with the caller's context."
+        },
+        {
+          "info": {
+            "name": "Zitadel List Organization Members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/me/members/_search"
+          },
+          "docs": "List all members of the organization with their roles."
+        },
+        {
+          "info": {
+            "name": "Zitadel Add Organization Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{instance}.zitadel.cloud/management/v1/orgs/me/members",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a user as a member of the organization with specified roles."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
