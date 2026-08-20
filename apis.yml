@@ -24,6 +24,12 @@ tags:
   - Authentication
   - Authorization
   - Identity Management
+  - Open-Source
+  - OIDC
+tags_raw:
+  - Authentication
+  - Authorization
+  - Identity Management
   - Open Source
   - OAuth 2.0
   - OIDC
@@ -69,6 +75,10 @@ apis:
     userinfo endpoints. Available at /oauth/v2/ and /oidc/v1/.
   humanURL: https://zitadel.com/docs/guides/integrate/login/oidc
   tags:
+  - Authentication
+  - OpenID Connect
+  - Authorization
+  tags_raw:
   - OAuth 2.0
   - OpenID Connect
   - Authentication
@@ -94,6 +104,8 @@ apis:
   description: Manage OIDC, SAML, and API applications
   humanURL: https://zitadel.com/docs/reference/api/management
   tags:
+  - Application
+  tags_raw:
   - Applications
   properties:
   - type: OpenAPI
@@ -188,6 +200,8 @@ apis:
   description: Manage organizations and organizational domains
   humanURL: https://zitadel.com/docs/reference/api/management
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -282,6 +296,8 @@ apis:
   description: Manage projects and project grants
   humanURL: https://zitadel.com/docs/reference/api/management
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -376,6 +392,8 @@ apis:
   description: Manage human and machine users
   humanURL: https://zitadel.com/docs/reference/api/management
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
