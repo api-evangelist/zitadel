@@ -6,6 +6,20 @@ description: >-
   fine-grained authorization, and a comprehensive management API for building and operating identity-first applications.
   Available as cloud-hosted and self-hosted deployments.
 type: Index
+deliveryModel:
+  model: saas
+  license: GNU AGPLv3
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -437,6 +451,16 @@ apis:
   - type: Examples
     url: examples/zitadel-management-create-project-example.json
 common:
+  - type: IssueTracker
+    url: https://github.com/zitadel/zitadel/issues
+  - type: Releases
+    url: https://github.com/zitadel/zitadel/releases
+  - type: SecurityPolicy
+    url: https://github.com/zitadel/zitadel/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/zitadel/zitadel/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/zitadel/zitadel/blob/main/CONTRIBUTING.md
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/zitadel/overview
   - type: AgenticAccess
