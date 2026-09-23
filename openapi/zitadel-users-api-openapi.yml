@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Zitadel Management Applications Users API
+  title: Zitadel Management Users API
   description: The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.
   version: 1.0.0
   contact:
@@ -251,6 +251,120 @@ components:
                 properties:
                   emailAddress:
                     type: string
+    CreateUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+    CreateHumanUserRequest:
+      type: object
+      required:
+      - userName
+      properties:
+        userName:
+          type: string
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        password:
+          type: string
+        passwordChangeRequired:
+          type: boolean
+    CreateMachineUserRequest:
+      type: object
+      required:
+      - userName
+      - name
+      properties:
+        userName:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        accessTokenType:
+          type: string
+    HumanProfile:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        nickName:
+          type: string
+        displayName:
+          type: string
+        preferredLanguage:
+          type: string
+        gender:
+          type: string
+          enum:
+          - UNSPECIFIED
+          - FEMALE
+          - MALE
+          - DIVERSE
+        avatarUrl:
+          type: string
+    MachineUser:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        accessTokenType:
+          type: string
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+    ListUsersResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
+    UserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+    HumanPhone:
+      type: object
+      properties:
+        phone:
+          type: string
+        isPhoneVerified:
+          type: boolean
     HumanUser:
       type: object
       properties:
@@ -275,43 +389,6 @@ components:
         timestamp:
           type: string
           format: date-time
-    CreateHumanUserRequest:
-      type: object
-      required:
-      - userName
-      properties:
-        userName:
-          type: string
-        profile:
-          $ref: '#/components/schemas/HumanProfile'
-        email:
-          $ref: '#/components/schemas/HumanEmail'
-        phone:
-          $ref: '#/components/schemas/HumanPhone'
-        password:
-          type: string
-        passwordChangeRequired:
-          type: boolean
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-    ListUsersResponse:
-      type: object
-      properties:
-        details:
-          $ref: '#/components/schemas/ListDetails'
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
     HumanEmail:
       type: object
       properties:
@@ -320,49 +397,29 @@ components:
           format: email
         isEmailVerified:
           type: boolean
-    MachineUser:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        accessTokenType:
-          type: string
-    CreateUserResponse:
+    Membership:
       type: object
       properties:
         userId:
           type: string
-        details:
-          $ref: '#/components/schemas/ObjectDetails'
-    CreateMachineUserRequest:
-      type: object
-      required:
-      - userName
-      - name
-      properties:
-        userName:
+        displayName:
           type: string
-        name:
-          type: string
-        description:
-          type: string
-        accessTokenType:
-          type: string
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
+        roles:
+          type: array
+          items:
+            type: string
         creationDate:
           type: string
           format: date-time
-        changeDate:
+    ListQuery:
+      type: object
+      properties:
+        offset:
           type: string
-          format: date-time
-        resourceOwner:
-          type: string
+        limit:
+          type: integer
+        asc:
+          type: boolean
     User:
       type: object
       properties:
@@ -390,72 +447,9 @@ components:
           $ref: '#/components/schemas/HumanUser'
         machine:
           $ref: '#/components/schemas/MachineUser'
-    ListQuery:
-      type: object
-      properties:
-        offset:
-          type: string
-        limit:
-          type: integer
-        asc:
-          type: boolean
-    Membership:
-      type: object
-      properties:
-        userId:
-          type: string
-        displayName:
-          type: string
-        roles:
-          type: array
-          items:
-            type: string
-        creationDate:
-          type: string
-          format: date-time
-    HumanProfile:
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        nickName:
-          type: string
-        displayName:
-          type: string
-        preferredLanguage:
-          type: string
-        gender:
-          type: string
-          enum:
-          - UNSPECIFIED
-          - FEMALE
-          - MALE
-          - DIVERSE
-        avatarUrl:
-          type: string
-    HumanPhone:
-      type: object
-      properties:
-        phone:
-          type: string
-        isPhoneVerified:
-          type: boolean
-    UserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
   responses:
-    Forbidden:
-      description: Forbidden - insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - missing or invalid authentication token
+    BadRequest:
+      description: Bad request - invalid input parameters
       content:
         application/json:
           schema:
@@ -466,8 +460,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad request - invalid input parameters
+    Unauthorized:
+      description: Unauthorized - missing or invalid authentication token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: Forbidden - insufficient permissions
       content:
         application/json:
           schema:

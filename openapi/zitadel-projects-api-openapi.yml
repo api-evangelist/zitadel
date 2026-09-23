@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Zitadel Management Applications Projects API
+  title: Zitadel Management Projects API
   description: The Zitadel Management API provides comprehensive identity infrastructure management including users, organizations, projects, applications, roles, policies, and identity providers. Accessible via REST at /management/v1/ with gRPC transcoding support. Zitadel is an open source identity platform supporting OAuth 2.0, OIDC, SAML, SCIM, FIDO2, and passkeys.
   version: 1.0.0
   contact:
@@ -109,29 +109,6 @@ paths:
           description: Project removed successfully
 components:
   schemas:
-    CreateProjectRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        projectRoleAssertion:
-          type: boolean
-        projectRoleCheck:
-          type: boolean
-        hasProjectCheck:
-          type: boolean
-    ListDetails:
-      type: object
-      properties:
-        totalResult:
-          type: string
-        processedSequence:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
     ProjectResponse:
       type: object
       properties:
@@ -146,6 +123,42 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Project'
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
+    CreateProjectRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        projectRoleAssertion:
+          type: boolean
+        projectRoleCheck:
+          type: boolean
+        hasProjectCheck:
+          type: boolean
     Project:
       type: object
       properties:
@@ -167,19 +180,6 @@ components:
         hasProjectCheck:
           type: boolean
         privateLabelingSetting:
-          type: string
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
           type: string
   parameters:
     ProjectId:

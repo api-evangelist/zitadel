@@ -1,13 +1,7 @@
 {
   "provider": "zitadel",
   "sources": [
-    "zitadel-applications-api-openapi.yml",
-    "zitadel-identity-providers-api-openapi.yml",
-    "zitadel-organizations-api-openapi.yml",
-    "zitadel-policies-api-openapi.yml",
-    "zitadel-projects-api-openapi.yml",
-    "zitadel-roles-api-openapi.yml",
-    "zitadel-users-api-openapi.yml"
+    "_original/zitadel-management-openapi.yml"
   ],
   "outputs": [
     "zitadel-applications-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "zitadel-management-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "zitadel-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zitadel-identity-providers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zitadel-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zitadel-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zitadel-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zitadel-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zitadel-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
