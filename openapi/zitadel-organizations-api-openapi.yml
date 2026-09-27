@@ -140,30 +140,6 @@ components:
           type: string
         primaryDomain:
           type: string
-    ListDetails:
-      type: object
-      properties:
-        totalResult:
-          type: string
-        processedSequence:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-    OrgResponse:
-      type: object
-      properties:
-        org:
-          $ref: '#/components/schemas/Organization'
-    ListOrgsRequest:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/ListQuery'
-        queries:
-          type: array
-          items:
-            type: object
     ListOrgsResponse:
       type: object
       properties:
@@ -173,15 +149,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Organization'
-    ListQuery:
+    ListOrgsRequest:
       type: object
       properties:
-        offset:
-          type: string
-        limit:
-          type: integer
-        asc:
-          type: boolean
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
     ObjectDetails:
       type: object
       properties:
@@ -195,6 +171,30 @@ components:
           format: date-time
         resourceOwner:
           type: string
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: string
+        limit:
+          type: integer
+        asc:
+          type: boolean
+    OrgResponse:
+      type: object
+      properties:
+        org:
+          $ref: '#/components/schemas/Organization'
   securitySchemes:
     bearerAuth:
       type: http

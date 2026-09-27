@@ -228,136 +228,32 @@ paths:
                     items:
                       $ref: '#/components/schemas/Membership'
 components:
+  responses:
+    Forbidden:
+      description: Forbidden - insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - missing or invalid authentication token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request - invalid input parameters
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    ListUsersRequest:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/ListQuery'
-        queries:
-          type: array
-          items:
-            type: object
-            properties:
-              userNameQuery:
-                type: object
-                properties:
-                  userName:
-                    type: string
-                  method:
-                    type: string
-              emailQuery:
-                type: object
-                properties:
-                  emailAddress:
-                    type: string
-    CreateUserResponse:
-      type: object
-      properties:
-        userId:
-          type: string
-        details:
-          $ref: '#/components/schemas/ObjectDetails'
-    CreateHumanUserRequest:
-      type: object
-      required:
-      - userName
-      properties:
-        userName:
-          type: string
-        profile:
-          $ref: '#/components/schemas/HumanProfile'
-        email:
-          $ref: '#/components/schemas/HumanEmail'
-        phone:
-          $ref: '#/components/schemas/HumanPhone'
-        password:
-          type: string
-        passwordChangeRequired:
-          type: boolean
-    CreateMachineUserRequest:
-      type: object
-      required:
-      - userName
-      - name
-      properties:
-        userName:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        accessTokenType:
-          type: string
-    HumanProfile:
-      type: object
-      properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        nickName:
-          type: string
-        displayName:
-          type: string
-        preferredLanguage:
-          type: string
-        gender:
-          type: string
-          enum:
-          - UNSPECIFIED
-          - FEMALE
-          - MALE
-          - DIVERSE
-        avatarUrl:
-          type: string
-    MachineUser:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        accessTokenType:
-          type: string
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-    ListUsersResponse:
-      type: object
-      properties:
-        details:
-          $ref: '#/components/schemas/ListDetails'
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/User'
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
-    UserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
     HumanPhone:
       type: object
       properties:
@@ -365,30 +261,11 @@ components:
           type: string
         isPhoneVerified:
           type: boolean
-    HumanUser:
+    UserResponse:
       type: object
       properties:
-        profile:
-          $ref: '#/components/schemas/HumanProfile'
-        email:
-          $ref: '#/components/schemas/HumanEmail'
-        phone:
-          $ref: '#/components/schemas/HumanPhone'
-        passwordChangeRequired:
-          type: boolean
-        passwordChanged:
-          type: string
-          format: date-time
-    ListDetails:
-      type: object
-      properties:
-        totalResult:
-          type: string
-        processedSequence:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
+        user:
+          $ref: '#/components/schemas/User'
     HumanEmail:
       type: object
       properties:
@@ -420,6 +297,19 @@ components:
           type: integer
         asc:
           type: boolean
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
     User:
       type: object
       properties:
@@ -447,31 +337,141 @@ components:
           $ref: '#/components/schemas/HumanUser'
         machine:
           $ref: '#/components/schemas/MachineUser'
-  responses:
-    BadRequest:
-      description: Bad request - invalid input parameters
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - missing or invalid authentication token
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Forbidden:
-      description: Forbidden - insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    HumanProfile:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        nickName:
+          type: string
+        displayName:
+          type: string
+        preferredLanguage:
+          type: string
+        gender:
+          type: string
+          enum:
+          - UNSPECIFIED
+          - FEMALE
+          - MALE
+          - DIVERSE
+        avatarUrl:
+          type: string
+    CreateUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+        details:
+          $ref: '#/components/schemas/ObjectDetails'
+    ListUsersResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    ListUsersRequest:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
+            properties:
+              userNameQuery:
+                type: object
+                properties:
+                  userName:
+                    type: string
+                  method:
+                    type: string
+              emailQuery:
+                type: object
+                properties:
+                  emailAddress:
+                    type: string
+    CreateHumanUserRequest:
+      type: object
+      required:
+      - userName
+      properties:
+        userName:
+          type: string
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        password:
+          type: string
+        passwordChangeRequired:
+          type: boolean
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+    CreateMachineUserRequest:
+      type: object
+      required:
+      - userName
+      - name
+      properties:
+        userName:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        accessTokenType:
+          type: string
+    MachineUser:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        accessTokenType:
+          type: string
+    HumanUser:
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        passwordChangeRequired:
+          type: boolean
+        passwordChanged:
+          type: string
+          format: date-time
   parameters:
     UserId:
       name: userId

@@ -108,12 +108,15 @@ paths:
         '200':
           description: Project removed successfully
 components:
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      description: Unique identifier of the project
+      schema:
+        type: string
   schemas:
-    ProjectResponse:
-      type: object
-      properties:
-        project:
-          $ref: '#/components/schemas/Project'
     ListProjectsResponse:
       type: object
       properties:
@@ -123,42 +126,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Project'
-    ListDetails:
-      type: object
-      properties:
-        totalResult:
-          type: string
-        processedSequence:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
-    CreateProjectRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        projectRoleAssertion:
-          type: boolean
-        projectRoleCheck:
-          type: boolean
-        hasProjectCheck:
-          type: boolean
     Project:
       type: object
       properties:
@@ -181,14 +148,47 @@ components:
           type: boolean
         privateLabelingSetting:
           type: string
-  parameters:
-    ProjectId:
-      name: projectId
-      in: path
-      required: true
-      description: Unique identifier of the project
-      schema:
-        type: string
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
+    ProjectResponse:
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/Project'
+    CreateProjectRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        projectRoleAssertion:
+          type: boolean
+        projectRoleCheck:
+          type: boolean
+        hasProjectCheck:
+          type: boolean
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
   securitySchemes:
     bearerAuth:
       type: http
