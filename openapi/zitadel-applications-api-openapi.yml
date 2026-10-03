@@ -107,21 +107,6 @@ paths:
         '200':
           description: Application removed successfully
 components:
-  parameters:
-    ProjectId:
-      name: projectId
-      in: path
-      required: true
-      description: Unique identifier of the project
-      schema:
-        type: string
-    AppId:
-      name: appId
-      in: path
-      required: true
-      description: Unique identifier of the application
-      schema:
-        type: string
   schemas:
     AppResponse:
       type: object
@@ -146,15 +131,6 @@ components:
           type: string
           format: date-time
         resourceOwner:
-          type: string
-    CreateApiAppRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        authMethodType:
           type: string
     CreateOidcAppRequest:
       type: object
@@ -194,6 +170,30 @@ components:
           type: boolean
         idTokenUserinfoAssertion:
           type: boolean
+    CreateApiAppRequest:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        authMethodType:
+          type: string
+  parameters:
+    AppId:
+      name: appId
+      in: path
+      required: true
+      description: Unique identifier of the application
+      schema:
+        type: string
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      description: Unique identifier of the project
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

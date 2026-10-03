@@ -229,20 +229,14 @@ paths:
                       $ref: '#/components/schemas/Membership'
 components:
   responses:
-    Forbidden:
-      description: Forbidden - insufficient permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
     NotFound:
       description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Unauthorized - missing or invalid authentication token
+    Forbidden:
+      description: Forbidden - insufficient permissions
       content:
         application/json:
           schema:
@@ -253,27 +247,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized - missing or invalid authentication token
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    HumanPhone:
-      type: object
-      properties:
-        phone:
-          type: string
-        isPhoneVerified:
-          type: boolean
-    UserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/User'
-    HumanEmail:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-        isEmailVerified:
-          type: boolean
     Membership:
       type: object
       properties:
@@ -288,6 +268,20 @@ components:
         creationDate:
           type: string
           format: date-time
+    HumanUser:
+      type: object
+      properties:
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        passwordChangeRequired:
+          type: boolean
+        passwordChanged:
+          type: string
+          format: date-time
     ListQuery:
       type: object
       properties:
@@ -297,19 +291,11 @@ components:
           type: integer
         asc:
           type: boolean
-    ObjectDetails:
+    UserResponse:
       type: object
       properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
+        user:
+          $ref: '#/components/schemas/User'
     User:
       type: object
       properties:
@@ -337,28 +323,44 @@ components:
           $ref: '#/components/schemas/HumanUser'
         machine:
           $ref: '#/components/schemas/MachineUser'
-    HumanProfile:
+    HumanPhone:
       type: object
       properties:
-        firstName:
+        phone:
           type: string
-        lastName:
+        isPhoneVerified:
+          type: boolean
+    CreateMachineUserRequest:
+      type: object
+      required:
+      - userName
+      - name
+      properties:
+        userName:
           type: string
-        nickName:
+        name:
           type: string
-        displayName:
+        description:
           type: string
-        preferredLanguage:
+        accessTokenType:
           type: string
-        gender:
+    CreateHumanUserRequest:
+      type: object
+      required:
+      - userName
+      properties:
+        userName:
           type: string
-          enum:
-          - UNSPECIFIED
-          - FEMALE
-          - MALE
-          - DIVERSE
-        avatarUrl:
+        profile:
+          $ref: '#/components/schemas/HumanProfile'
+        email:
+          $ref: '#/components/schemas/HumanEmail'
+        phone:
+          $ref: '#/components/schemas/HumanPhone'
+        password:
           type: string
+        passwordChangeRequired:
+          type: boolean
     CreateUserResponse:
       type: object
       properties:
@@ -366,6 +368,14 @@ components:
           type: string
         details:
           $ref: '#/components/schemas/ObjectDetails'
+    HumanEmail:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        isEmailVerified:
+          type: boolean
     ListUsersResponse:
       type: object
       properties:
@@ -397,23 +407,6 @@ components:
                 properties:
                   emailAddress:
                     type: string
-    CreateHumanUserRequest:
-      type: object
-      required:
-      - userName
-      properties:
-        userName:
-          type: string
-        profile:
-          $ref: '#/components/schemas/HumanProfile'
-        email:
-          $ref: '#/components/schemas/HumanEmail'
-        phone:
-          $ref: '#/components/schemas/HumanPhone'
-        password:
-          type: string
-        passwordChangeRequired:
-          type: boolean
     ListDetails:
       type: object
       properties:
@@ -424,6 +417,41 @@ components:
         timestamp:
           type: string
           format: date-time
+    HumanProfile:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        nickName:
+          type: string
+        displayName:
+          type: string
+        preferredLanguage:
+          type: string
+        gender:
+          type: string
+          enum:
+          - UNSPECIFIED
+          - FEMALE
+          - MALE
+          - DIVERSE
+        avatarUrl:
+          type: string
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
     Error:
       type: object
       properties:
@@ -435,20 +463,6 @@ components:
           type: array
           items:
             type: object
-    CreateMachineUserRequest:
-      type: object
-      required:
-      - userName
-      - name
-      properties:
-        userName:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        accessTokenType:
-          type: string
     MachineUser:
       type: object
       properties:
@@ -458,20 +472,6 @@ components:
           type: string
         accessTokenType:
           type: string
-    HumanUser:
-      type: object
-      properties:
-        profile:
-          $ref: '#/components/schemas/HumanProfile'
-        email:
-          $ref: '#/components/schemas/HumanEmail'
-        phone:
-          $ref: '#/components/schemas/HumanPhone'
-        passwordChangeRequired:
-          type: boolean
-        passwordChanged:
-          type: string
-          format: date-time
   parameters:
     UserId:
       name: userId

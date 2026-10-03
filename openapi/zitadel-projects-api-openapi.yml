@@ -108,24 +108,7 @@ paths:
         '200':
           description: Project removed successfully
 components:
-  parameters:
-    ProjectId:
-      name: projectId
-      in: path
-      required: true
-      description: Unique identifier of the project
-      schema:
-        type: string
   schemas:
-    ListProjectsResponse:
-      type: object
-      properties:
-        details:
-          $ref: '#/components/schemas/ListDetails'
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
     Project:
       type: object
       properties:
@@ -147,19 +130,6 @@ components:
         hasProjectCheck:
           type: boolean
         privateLabelingSetting:
-          type: string
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
           type: string
     ProjectResponse:
       type: object
@@ -189,6 +159,36 @@ components:
         timestamp:
           type: string
           format: date-time
+    ListProjectsResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      description: Unique identifier of the project
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
