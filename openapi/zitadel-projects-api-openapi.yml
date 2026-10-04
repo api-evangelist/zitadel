@@ -109,6 +109,24 @@ paths:
           description: Project removed successfully
 components:
   schemas:
+    ProjectResponse:
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/Project'
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
     Project:
       type: object
       properties:
@@ -131,11 +149,6 @@ components:
           type: boolean
         privateLabelingSetting:
           type: string
-    ProjectResponse:
-      type: object
-      properties:
-        project:
-          $ref: '#/components/schemas/Project'
     CreateProjectRequest:
       type: object
       required:
@@ -149,6 +162,15 @@ components:
           type: boolean
         hasProjectCheck:
           type: boolean
+    ListProjectsResponse:
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/ListDetails'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
     ListDetails:
       type: object
       properties:
@@ -159,28 +181,6 @@ components:
         timestamp:
           type: string
           format: date-time
-    ListProjectsResponse:
-      type: object
-      properties:
-        details:
-          $ref: '#/components/schemas/ListDetails'
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
   parameters:
     ProjectId:
       name: projectId

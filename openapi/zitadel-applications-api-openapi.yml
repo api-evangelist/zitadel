@@ -119,19 +119,6 @@ components:
           type: string
         clientSecret:
           type: string
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
     CreateOidcAppRequest:
       type: object
       required:
@@ -170,6 +157,19 @@ components:
           type: boolean
         idTokenUserinfoAssertion:
           type: boolean
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
     CreateApiAppRequest:
       type: object
       required:

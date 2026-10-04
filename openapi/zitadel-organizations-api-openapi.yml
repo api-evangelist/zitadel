@@ -124,30 +124,24 @@ paths:
           description: Member added successfully
 components:
   schemas:
-    ListOrgsRequest:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/ListQuery'
-        queries:
-          type: array
-          items:
-            type: object
-    ListDetails:
-      type: object
-      properties:
-        totalResult:
-          type: string
-        processedSequence:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
     OrgResponse:
       type: object
       properties:
         org:
           $ref: '#/components/schemas/Organization'
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
     Organization:
       type: object
       properties:
@@ -164,28 +158,6 @@ components:
           type: string
         primaryDomain:
           type: string
-    ListQuery:
-      type: object
-      properties:
-        offset:
-          type: string
-        limit:
-          type: integer
-        asc:
-          type: boolean
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
-          type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
     ListOrgsResponse:
       type: object
       properties:
@@ -195,6 +167,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Organization'
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: string
+        limit:
+          type: integer
+        asc:
+          type: boolean
+    ListOrgsRequest:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
   securitySchemes:
     bearerAuth:
       type: http
