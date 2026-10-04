@@ -454,6 +454,9 @@ apis:
   - type: Examples
     url: examples/zitadel-management-create-project-example.json
 common:
+- type: CapabilityMap
+  url: capabilities/zitadel-capability-edges.yml
+  name: Zitadel Business Capability Map
 - type: IssueTracker
   url: https://github.com/zitadel/zitadel/issues
 - type: Releases
