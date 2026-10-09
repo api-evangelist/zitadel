@@ -454,6 +454,12 @@ apis:
   - type: Examples
     url: examples/zitadel-management-create-project-example.json
 common:
+- type: Plans
+  url: plans/zitadel-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/zitadel-rate-limits.yml
+- type: FinOps
+  url: finops/zitadel-finops.yml
 - type: CapabilityMap
   url: capabilities/zitadel-capability-edges.yml
   name: Zitadel Business Capability Map
