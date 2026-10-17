@@ -124,6 +124,34 @@ paths:
           description: Member added successfully
 components:
   schemas:
+    ListDetails:
+      type: object
+      properties:
+        totalResult:
+          type: string
+        processedSequence:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    ListOrgsRequest:
+      type: object
+      properties:
+        query:
+          $ref: '#/components/schemas/ListQuery'
+        queries:
+          type: array
+          items:
+            type: object
+    ListQuery:
+      type: object
+      properties:
+        offset:
+          type: string
+        limit:
+          type: integer
+        asc:
+          type: boolean
     OrgResponse:
       type: object
       properties:
@@ -167,34 +195,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Organization'
-    ListDetails:
-      type: object
-      properties:
-        totalResult:
-          type: string
-        processedSequence:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-    ListQuery:
-      type: object
-      properties:
-        offset:
-          type: string
-        limit:
-          type: integer
-        asc:
-          type: boolean
-    ListOrgsRequest:
-      type: object
-      properties:
-        query:
-          $ref: '#/components/schemas/ListQuery'
-        queries:
-          type: array
-          items:
-            type: object
   securitySchemes:
     bearerAuth:
       type: http

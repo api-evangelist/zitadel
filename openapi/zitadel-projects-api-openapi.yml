@@ -109,24 +109,19 @@ paths:
           description: Project removed successfully
 components:
   schemas:
-    ProjectResponse:
+    CreateProjectRequest:
       type: object
+      required:
+      - name
       properties:
-        project:
-          $ref: '#/components/schemas/Project'
-    ObjectDetails:
-      type: object
-      properties:
-        sequence:
+        name:
           type: string
-        creationDate:
-          type: string
-          format: date-time
-        changeDate:
-          type: string
-          format: date-time
-        resourceOwner:
-          type: string
+        projectRoleAssertion:
+          type: boolean
+        projectRoleCheck:
+          type: boolean
+        hasProjectCheck:
+          type: boolean
     Project:
       type: object
       properties:
@@ -149,19 +144,6 @@ components:
           type: boolean
         privateLabelingSetting:
           type: string
-    CreateProjectRequest:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        projectRoleAssertion:
-          type: boolean
-        projectRoleCheck:
-          type: boolean
-        hasProjectCheck:
-          type: boolean
     ListProjectsResponse:
       type: object
       properties:
@@ -171,6 +153,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Project'
+    ObjectDetails:
+      type: object
+      properties:
+        sequence:
+          type: string
+        creationDate:
+          type: string
+          format: date-time
+        changeDate:
+          type: string
+          format: date-time
+        resourceOwner:
+          type: string
     ListDetails:
       type: object
       properties:
@@ -181,6 +176,11 @@ components:
         timestamp:
           type: string
           format: date-time
+    ProjectResponse:
+      type: object
+      properties:
+        project:
+          $ref: '#/components/schemas/Project'
   parameters:
     ProjectId:
       name: projectId
