@@ -37,9 +37,9 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zitadel.pn
 tags:
 - Authentication
 - Authorization
-- Identity Management
+- Identity and Access Management
 - Open Source
-- OIDC
+- OpenID Connect
 - Identity Federation
 tags_raw:
 - Authentication
@@ -76,6 +76,10 @@ apis:
     providers at the system level. Accessible at /admin/v1/.
   humanURL: https://zitadel.com/docs/apis/introduction
   tags:
+  - Administration
+  - Identity and Access Management
+  - Configuration
+  tags_raw:
   - Administration
   - Identity Management
   - Configuration
